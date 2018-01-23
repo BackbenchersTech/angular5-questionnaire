@@ -1,5 +1,5 @@
 {
-  "name": "mean",
+  "name": "angular5-questionnaire",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -24,8 +24,9 @@
     "body-parser": "^1.18.2",
     "core-js": "^2.4.1",
     "express": "^4.16.2",
-    "mongodb": "^2.2.33",
+    "morgan": "^1.9.0",
     "rxjs": "^5.5.6",
+    "serve-favicon": "^2.4.5",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {

@@ -1,22 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { InitialFormComponent } from './initial-form/initial-form.component';
 
-// Import the Http Module and our Data Service
-import { HttpModule } from '@angular/http';
-import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InitialFormComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule   
+    FormsModule
   ],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

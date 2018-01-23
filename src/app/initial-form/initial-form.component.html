@@ -1,0 +1,64 @@
+<div [hidden]="submitted" >
+  <h1>Sign-Up Form</h1>
+  <form (ngSubmit)="onSubmit()" #initialForm="ngForm">
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="First Name" name="fname" [(ngModel)]="user.fname" required #fname="ngModel" >
+      <div class="alert alert-danger" [hidden]="fname.valid || fname.pristine" >
+        First Name is a required field
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Last Name" name="lname" [(ngModel)]="user.lname" required >
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Company" name="company" [(ngModel)]="user.company" required >
+    </div>
+
+    <div class="form-group">
+      <select class="form-control" name="category" [(ngModel)]="user.category" required >
+        <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" type="email" placeholder="E-mail" name="email" [(ngModel)]="user.email" required >
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Phone" name="phone" [(ngModel)]="user.phone" >
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="newUser(); initialForm.reset()" >Clear</button>
+    <button type="submit" class="btn btn-success" [disabled]="!initialForm.form.valid" >Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!this.submitted" >
+  <h4>You entered the following details:</h4>
+  <div class="row">
+    <div class="col-xs-3">First Name</div>
+    <div class="col-xs-9 pull-left">{{user.fname}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Last Name</div>
+    <div class="col-xs-9 pull-left">{{user.lname}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Company</div>
+    <div class="col-xs-9 pull-left">{{user.company}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Category</div>
+    <div class="col-xs-9 pull-left">{{user.category}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Email</div>
+    <div class="col-xs-9 pull-left">{{user.email}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Phone</div>
+    <div class="col-xs-9 pull-left">{{user.phone}}</div>
+  </div>
+</div>
