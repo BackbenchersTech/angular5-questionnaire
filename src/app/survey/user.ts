@@ -1,5 +1,5 @@
 export class User {
-    
+
     constructor(
         public fname: string,
         public lname: string,
@@ -8,4 +8,5 @@ export class User {
         public email: string,
         public phone: string
     ) { }
+    
 }
