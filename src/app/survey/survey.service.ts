@@ -7,9 +7,20 @@ export class SurveyService {
 
   constructor() { }
 
-  setCurrentUser(user): void {
-    console.log("Service Param:", user);
+  setCurrentUser(user): any {
     this.currentUser = user;
-    console.log("From Service:", this.currentUser);
+    return true;
   }
+
+  isUserSet(): any {
+    if( Object.keys(this.currentUser).length > 0 ) {
+      return true;
+    }
+    return false;
+  }
+
+  getCurrentUser(): any {
+    return this.currentUser;
+  }
+
 }

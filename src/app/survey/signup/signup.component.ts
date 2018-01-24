@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { User } from '../user';
 import { SurveyService } from '../survey.service';
@@ -9,7 +10,9 @@ import { SurveyService } from '../survey.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  
+  constructor(private surveyService: SurveyService, private router: Router) { }
+  
   categories = ['Developer', 'Sales', 'Recruiter', 'HR'];
 
   user = new User('', '', '', '', '', '');
@@ -25,12 +28,11 @@ export class SignupComponent implements OnInit {
   }
 
   saveCustomer() {
-    console.log("From Component:", this.user);
-    this.surveyService.setCurrentUser(this.user);
+    if(this.surveyService.setCurrentUser(this.user)) {
+      this.router.navigate(['survey','questionnaire']);
+    }
   }
   
-  constructor(private surveyService: SurveyService) { }
-
   ngOnInit() {
   }
 
