@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 
 import { SurveyService } from './survey.service';
+import { DynamicQuestionComponent } from './dynamic-question/dynamic-question.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { SurveyService } from './survey.service';
     SurveyRoutingModule,
     FormsModule
   ],
-  declarations: [SignupComponent, QuestionnaireComponent],
+  declarations: [SignupComponent, QuestionnaireComponent, DynamicQuestionComponent],
   providers: [
     SurveyService
   ]

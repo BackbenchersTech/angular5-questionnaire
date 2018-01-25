@@ -20,8 +20,8 @@ export class QuestionnaireComponent implements OnInit {
   id: number;
   private sub: any;
 
-  signupStatus = true;
-  user = new User('Abhishek', 'Piedy', 'OpenLogix Corporation', 'Developer', 'asd', 'asd');
+  signupStatus = true; // dev change to false when done
+  user = new User('Abhishek', 'Piedy', 'OpenLogix Corporation', 'Developer', 'asd', 'asd'); // dev remove later 
   question = {};
   
   ngOnInit() {
@@ -47,7 +47,6 @@ export class QuestionnaireComponent implements OnInit {
 
   getQuestion() {
     this.question = this.questionsService.getQuestion(this.id);
-    console.log(this.question);
   }
 
   nextQuestion() {
