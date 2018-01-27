@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-dynamic-question',
@@ -8,11 +10,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DynamicQuestionComponent implements OnInit {
 
   @Input() question: any;
+  @Output() notify: EventEmitter = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
     console.log(this.question);
+  }
+
+  onChange(a) {
+    this.notify.emit(a);
   }
 
 }

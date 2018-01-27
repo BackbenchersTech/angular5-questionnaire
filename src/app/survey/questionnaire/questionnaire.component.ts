@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { QuestionsService } from '../../questions.service';
 import { User } from '../user';
+import { Questions } from '../../questions';
 
 @Component({
   selector: 'app-questionnaire',
@@ -22,7 +23,7 @@ export class QuestionnaireComponent implements OnInit {
 
   signupStatus = true; // dev change to false when done
   user = new User('Abhishek', 'Piedy', 'OpenLogix Corporation', 'Developer', 'asd', 'asd'); // dev remove later 
-  question = {};
+  question: Questions;
   
   ngOnInit() {
     // this.checkSignup();
@@ -50,8 +51,10 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   nextQuestion() {
-    let a = 4;
-    this.router.navigate(['survey', 'questionnaire', a]);
+    if(this.question.nextQuestion !== undefined)
+      this.router.navigate(['survey', 'questionnaire', this.question.nextQuestion]);
+    else
+      console.log("nothing to route to yo")
   }
 
 }

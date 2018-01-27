@@ -5,7 +5,7 @@
   </div>
 
   <div class="question">
-    <app-dynamic-question [question]="question" ></app-dynamic-question>
+    <app-dynamic-question [question]="question" (notify)="console.log('asd');" ></app-dynamic-question>
   </div>
 
   <div class="row buttonGroup">

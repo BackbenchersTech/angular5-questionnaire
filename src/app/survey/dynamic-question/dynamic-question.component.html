@@ -8,5 +8,19 @@
 
     <textarea *ngSwitchCase="'textarea'" class="form-control" rows="4"></textarea>
 
+    <ng-container *ngSwitchCase="'checkbox'" >
+      <div class="form-check" *ngFor="let opt of question.options">
+        <input type="checkbox" [name]="question.id" class="form-check-input">
+        <label class="form-check-label" >{{ opt.option }}</label>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'radio'" >
+      <div class="form-check" *ngFor="let opt of question.options">
+        <input type="radio" [name]="question.id" [value]="opt.option" class="form-check-input" (change)="onChange(opt.nextQuestion)" >
+        <label class="form-check-label" >{{ opt.option }}</label>
+      </div>
+    </ng-container>
+
   </div>
 </div>
