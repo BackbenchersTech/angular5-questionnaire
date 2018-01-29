@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
 
   saveCustomer() {
     if(this.surveyService.setCurrentUser(this.user)) {
-      this.router.navigate(['survey','questionnaire']);
+      this.router.navigate(['survey','questionnaire',1]);
     }
   }
   

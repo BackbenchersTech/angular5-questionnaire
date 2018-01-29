@@ -42,4 +42,14 @@ router.get('/users', (req, res) => {
     });
 });
 
+// //Post data
+// router.post('/users',function(req,res) {
+//     console.log(req.body);
+//     res.send({
+//         type:'POST',
+//         name:req.body.name,
+        
+//     })
+// })
+
 module.exports = router;
