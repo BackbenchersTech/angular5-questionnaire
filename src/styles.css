@@ -5,7 +5,28 @@ body {
     padding: 10px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
     font-family: 'Roboto';
+}
+
+input[type=button] {
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.card-header {
+    background-color: white;
+    border: none;
+}
+
+.panel-footer {
+    background-color: white;
+    border: none;
 }

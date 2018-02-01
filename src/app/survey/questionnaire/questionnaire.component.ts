@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-
+import * as Survey from 'survey-angular';
 import { SurveyService } from '../survey.service';
 import { User } from '../user';
 
+Survey.Survey.cssType = "bootstrap";
+
+function sendDataToServer(survey) {
+  //send Ajax request to your web server.
+  alert("The results are:" + JSON.stringify(survey.data));
+
+}
 @Component({
   selector: 'app-questionnaire',
   templateUrl: './questionnaire.component.html',
@@ -24,6 +31,9 @@ export class QuestionnaireComponent implements OnInit {
     // this.getUserDets();
     this.getQuestions();
     console.log(this.questions);
+    var survey = new Survey.Model(this.questions);
+    survey.onComplete.add(sendDataToServer);
+    Survey.SurveyNG.render("surveyElement", { model: survey });
   }
 
   checkSignup() {

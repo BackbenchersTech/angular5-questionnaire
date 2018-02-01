@@ -29,7 +29,7 @@ export class SignupComponent {
 
   saveCustomer() {
     if(this.surveyService.setCurrentUser(this.user)) {
-      this.router.navigate(['survey','questionnaire',1]);
+      this.router.navigate(['survey','questionnaire']);
     }
   }
   
