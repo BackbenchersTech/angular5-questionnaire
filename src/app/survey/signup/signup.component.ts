@@ -9,7 +9,7 @@ import { SurveyService } from '../survey.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
   
   constructor(private surveyService: SurveyService, private router: Router) { }
   
@@ -34,6 +34,7 @@ export class SignupComponent implements OnInit {
   }
   
   ngOnInit() {
+    console.log("hey");
   }
 
 }
