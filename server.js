@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 mongoose.connect(process.env.HOST);
+// mongoose.connect('mongodb://localhost/survey');
 let db = mongoose.connection;
 
 db.on('error', function(err) {
