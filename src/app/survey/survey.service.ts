@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class SurveyService {
   
   currentUser = {};
+  surveyQuestions = {};
 
   constructor() { }
 
@@ -21,6 +22,10 @@ export class SurveyService {
 
   getCurrentUser(): any {
     return this.currentUser;
+  }
+
+  getQuestions(): any {
+    return this.surveyQuestions;
   }
 
 }

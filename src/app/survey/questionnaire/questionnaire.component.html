@@ -3,16 +3,6 @@
     <div class="userName">{{ user.fname + ", " + user.lname}}</div>
     <div class="company text-muted">{{ user.company }}</div>
   </div>
-
-  <div class="question">
-    <app-dynamic-question [question]="question" (notify)="console.log('asd');" ></app-dynamic-question>
-  </div>
-
-  <div class="row buttonGroup">
-    <div class="col-12">
-      <button class="btn btn-default" (click)="nextQuestion()" >Next</button>
-    </div>
-  </div>
 </div>
 
 <div [hidden]="signupStatus" class="noRegister" >

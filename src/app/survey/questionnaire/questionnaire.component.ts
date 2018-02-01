@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 
 import { SurveyService } from '../survey.service';
-import { QuestionsService } from '../../questions.service';
 import { User } from '../user';
-import { Questions } from '../../questions';
 
 @Component({
   selector: 'app-questionnaire',
@@ -13,29 +12,18 @@ import { Questions } from '../../questions';
 })
 export class QuestionnaireComponent implements OnInit {
 
-  constructor(private surveyService: SurveyService, 
-              private questionsService: QuestionsService,
-              private route: ActivatedRoute,
-              private router: Router ) { }
-  
-  id: number;
-  private sub: any;
-
+  questions: any;
   signupStatus = true; // dev change to false when done
-  user = new User('Abhishek', 'Piedy', 'OpenLogix Corporation', 'Developer', 'asd', 'asd'); // dev remove later 
-  question: Questions;
+  user = new User('Abhishek', 'Piedy', 'OpenLogix Corporation', 'Developer', 'asd', 'asd'); // dev remove params later 
+
+  constructor(private surveyService: SurveyService,
+              private router: Router ) { }  
   
   ngOnInit() {
     // this.checkSignup();
     // this.getUserDets();
-    this.sub = this.route.params.subscribe(res => {
-      this.id = +res.id;
-      this.getQuestion();
-    });
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.getQuestions();
+    console.log(this.questions);
   }
 
   checkSignup() {
@@ -46,15 +34,8 @@ export class QuestionnaireComponent implements OnInit {
     this.user = this.surveyService.getCurrentUser();
   }
 
-  getQuestion() {
-    this.question = this.questionsService.getQuestion(this.id);
-  }
-
-  nextQuestion() {
-    if(this.question.nextQuestion !== undefined)
-      this.router.navigate(['survey', 'questionnaire', this.question.nextQuestion]);
-    else
-      console.log("nothing to route to yo")
+  getQuestions() {
+    this.questions = this.surveyService.getQuestions();
   }
 
 }

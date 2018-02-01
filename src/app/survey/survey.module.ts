@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SurveyRoutingModule } from './survey-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 
 import { SurveyService } from './survey.service';
-import { DynamicQuestionComponent } from './dynamic-question/dynamic-question.component';
 
 @NgModule({
   imports: [
     CommonModule,
     SurveyRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [SignupComponent, QuestionnaireComponent, DynamicQuestionComponent],
+  declarations: [SignupComponent, QuestionnaireComponent],
   providers: [
     SurveyService
   ]
