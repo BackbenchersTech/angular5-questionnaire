@@ -1,17 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import * as Survey from 'survey-angular';
+import * as SurveyJs from 'survey-angular';
+
 import { SurveyService } from '../survey.service';
-import { User } from '../user';
 
-Survey.Survey.cssType = "bootstrap";
-
-function sendDataToServer(survey) {
-  //send Ajax request to your web server.
-  alert("The results are:" + JSON.stringify(survey.data));
-
-}
 @Component({
   selector: 'app-questionnaire',
   templateUrl: './questionnaire.component.html',
@@ -20,24 +13,29 @@ function sendDataToServer(survey) {
 export class QuestionnaireComponent implements OnInit {
 
   questions: any;
-  signupStatus = true; // dev change to false when done
-  user = new User('Abhishek', 'Piedy', 'OpenLogix Corporation', 'Developer', 'asd', 'asd'); // dev remove params later 
+  signupStatus = false;
+  user:any = {};
 
   constructor(private surveyService: SurveyService,
               private router: Router ) { }  
   
   ngOnInit() {
-    // this.checkSignup();
-    // this.getUserDets();
+    SurveyJs.Survey.cssType = "bootstrap";
+    this.checkSignup();
+    this.getUserDets();
     this.getQuestions();
-    console.log(this.questions);
-    var survey = new Survey.Model(this.questions);
-    survey.onComplete.add(sendDataToServer);
-    Survey.SurveyNG.render("surveyElement", { model: survey });
+    var survey = new SurveyJs.Model(this.questions);
+    survey.onComplete.add(result => {
+      this.submitSurvey(result);
+    });
+    SurveyJs.SurveyNG.render("survey", { model: survey });
   }
 
   checkSignup() {
     this.signupStatus = this.surveyService.isUserSet();
+    if(!this.signupStatus) {
+      this.router.navigate(['survey', 'signup']);
+    }
   }
   
   getUserDets() {
@@ -46,6 +44,19 @@ export class QuestionnaireComponent implements OnInit {
 
   getQuestions() {
     this.questions = this.surveyService.getQuestions();
+  }
+
+  submitSurvey(survey) {
+    let data = {
+      survey: survey.data,
+      uid: this.user.uid
+    };
+    this.surveyService.saveSurvey(data).subscribe(res => {
+      console.log(res);
+    },
+    error => {
+      console.log(error);
+    })
   }
 
 }

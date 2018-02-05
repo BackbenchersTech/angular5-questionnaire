@@ -1,20 +1,28 @@
-let Questions = require('../db/models/questions');
-
-module.exports.getData = function(req, res) {
-    Questions.getQuestions(function(err, questions){
-		if(err){
-			throw err;
-		}
-		res.json(questions);
-	});
-}
+let SurveyData = require('../db/models/surveyData');
 
 module.exports.saveData = function(req, res) {
-    let question = req.body;
-    Questions.addQuestion(question, function(err, question){
-        if(err){
-            throw err;
+    let surveyData = new SurveyData();
+    
+    surveyData.userId = req.body.uid;
+    surveyData.surveyData = req.body.survey;
+    
+    surveyData.save(function(err) {
+        if(err) {
+            if(err.name === 'BulkWriteError' && err.code === 11000)
+            {
+                return res.status(409).send({"msg": "Existing"})
+            }
+            else {
+                console.log(err.message);
+                return res.status(500).send({"msg": "Internal Server Error"})
+            }
         }
-        res.json(question);
-    })
+        else {
+            return res.status(200).send({"msg": "Success"});
+        }
+    });
+}
+
+module.exports.getData = function(req, res) {
+    
 }

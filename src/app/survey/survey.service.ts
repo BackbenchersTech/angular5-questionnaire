@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { error } from 'util';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable()
 export class SurveyService {
 
-  currentUser = {};
+  currentUser:any = {};
   surveyQuestions = {
     completedHtml: "<div class='completeText'>Thank you for taking your time to answer our questions.</div>",
     pages: [
@@ -187,11 +193,19 @@ export class SurveyService {
     requiredText: ""
   };
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  setCurrentUser(user): any {
+  setCurrentUser(user, uid): any {
     this.currentUser = user;
-    return true;
+    this.currentUser.uid = uid;
+  }
+
+  saveUser(user): any {
+    return this.http.post('http://localhost:3500/api/users', user, httpOptions)
+  }
+  
+  getCurrentUser(): any {
+    return this.currentUser;
   }
 
   isUserSet(): any {
@@ -201,12 +215,12 @@ export class SurveyService {
     return false;
   }
 
-  getCurrentUser(): any {
-    return this.currentUser;
-  }
-
   getQuestions(): any {
     return this.surveyQuestions;
+  }
+
+  saveSurvey(survey): any {
+    return this.http.post('http://localhost:3500/api/data', survey, httpOptions)
   }
 
 }

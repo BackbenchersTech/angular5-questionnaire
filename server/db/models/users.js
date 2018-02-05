@@ -1,27 +1,37 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema;
 
 //Users Schema
-var usersSchema = mongoose.Schema({
-	name:{
-		type:String,
-		require:true
+var usersSchema = new Schema({
+	email: {
+		type: String,
+		required: true,
+		unique: true
 	},
-	create_date:{
+	fname: {
+		type: String,
+		required: true
+	},
+	lname: {
+		type: String,
+		required: true
+	},
+	company: {
+		type: String,
+		required: true
+	},
+	role: {
+		type: String,
+		required: false
+	},
+	phone: {
+		type: String,
+		required: false
+	},
+	signupTimestamp:{
 		type: Date,
 		default: Date.now
 	}
 });
 
 var Users = module.exports = mongoose.model('Users', usersSchema);
-
-//Get Users 
-module.exports.getUsers = function (callback, limit) {
-	// body...
-	Users.find(callback).limit(limit);
-}
-
-//Add User
-module.exports.addUsers = function (users,callback) {
-	Users.create(users, callback);
-}
-

@@ -28,13 +28,16 @@ export class SignupComponent {
   }
 
   saveCustomer() {
-    if(this.surveyService.setCurrentUser(this.user)) {
+    this.surveyService.saveUser(this.user).subscribe(res => {
+      this.surveyService.setCurrentUser(this.user, res.uid);
       this.router.navigate(['survey','questionnaire']);
-    }
+    },
+    error => {
+      console.log(error)
+    })
   }
   
   ngOnInit() {
-    console.log("hey");
   }
 
 }

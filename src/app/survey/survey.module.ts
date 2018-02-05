@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SurveyRoutingModule } from './survey-routing.module';
 import { SignupComponent } from './signup/signup.component';
@@ -13,7 +14,7 @@ import { SurveyService } from './survey.service';
     CommonModule,
     SurveyRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    HttpClientModule
   ],
   declarations: [SignupComponent, QuestionnaireComponent],
   providers: [
