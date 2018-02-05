@@ -24,5 +24,11 @@ module.exports.saveData = function(req, res) {
 }
 
 module.exports.getData = function(req, res) {
-    
+    SurveyData.find(function(err, surveys) {
+        if(err) {
+            console.log(err);
+            res.status(500).send({"msg": "Internal Server Error"});
+        }
+        res.status(200).send({"surveys": surveys})
+    });
 }

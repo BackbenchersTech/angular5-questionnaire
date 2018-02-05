@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,23 +7,24 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-	apiRoot: string = "http://localhost:3001/api/users";
-	data : any;
-	constructor(private http: HttpClient) { }
+
+	usersData: Object = {};
+	surveysData: Array<Object> = [];
+
+	constructor(private adminService: AdminService) { }
+
 	ngOnInit() {
-	}
-	doGET() {
-	  	console.log("GET");
-	  	let url = `${this.apiRoot}`;
-	 	this.http.get(url).subscribe(res => {
-	  		this.data = res;
-			this.test();
-		});
-	}
-	test(){
-	  	// body...
-	 	console.log(this.data);
+		this.getData();
 	}
 
+	getData() {
+		this.adminService.getUsersAndSurvey().subscribe(
+			data => {
+				this.usersData = data[0];
+				this.surveysData = data[1];
+				console.log(this.surveysData);
+			}
+		)
+	}
 
 }

@@ -27,5 +27,11 @@ module.exports.saveUser = function(req, res) {
 }
 
 module.exports.getUsers = function(req, res) {
-    console.log("Users GET")
+	Users.find(function(err, users) {
+		if(err) {
+			console.log(err);
+			res.status(500).send({"msg": "Internal Server Error"});
+		}
+		res.status(200).send({"users": users});
+	});
 }

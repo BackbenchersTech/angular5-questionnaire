@@ -56,7 +56,12 @@ export class QuestionnaireComponent implements OnInit {
     },
     error => {
       console.log(error);
-    })
+    }
+    // you can add completion callbacks, like so
+    // , () => {
+    //   // content
+    // }
+  )
   }
 
 }

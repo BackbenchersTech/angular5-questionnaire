@@ -5,12 +5,15 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AdminService } from './admin.service';
+
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
     HttpClientModule
   ],
-  declarations: [DashboardComponent]
+  declarations: [DashboardComponent],
+  providers: [AdminService]
 })
 export class AdminModule { }
