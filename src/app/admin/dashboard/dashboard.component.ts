@@ -18,13 +18,20 @@ export class DashboardComponent implements OnInit {
 	}
 
 	getData() {
+		this.adminService.formAnswersObject();
 		this.adminService.getUsersAndSurvey().subscribe(
 			data => {
 				this.usersData = data[0];
 				this.surveysData = data[1];
-				console.log(this.surveysData);
+			},
+			err => {
+				console.log(err);
+			},
+			() => {
+				this.adminService.countSurveys(this.surveysData);
+				this.surveysData = this.adminService.getData();
 			}
-		)
+		);
 	}
 
 }
