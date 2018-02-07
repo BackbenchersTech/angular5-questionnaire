@@ -1,3 +1,15 @@
-.usersList .user {
-    border-bottom: 1px solid grey;
+.usersList  {
+    width: 100%;
 }
+
+.table thead th {
+	vertical-align: top;
+}
+
+
+#resultsTable {
+	width: 100%;
+	white-space: nowrap;
+
+}
+

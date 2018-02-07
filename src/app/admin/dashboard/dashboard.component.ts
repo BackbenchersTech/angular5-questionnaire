@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -8,14 +10,19 @@ import { AdminService } from '../admin.service';
 })
 export class DashboardComponent implements OnInit {
 
-	usersData: Object = {};
-	surveysData: Array<Object> = [];
+	usersData: any = [] ;
+	surveysData: any = [];
+	colHeaders : any;
+	result: any;
 
-	constructor(private adminService: AdminService) { }
+	constructor(private adminService: AdminService, private router: Router) { }
 
 	ngOnInit() {
 		this.getData();
 	}
+	  showResults() {
+      this.router.navigate(['admin','survey-result']);
+    }
 
 	getData() {
 		this.adminService.formAnswersObject();
@@ -23,6 +30,24 @@ export class DashboardComponent implements OnInit {
 			data => {
 				this.usersData = data[0];
 				this.surveysData = data[1];
+				// console.log(this.usersData.users);
+				console.log(this.surveysData.surveys);
+
+				let a = this.surveysData.surveys;
+				for(let i=0; i<a.length; i++) {
+					a[i].surveyData.userId = a[i].userId;
+					a[i]= a[i].surveyData;
+				}
+
+				 this.result = this.usersData.users.map(val => {
+   					return Object.assign({}, val, a.filter(v => v.userId === val._id)[0]);
+				});
+				 this.colHeaders = Object.keys(this.result[3]);
+			 	 this.colHeaders.splice(0,2);
+			 	 this.colHeaders.splice(6,1);
+			 	 this.colHeaders.splice(16,1);
+			 	 console.log(this.colHeaders);
+			 	 
 			},
 			err => {
 				console.log(err);

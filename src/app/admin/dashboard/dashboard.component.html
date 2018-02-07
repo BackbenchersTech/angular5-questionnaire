@@ -1,8 +1,21 @@
 <div class="usersList">
-  <div class="user" *ngFor="let user of usersData.users" >
-    <div>{{ user.fname + ', ' + user.lname}}</div>
-    <div>{{ user.role + ', ' + user.company }}</div>
-    <div>{{ user.email }}</div>
-    <div>{{ user.phone }}</div>
-  </div>
+ <div  class = "table-responsive ">
+<table class="table table-bordered table-scrollable" id = "resultsTable" data-pagination="true" data-id-field="fname" data-page-list="[2, 4, 6, 8, 10, ALL]" data-page-size="2">
+	<thead>
+		<tr>
+        <th scope = "col" *ngFor="let header of colHeaders" class="columnHeaders">{{ header }}</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of result">
+            <td scope = "row" *ngFor="let header of colHeaders">
+                {{ x[header] }}
+            </td>
+        </tr>
+    </tbody>           
+</table>
 </div>
+  <button type="button" class="btn btn-success" (click)="showResults()">Show Charts</button>
+</div>
+
+ <!-- <th data-field="name" data-formatter="nameFormatter">Name</th> -->
