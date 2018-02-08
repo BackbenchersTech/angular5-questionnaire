@@ -21,20 +21,24 @@ export class AdminService {
     );
   }
 
+  getSurvey(): any {
+    return this.http.get('http://localhost:3500/api/data')
+  }
+
   formAnswersObject(): any {
-    let sQues = this.sqs.questions.pages;
-    for(let i = 0; i < sQues.length; i++) {
-      let page = sQues[i];
-      for(let j = 0; j < page.elements.length; j++) {
-        let question = page.elements[j].name;
-        if(page.elements[j]["choices"] !== undefined) {
-          let qChoices = page.elements[j]["choices"];
+    const sQues = this.sqs.questions.pages;
+    for (let i = 0; i < sQues.length; i++) {
+      const page = sQues[i];
+      for (let j = 0; j < page.elements.length; j++) {
+        const question = page.elements[j].name;
+        if (page.elements[j]['choices'] !== undefined) {
+          let qChoices = page.elements[j]['choices'];
           let choices = {};
           for(let c in qChoices){
             choices[qChoices[c]] = 0;
           }
-          if(page.elements[j]["hasOther"]) {
-            choices["other"] = 0;
+          if(page.elements[j]['hasOther']) {
+            choices['other'] = 0;
           }
           this.answers[question] = choices;
         }

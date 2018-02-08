@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AdminService } from '../admin.service';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +12,7 @@ export class DashboardComponent implements OnInit {
 
 	usersData: Object = {};
 	surveysData: Array<Object> = [];
+	chart = [];
 
 	constructor(private adminService: AdminService) { }
 
@@ -30,8 +33,26 @@ export class DashboardComponent implements OnInit {
 			() => {
 				this.adminService.countSurveys(this.surveysData);
 				this.surveysData = this.adminService.getData();
+				this.makeCharts();
 			}
 		);
+	}
+
+	makeCharts() {
+		this.chart = new Chart('canvas', {
+			type: 'pie',
+			data: {
+			  labels: ["Yes", "No"],
+			  datasets: [
+				{
+				  data: [this.surveysData["Are you willing to check what we offer in these areas?"]["Yes"], this.surveysData["Are you willing to check what we offer in these areas?"]["No"]],
+				  borderColor: 'White',
+				  backgroundColor:['Red','Yellow'],
+				  fill: false
+				}
+			  ]
+			}
+		  })
 	}
 
 }

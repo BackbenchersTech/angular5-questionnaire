@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AdminService } from './admin.service';
+import { QuestionsGroupComponent } from './questions-group/questions-group.component';
+import { KeysPipe } from './keys.pipe';
 
 @NgModule({
   imports: [
@@ -13,7 +15,7 @@ import { AdminService } from './admin.service';
     AdminRoutingModule,
     HttpClientModule
   ],
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, QuestionsGroupComponent, KeysPipe],
   providers: [AdminService]
 })
 export class AdminModule { }
