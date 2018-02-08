@@ -4,7 +4,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { DataTablesModule } from 'angular-datatables';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AdminService } from './admin.service';
 import { SurveyResultComponent } from './survey-result/survey-result.component';
@@ -14,7 +14,7 @@ import { SurveyResultComponent } from './survey-result/survey-result.component';
     CommonModule,
     AdminRoutingModule,
     HttpClientModule,
-    DataTablesModule
+    NgxPaginationModule
   ],
   declarations: [DashboardComponent, SurveyResultComponent],
   providers: [AdminService]

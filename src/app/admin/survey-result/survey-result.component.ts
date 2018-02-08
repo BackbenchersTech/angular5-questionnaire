@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Chart } from 'chart.js';
 
 @Component({
@@ -6,30 +6,44 @@ import { Chart } from 'chart.js';
   templateUrl: './survey-result.component.html',
   styleUrls: ['./survey-result.component.css']
 })
-export class SurveyResultComponent implements OnInit {
+export class SurveyResultComponent {
 	
-  chart = [];
+  // chart = [1,22,3];
+  chart=[];
 
   constructor() { }
 
   ngOnInit() {
-  	let weatherDates = [10,20,30];
-  	let temp_max = [20,30]
-  	this.chart = new Chart('canvas', {
-          type: 'doughnut',
+}
+abc(){
+  	let temp_max = [20,30,40,60];
+    
+  	 this.chart = new Chart("canvas1", {
+          type: 'line',
           data: {
-            labels: weatherDates,
+            labels:  ["One", "Two", "Tree", "Four", "Five", "Six", "Seven"],
             datasets: [
               {
-                data: temp_max,
-                borderColor: 'Black',
-                backgroundColor:['Red','Yellow','green'],
-                fill: false
+                label: "Numbers !",
+                fill: true,
+                backgroundColor: "orange",
+                borderColor: "tomato",
+                data: [1, 2, 3, 4, 5, 6, 7],
+                hoverColor : "green"
               },
             
             ]
-          }
+          },
+          options: {
+        title: {
+            fontSize: 20,
+            display: true,
+            text: 'My First Chart !'
+        }
+    }
   })
-
 }
+
+
+
 }

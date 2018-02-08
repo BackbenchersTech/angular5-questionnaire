@@ -6,10 +6,15 @@
 	vertical-align: top;
 }
 
-
 #resultsTable {
 	width: 100%;
 	white-space: nowrap;
-
 }
 
+.table-responsive {
+	overflow-x: scroll;
+
+}
+.table-responsive::-webkit-scrollbar { 
+    display: none;  
+}

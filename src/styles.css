@@ -30,3 +30,8 @@ input[type=button] {
     background-color: white;
     border: none;
 }
+
+.ngx-pagination {
+    padding-left: 0px;
+    padding-top: 15px;
+}

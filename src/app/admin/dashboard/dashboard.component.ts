@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
 	surveysData: any = [];
 	colHeaders : any;
 	result: any;
-
+	p: number = 1;
 	constructor(private adminService: AdminService, private router: Router) { }
 
 	ngOnInit() {
