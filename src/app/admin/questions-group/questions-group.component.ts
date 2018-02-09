@@ -43,10 +43,6 @@ export class QuestionsGroupComponent implements AfterViewInit {
   }
 
   makeCharts(obj, i) {
-    console.log(obj);
-    console.log(i)
-    console.log(Object.keys(obj))
-    console.log(Object.values(obj))
     let ctx = this.elementRef.nativeElement.querySelector('#canvas' + i);
 		this.chart = new Chart(ctx, {
 			type: 'pie',
