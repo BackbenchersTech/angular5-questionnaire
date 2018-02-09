@@ -21,7 +21,7 @@ input[type=button] {
     padding: 5px;
 }
 
-.card-header {
+.panel-heading .card-header {
     background-color: white;
     border: none;
 }

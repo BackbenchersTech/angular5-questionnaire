@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
 		this.getData();
 	}
 	  showResults() {
-      this.router.navigate(['admin','survey-result']);
+      this.router.navigate(['admin','questions']);
     }
 
 	getData() {
@@ -30,9 +30,6 @@ export class DashboardComponent implements OnInit {
 			data => {
 				this.usersData = data[0];
 				this.surveysData = data[1];
-				// console.log(this.usersData.users);
-				console.log(this.surveysData.surveys);
-
 				let a = this.surveysData.surveys;
 				for(let i=0; i<a.length; i++) {
 					a[i].surveyData.userId = a[i].userId;
@@ -42,11 +39,11 @@ export class DashboardComponent implements OnInit {
 				 this.result = this.usersData.users.map(val => {
    					return Object.assign({}, val, a.filter(v => v.userId === val._id)[0]);
 				});
-				 this.colHeaders = Object.keys(this.result[3]);
+				 this.colHeaders = Object.keys(this.result[0]);
+				 console.log(this.colHeaders);
 			 	 this.colHeaders.splice(0,2);
 			 	 this.colHeaders.splice(6,1);
-			 	 this.colHeaders.splice(16,1);
-			 	 console.log(this.colHeaders);
+			 	 // this.colHeaders.splice(16,1);
 			 	 
 			},
 			err => {
@@ -59,4 +56,9 @@ export class DashboardComponent implements OnInit {
 		);
 	}
 
+<<<<<<< Updated upstream
+=======
+	
+
+>>>>>>> Stashed changes
 }
