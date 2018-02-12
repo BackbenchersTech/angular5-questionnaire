@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { DataTablesModule } from 'angular-datatables';
 
 import { AppComponent } from './app.component';
 import { SurveyQuestions } from './survey-questions';
@@ -16,8 +15,7 @@ import { SurveyQuestions } from './survey-questions';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    DataTablesModule
+    AppRoutingModule
   ],
   bootstrap: [AppComponent],
   providers: [SurveyQuestions]

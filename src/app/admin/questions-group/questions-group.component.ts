@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Component, AfterViewInit, ElementRef } from '@angular/core';
-=======
-import { Component,OnInit, AfterViewInit, ElementRef } from '@angular/core';
->>>>>>> soundaryadev
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js';
 
 import { AdminService } from '../admin.service';
@@ -12,7 +8,7 @@ import { AdminService } from '../admin.service';
   templateUrl: './questions-group.component.html',
   styleUrls: ['./questions-group.component.css']
 })
-export class QuestionsGroupComponent {
+export class QuestionsGroupComponent implements OnInit {
 
   answersData: any;
   questions: any;
@@ -22,13 +18,10 @@ export class QuestionsGroupComponent {
   submitted: any = [];
  
   constructor(private adminService: AdminService,
-              private elementRef: ElementRef) { 
-
-  }
+              private elementRef: ElementRef) { }
  
   ngOnInit() {
     this.getAnswersDataData();
-
   }
 
   getAnswersDataData() {
@@ -52,32 +45,38 @@ export class QuestionsGroupComponent {
     }
   }
 
-  showLess(i){
+  showLess(i) {
     this.submitted["canvas" + i] = false;
     this.visibility["canvas" + i] = false;
   }
+
   makeCharts(obj, i) {
-    let ctx = this.elementRef.nativeElement.querySelector('#canvas' + i);
     this.submitted["canvas" + i] = true;
     this.visibility["canvas" + i ] = true;
-    this.selectedState = true;
-		this.chart = new Chart(ctx,{
+    let a = Object.assign({}, obj);
+    delete a.statBased;
+    let colors = this.getColors(Object.keys(a).length)
+    let ctx = this.elementRef.nativeElement.querySelector('#canvas' + i);
+		this.chart = new Chart(ctx, {
 			type: 'pie',
 			data: {
-			  labels: Object.keys(obj),
+			  labels: Object.keys(a),
 			  datasets: [
-				{
-				  data: Object.values(obj),
-				  borderColor: 'White',
-        backgroundColor:['Yellow','Red','Green','Blue'],
-          hoverBackgroundColor : ['Pink'],
-				  fill: false
-				}
+          {
+            data: Object.values(a),
+            borderColor: 'White',
+            backgroundColor: colors,
+            hoverBorderColor: "white"
+          }
 			  ]
-
 			}
+		});
+  }
+  
+  getColors(number) {
+    let lights = ['#FF8A65', '#90A4AE', '#FFF176', '#81C784', '#4FC3F7', '#9575CD', '#7986CB', '#F06292', '#AED581', '#FFB74D', '#A1887F', '#E0E0E0'];
 
-		  })
-	}
+    return lights.splice(1, number+1);
+  }
 
 }

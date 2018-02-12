@@ -41,9 +41,12 @@ export class AdminService {
             choices['other'] = 0;
           }
           this.answers[question] = choices;
+          this.answers[question]["statBased"] = true;
         }
         else {
           this.answers[question] = [];
+          this.answers[question]["answers"] = [];
+          this.answers[question]["statBased"] = false;
         }
       }
     }
@@ -54,16 +57,18 @@ export class AdminService {
       let survey = surveysData.surveys[i].surveyData;
       for( let q in survey) {
         if(this.answers[q] !== undefined) {
-          if(typeof(survey[q]) === "object") {
-            for(let c = 0; c < survey[q].length; c++) {
-              this.answers[q][survey[q][c]]++;
+          if (this.answers[q].statBased) {
+            if (typeof survey[q] === "object") {
+              for(let c = 0; c < survey[q].length; c++) {
+                this.answers[q][survey[q][c]]++;
+              }
+            }
+            else {
+              this.answers[q][survey[q]]++;
             }
           }
-          else if(survey[q] === "Yes" || survey[q] === "No") {
-            this.answers[q][survey[q]]++;
-          }
           else {
-            this.answers[q] = survey[q];
+            this.answers[q]["answers"].push(survey[q]);
           }
         }
       }

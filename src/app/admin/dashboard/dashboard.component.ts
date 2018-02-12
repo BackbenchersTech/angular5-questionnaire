@@ -22,7 +22,8 @@ export class DashboardComponent implements OnInit {
 	ngOnInit() {
 		this.getData();
 	}
-	  showResults() {
+
+	showResults() {
       this.router.navigate(['admin','questions']);
     }
 
@@ -55,26 +56,8 @@ export class DashboardComponent implements OnInit {
 			() => {
 				this.adminService.countSurveys(this.surveysData);
 				this.surveysData = this.adminService.getData();
-				this.makeCharts();
 			}
 		);
-	}
-
-	makeCharts() {
-		this.chart = new Chart('canvas', {
-			type: 'pie',
-			data: {
-			  labels: ["Yes", "No"],
-			  datasets: [
-				{
-				  data: [this.surveysData["Are you willing to check what we offer in these areas?"]["Yes"], this.surveysData["Are you willing to check what we offer in these areas?"]["No"]],
-				  borderColor: 'White',
-				  backgroundColor:['Red','Yellow'],
-				  fill: false
-				}
-			  ]
-			}
-		  })
 	}
 
 }
