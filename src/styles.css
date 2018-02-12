@@ -21,12 +21,12 @@ input[type=button] {
     padding: 5px;
 }
 
-.panel-heading .card-header {
+.card-header {
     background-color: white;
     border: none;
 }
 
-.panel-footer {
+.card-footer {
     background-color: white;
     border: none;
 }

@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SurveyResultComponent } from './survey-result/survey-result.component';
+import { QuestionsGroupComponent } from './questions-group/questions-group.component';
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent
   },
   {
-  	path: 'survey-result',
-  	component:SurveyResultComponent},
+  	path: 'questions',
+    component: QuestionsGroupComponent
+  },
 ];
 
 @NgModule({

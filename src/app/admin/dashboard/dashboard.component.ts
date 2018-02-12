@@ -56,9 +56,4 @@ export class DashboardComponent implements OnInit {
 		);
 	}
 
-<<<<<<< Updated upstream
-=======
-	
-
->>>>>>> Stashed changes
 }

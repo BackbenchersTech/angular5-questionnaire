@@ -14,12 +14,14 @@ export class QuestionsGroupComponent {
   questions: any;
   chart: any = [];
   visibility : any = [];
+  selectedState : any = [];
 
+ 
   constructor(private adminService: AdminService,
               private elementRef: ElementRef) { 
 
   }
-
+ 
   ngOnInit() {
     this.getAnswersDataData();
 
@@ -46,9 +48,13 @@ export class QuestionsGroupComponent {
     }
   }
 
+  submitted = false;
+
   makeCharts(obj, i) {
     let ctx = this.elementRef.nativeElement.querySelector('#canvas' + i);
+    this.submitted = true;
     this.visibility["canvas" + i ] = true;
+    this.selectedState = true;
 		this.chart = new Chart(ctx,{
 			type: 'pie',
 			data: {
@@ -57,8 +63,8 @@ export class QuestionsGroupComponent {
 				{
 				  data: Object.values(obj),
 				  borderColor: 'White',
-				  backgroundColor:['Red', 'Green', 'Blue','Yellow', 'Pink'],
-           hoverBackgroundColor : ['Pink'],
+        backgroundColor:['Yellow','Red','Green','Blue'],
+          hoverBackgroundColor : ['Pink'],
 				  fill: false
 				}
 			  ]

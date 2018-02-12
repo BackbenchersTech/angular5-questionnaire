@@ -7,7 +7,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AdminService } from './admin.service';
-import { SurveyResultComponent } from './survey-result/survey-result.component';
+import { QuestionsGroupComponent } from './questions-group/questions-group.component';
+import { KeysPipe } from './keys.pipe';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { SurveyResultComponent } from './survey-result/survey-result.component';
     HttpClientModule,
     NgxPaginationModule
   ],
-  declarations: [DashboardComponent, SurveyResultComponent],
+  declarations: [DashboardComponent, QuestionsGroupComponent, KeysPipe],
   providers: [AdminService]
 })
 export class AdminModule { }
