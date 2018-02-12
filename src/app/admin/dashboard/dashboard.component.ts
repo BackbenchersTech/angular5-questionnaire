@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
 	colHeaders : any;
 	result: any;
 	p: number = 1;
+	column : any;
 	constructor(private adminService: AdminService, private router: Router) { }
 
 	ngOnInit() {
@@ -40,10 +41,11 @@ export class DashboardComponent implements OnInit {
    					return Object.assign({}, val, a.filter(v => v.userId === val._id)[0]);
 				});
 				 this.colHeaders = Object.keys(this.result[0]);
-				 console.log(this.colHeaders);
-			 	 this.colHeaders.splice(0,2);
-			 	 this.colHeaders.splice(6,1);
-			 	 // this.colHeaders.splice(16,1);
+				//  console.log(this.colHeaders);
+			 	//  this.colHeaders.splice(0,2);
+			 	//  this.colHeaders.splice(6,1);
+				  // this.colHeaders.splice(16,1);
+				  this.column = ["FirstName","LastName","Company","Role","Email","Phone","Purpose of Visit"];
 			 	 
 			},
 			err => {

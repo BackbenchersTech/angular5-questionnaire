@@ -15,7 +15,7 @@ export class QuestionsGroupComponent {
   chart: any = [];
   visibility : any = [];
   selectedState : any = [];
-
+  submitted: any = [];
  
   constructor(private adminService: AdminService,
               private elementRef: ElementRef) { 
@@ -48,11 +48,13 @@ export class QuestionsGroupComponent {
     }
   }
 
-  submitted = false;
-
+  showLess(i){
+    this.submitted["canvas" + i] = false;
+    this.visibility["canvas" + i] = false;
+  }
   makeCharts(obj, i) {
     let ctx = this.elementRef.nativeElement.querySelector('#canvas' + i);
-    this.submitted = true;
+    this.submitted["canvas" + i] = true;
     this.visibility["canvas" + i ] = true;
     this.selectedState = true;
 		this.chart = new Chart(ctx,{

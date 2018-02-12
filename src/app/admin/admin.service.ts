@@ -27,12 +27,10 @@ export class AdminService {
 
   formAnswersObject(): any {
     const sQues = this.sqs.questions.pages;
-    console.log(sQues);
     for (let i = 0; i < sQues.length; i++) {
       const page = sQues[i];
       for (let j = 0; j < page.elements.length; j++) {
         const question = page.elements[j].name;
-        console.log(question);
         if (page.elements[j]['choices'] !== undefined) {
           let qChoices = page.elements[j]['choices'];
           let choices = {};

@@ -8,3 +8,13 @@
 .questionsCard .question {
     font-weight: bold;
 }
+
+.questionsCard .showLess {
+    padding: 10px;
+}
+
+.questionsCard .showLess a {
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+}

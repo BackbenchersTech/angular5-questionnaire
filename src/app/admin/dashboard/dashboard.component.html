@@ -1,22 +1,22 @@
 <div class="usersList">
-    <div  class = "table-responsive ">
-        <table class="table table-bordered table-scrollable" id = "resultsTable">
-        	<thead>
-        		<tr>
-                <th scope = "col" *ngFor="let header of colHeaders" class="columnHeaders">{{ header }}</th>
-            </tr>
+    <div class="table-responsive ">
+        <table class="table table-bordered table-scrollable" id="resultsTable">
+            <thead>
+                <tr>
+                    <th scope="col" *ngFor="let header of column" class="columnHeaders">{{ header }}</th>
+                </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let x of result | paginate: { itemsPerPage: 3, currentPage: p  };">
-                    <td scope = "row" *ngFor="let header of colHeaders">
+                    <td scope="row" *ngFor="let header of colHeaders">
                         {{ x[header] }}
                     </td>
                 </tr>
-            </tbody> 
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>          
+            </tbody>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </table>
     </div>
-  <button type="button" class="btn btn-success" (click)="showResults()">Show Charts</button>
+    <button type="button" class="btn btn-success" (click)="showResults()">Show Charts</button>
 </div>
 
- <!-- <th data-field="name" data-formatter="nameFormatter">Name</th> -->
+<!-- <th data-field="name" data-formatter="nameFormatter">Name</th> -->
