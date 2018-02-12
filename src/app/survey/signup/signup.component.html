@@ -4,7 +4,8 @@
     </div>
     <form (ngSubmit)="onSubmit()" #initialForm="ngForm" class="col-12">
         <div class="form-group">
-            <input class="form-control" type="text" placeholder="First Name" name="fname" [(ngModel)]="user.fname" required #fname="ngModel">
+            <input class="form-control field" type="text" name="fname" [(ngModel)]="user.fname" required #fname="ngModel">
+            <label for="fname">First Name</label>
             <div class="alert alert-danger" [hidden]="fname.valid || fname.pristine">
                 First Name is a required field
             </div>
