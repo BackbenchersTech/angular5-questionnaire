@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
+=======
+import { Component,OnInit, AfterViewInit, ElementRef } from '@angular/core';
+>>>>>>> soundaryadev
 import { Chart } from 'chart.js';
 
 import { AdminService } from '../admin.service';
@@ -8,17 +12,23 @@ import { AdminService } from '../admin.service';
   templateUrl: './questions-group.component.html',
   styleUrls: ['./questions-group.component.css']
 })
-export class QuestionsGroupComponent implements AfterViewInit {
+export class QuestionsGroupComponent {
 
   answersData: any;
   questions: any;
   chart: any = [];
-
+  visibility : any = [];
+  selectedState : any = [];
+  submitted: any = [];
+ 
   constructor(private adminService: AdminService,
-              private elementRef: ElementRef) { }
+              private elementRef: ElementRef) { 
 
-  ngAfterViewInit() {
+  }
+ 
+  ngOnInit() {
     this.getAnswersDataData();
+
   }
 
   getAnswersDataData() {
@@ -42,13 +52,16 @@ export class QuestionsGroupComponent implements AfterViewInit {
     }
   }
 
+  showLess(i){
+    this.submitted["canvas" + i] = false;
+    this.visibility["canvas" + i] = false;
+  }
   makeCharts(obj, i) {
-    console.log(obj);
-    console.log(i)
-    console.log(Object.keys(obj))
-    console.log(Object.values(obj))
     let ctx = this.elementRef.nativeElement.querySelector('#canvas' + i);
-		this.chart = new Chart(ctx, {
+    this.submitted["canvas" + i] = true;
+    this.visibility["canvas" + i ] = true;
+    this.selectedState = true;
+		this.chart = new Chart(ctx,{
 			type: 'pie',
 			data: {
 			  labels: Object.keys(obj),
@@ -56,11 +69,14 @@ export class QuestionsGroupComponent implements AfterViewInit {
 				{
 				  data: Object.values(obj),
 				  borderColor: 'White',
-				  backgroundColor:['Red', 'Green', 'Blue','Yellow', 'Pink'],
+        backgroundColor:['Yellow','Red','Green','Blue'],
+          hoverBackgroundColor : ['Pink'],
 				  fill: false
 				}
 			  ]
+
 			}
+
 		  })
 	}
 
