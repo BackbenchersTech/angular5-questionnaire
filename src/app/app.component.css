@@ -1,0 +1,10 @@
+.appTitle {
+    text-align: center;
+    background: #17a2b8;
+    color: #efefef;
+    padding: 10px;
+}
+
+.appTitle h2 {
+    font-size: 24px;
+}

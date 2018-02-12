@@ -1,0 +1,10 @@
+.onRegister .user .userName {
+    font-size: 18px;
+    font-family: 'Roboto';
+    line-height: 18px;
+    font-weight: 700;
+}
+
+.onRegister .user .company {
+    font-size: 12px;
+}

@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+/* global styles */
+
+body {
+    font-family: 'Lato';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-family: 'Roboto';
+}
+
+input[type=button] {
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.card-header {
+    background-color: white;
+    border: none;
+}
+
+.card-footer {
+    background-color: white;
+    border: none;
+}
+
+.usersList .ngx-pagination {
+    padding: 15px 0;
+}

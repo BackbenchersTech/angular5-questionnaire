@@ -1,0 +1,13 @@
+<div [hidden]="!signupStatus" class="onRegister">
+    <div class="user">
+        <div class="userName">{{ user.fname + ", " + user.lname}}</div>
+        <div class="company text-muted">{{ user.company }}</div>
+    </div>
+    <div class="survey-container contentcontainer codecontainer">
+        <div id="survey"></div>
+    </div>
+</div>
+
+<div [hidden]="signupStatus" class="noRegister">
+    You haven't signed up for the questionnaire yet, please signup <a [routerLink]="['']">here</a>.
+</div>

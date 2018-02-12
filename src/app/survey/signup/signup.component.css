@@ -1,0 +1,24 @@
+.sectionTitle {
+    padding-bottom: 8px;
+}
+
+.buttonGroup {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.confirmSection .row {
+    margin: 0;
+}
+
+.confirmSection .form-group {
+    margin-bottom: 5px;
+}
+
+.ng-valid[required], .ng-valid.required {
+    border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form) {
+    border-left: 5px solid #A94442;
+}

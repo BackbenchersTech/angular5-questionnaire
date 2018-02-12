@@ -1,0 +1,22 @@
+<div class="usersList">
+    <button type="button" class="btn btn-info" (click)="showResults()">View Statistical Charts</button>
+    <div class="table-responsive ">
+        <table class="table table-bordered table-scrollable" id="resultsTable">
+            <thead>
+                <tr>
+                    <th scope="col" *ngFor="let header of colHeaders" class="columnHeaders">{{ columnNames[header] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let x of result | paginate: { itemsPerPage: 5, currentPage: p  };">
+                    <td scope="row" *ngFor="let header of colHeaders">
+                        {{ x[header] }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+<!-- <th data-field="name" data-formatter="nameFormatter">Name</th> -->

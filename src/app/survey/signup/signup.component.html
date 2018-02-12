@@ -1,0 +1,82 @@
+<div [hidden]="submitted" class="formSection">
+    <div class="sectionTitle col-12">
+        <h5>Sign-Up:</h5>
+    </div>
+    <form (ngSubmit)="onSubmit()" #initialForm="ngForm" class="col-12">
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="First Name" name="fname" [(ngModel)]="user.fname" required #fname="ngModel">
+            <div class="alert alert-danger" [hidden]="fname.valid || fname.pristine">
+                First Name is a required field
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Last Name" name="lname" [(ngModel)]="user.lname" required>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Company" name="company" [(ngModel)]="user.company" required>
+        </div>
+
+        <div class="form-group">
+            <select class="form-control" name="category" [(ngModel)]="user.category" required>
+        <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+      </select>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="email" placeholder="E-mail" name="email" [(ngModel)]="user.email" required #email="ngModel" pattern="^\w+([\.-]?\w+)*@(?!gmail\.com)(?!outlook\.com)(?!aol\.com)(?!rediff\.com)(?!msn\.com)(?!live\.com)(?!yahoo\.com)(?!hotmail\.com)([\w-]+.)+([\.-]?\w+)*(\.\w{2,3})+$">
+            <div [hidden]="!email.hasError('pattern')" class="alert alert-danger">Please enter your office email
+                <!-- <small><b>joe@abc.com</b></small> -->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Phone" name="phone" [(ngModel)]="user.phone">
+        </div>
+        <div class="row buttonGroup">
+            <div class="col-12">
+                <button type="button" class="btn btn-primary float-left" (click)="newUser(); initialForm.reset()">Clear</button>
+                <button type="submit" class="btn btn-success float-right" [disabled]="!initialForm.form.valid">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div [hidden]="!this.submitted" class="confirmSection">
+    <div class="sectionTitle col-12">
+        <h5>You entered the following details:</h5>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-6">
+            <div class="col-12 label text-muted">First Name</div>
+            <div class="col-12">{{user.fname}}</div>
+        </div>
+        <div class="form-group col-6">
+            <div class="col-12 label text-muted">Last Name</div>
+            <div class="col-12">{{user.lname}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-12 label text-muted">Company</div>
+        <div class="col-12">{{user.company}}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-12 label text-muted">Category</div>
+        <div class="col-12">{{user.category}}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-12 label text-muted">Email</div>
+        <div class="col-12">{{user.email}}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-12 label text-muted">Phone</div>
+        <div class="col-12">{{user.phone}}</div>
+    </div>
+    <div class="row buttonGroup">
+        <div class="col-12">
+            <button type="button" class="btn btn-primary float-left" (click)="submitted=false">Edit</button>
+            <button type="button" class="btn btn-success float-right" (click)="saveCustomer()">Confirm</button>
+        </div>
+    </div>
+</div>
