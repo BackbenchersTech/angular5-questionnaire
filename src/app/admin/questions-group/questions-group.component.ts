@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js';
 
 import { AdminService } from '../admin.service';
@@ -8,16 +8,19 @@ import { AdminService } from '../admin.service';
   templateUrl: './questions-group.component.html',
   styleUrls: ['./questions-group.component.css']
 })
-export class QuestionsGroupComponent implements AfterViewInit {
+export class QuestionsGroupComponent implements OnInit {
 
   answersData: any;
   questions: any;
   chart: any = [];
-
+  visibility : any = [];
+  selectedState : any = [];
+  submitted: any = false;
+ 
   constructor(private adminService: AdminService,
               private elementRef: ElementRef) { }
-
-  ngAfterViewInit() {
+ 
+  ngOnInit() {
     this.getAnswersDataData();
   }
 
@@ -43,6 +46,8 @@ export class QuestionsGroupComponent implements AfterViewInit {
   }
 
   makeCharts(obj, i) {
+    this.submitted = true;
+    this.visibility["canvas" + i ] = true;
     let a = Object.assign({}, obj);
     delete a.statBased;
     let colors = this.getColors(Object.keys(a).length)
