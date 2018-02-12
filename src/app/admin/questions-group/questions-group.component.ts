@@ -43,21 +43,30 @@ export class QuestionsGroupComponent implements AfterViewInit {
   }
 
   makeCharts(obj, i) {
+    let a = Object.assign({}, obj);
+    delete a.statBased;
+    let colors = this.getColors(Object.keys(a).length)
     let ctx = this.elementRef.nativeElement.querySelector('#canvas' + i);
 		this.chart = new Chart(ctx, {
 			type: 'pie',
 			data: {
-			  labels: Object.keys(obj),
+			  labels: Object.keys(a),
 			  datasets: [
 				{
-				  data: Object.values(obj),
+				  data: Object.values(a),
 				  borderColor: 'White',
-				  backgroundColor:['Red', 'Green', 'Blue','Yellow', 'Pink'],
-				  fill: false
+          backgroundColor: colors,
+          hoverBorderColor: "white"
 				}
 			  ]
 			}
 		  })
-	}
+  }
+  
+  getColors(number) {
+    let lights = ['#FF8A65', '#90A4AE', '#FFF176', '#81C784', '#4FC3F7', '#9575CD', '#7986CB', '#F06292', '#AED581', '#FFB74D', '#A1887F', '#E0E0E0'];
+
+    return lights.splice(1, number+1);
+  }
 
 }

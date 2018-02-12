@@ -13,5 +13,5 @@
   <div *ngIf="chart && answersData[question].statBased">
     <canvas id="{{'canvas' + i}}">{{ chart }}</canvas>
   </div>
-  <button class="btn btn-primary" (click)="makeCharts(answersData[question], i)" >Show Chart</button>
+  <button *ngIf="answersData[question].statBased" class="btn btn-primary" (click)="makeCharts(answersData[question], i)" >Show Chart</button>
 </div>
