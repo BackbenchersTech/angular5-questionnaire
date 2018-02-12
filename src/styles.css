@@ -2,7 +2,6 @@
 
 body {
     font-family: 'Lato';
-    padding: 10px;
 }
 
 h1,
@@ -31,7 +30,6 @@ input[type=button] {
     border: none;
 }
 
-.ngx-pagination {
-    padding-left: 0px;
-    padding-top: 15px;
+.usersList .ngx-pagination {
+    padding: 15px 0;
 }

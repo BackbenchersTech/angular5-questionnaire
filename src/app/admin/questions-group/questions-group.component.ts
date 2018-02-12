@@ -28,21 +28,18 @@ export class QuestionsGroupComponent implements OnInit {
     this.answersData = this.adminService.getData();
     if(Object.keys(this.answersData).length === 0) {
       this.adminService.formAnswersObject();
-      this.adminService.getSurvey().subscribe(
-        data => {
-          this.adminService.countSurveys(data);
-        },
-        err => {
-          console.log(err);
-        },
-        () => {
-          this.questions = Object.keys(this.answersData);
-        }
-      )
     }
-    else {
-      this.questions = Object.keys(this.answersData);
-    }
+    this.adminService.getSurvey().subscribe(
+      data => {
+        this.adminService.countSurveys(data);
+      },
+      err => {
+        console.log(err);
+      },
+      () => {
+        this.questions = Object.keys(this.answersData);
+      }
+    )
   }
 
   showLess(i) {
@@ -76,7 +73,7 @@ export class QuestionsGroupComponent implements OnInit {
   getColors(number) {
     let lights = ['#FF8A65', '#90A4AE', '#FFF176', '#81C784', '#4FC3F7', '#9575CD', '#7986CB', '#F06292', '#AED581', '#FFB74D', '#A1887F', '#E0E0E0'];
 
-    return lights.splice(1, number+1);
+    return lights.splice(0, number+1);
   }
 
 }

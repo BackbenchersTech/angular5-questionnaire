@@ -1,5 +1,11 @@
 .usersList  {
-    width: 100%;
+	width: 95%;
+	margin: 0 auto;
+	padding-top: 25px;
+}
+
+.usersList .btn {
+	margin-bottom: 10px;
 }
 
 .table thead th {
@@ -7,14 +13,14 @@
 }
 
 #resultsTable {
-	width: 100%;
 	white-space: nowrap;
 }
 
 .table-responsive {
 	overflow-x: scroll;
+	border: 1px solid #ededed;
+}
 
-}
-.table-responsive::-webkit-scrollbar { 
+/* .table-responsive::-webkit-scrollbar { 
     display: none;  
-}
+} */
