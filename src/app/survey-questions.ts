@@ -179,6 +179,7 @@ export class SurveyQuestions {
             ]
           }
         ],
+        showPrevButton: false,
         showQuestionNumbers: "off",
         completeText: "Next",
         requiredText: ""

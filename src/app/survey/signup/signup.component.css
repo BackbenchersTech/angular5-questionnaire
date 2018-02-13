@@ -1,11 +1,12 @@
 .formSection {
     position: relative;
-    top: -30px;
+    top: -35px;
     background: white;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     width: 90%;
     margin: 0 auto;
     border-radius: 4px;
+    height: calc(100% - 30vh);
 }
 
 .formSection .form-control {
@@ -21,30 +22,51 @@
     box-shadow: none;
 }
 
+.form-group select.form-control {
+    height: 50px;
+}
+
+.form-group {
+    position: relative;
+}
+
 label {
     color: #999;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
     position: absolute;
     pointer-events: none;
     top: 10px;
     transition: 0.2s ease all;
+    padding-left: 5px;
 }
 
-.formSection .form-control:focus + label {
+.formSection .form-control:focus+label {
     top: -20px;
     font-size: 14px;
     color: #009688;
+    padding-left: 5px;
+}
+
+.form-group .alertMessage {
+    color: red;
+    font-size: 14px;
 }
 
 .sectionTitle {
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .buttonGroup {
     padding-top: 10px;
     text-align: center;
+    padding-bottom: 15px;
+}
+
+.buttonGroup .saveUser {
+    width: 60%;
+    margin: 0 auto;
 }
 
 .confirmSection .row {
@@ -55,7 +77,8 @@ label {
     margin-bottom: 5px;
 }
 
-.ng-valid[required], .ng-valid.required {
+.ng-valid[required],
+.ng-valid.required {
     border-bottom: 5px solid #42A948;
 }
 
