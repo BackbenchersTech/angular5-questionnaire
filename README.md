@@ -1,6 +1,23 @@
-# Mean
+# Angular5-Questionnaire
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
+
+## Running the application
+
+### Install dependencies
+`npm i`
+
+### Env
+
+Setup the  `.env` file in the same level as the sample as described in it.
+
+### Server
+
+Run `node bin/www` in a different terminal for the database connections.
+
+### Application
+
+`npm start` or `ng serve` to launch the development server.
 
 ## Development server
 
