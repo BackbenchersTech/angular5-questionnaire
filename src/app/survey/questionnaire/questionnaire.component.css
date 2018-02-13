@@ -1,16 +1,18 @@
 .onRegister {
     position: relative;
-    top: -35px;
+    top: -65px;
+    margin: 0 25px;
+    padding: 15px;
     background: white;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-    width: 90%;
-    margin: 0 auto;
     border-radius: 4px;
-    height: calc(100% - 30vh);
+    /* max-height: calc(70% + 50px); */
+    height: 70vh;
 }
 
 .onRegister .user {
-    padding: 15px 10px 5px 15px;
+    padding: 0 16px;
+    padding-top: 10px;
 }
 
 .onRegister .user .userName {
@@ -22,4 +24,12 @@
 
 .onRegister .user .company {
     font-size: 14px;
+}
+
+.onRegister .surveyContainer {
+    height: calc(100% - 51px);
+}
+
+.onRegister .surveyContainer #survey {
+    height: 100%;
 }
