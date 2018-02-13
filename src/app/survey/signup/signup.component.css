@@ -1,10 +1,87 @@
-.sectionTitle {
-    padding-bottom: 8px;
+.formContainer {
+    width: 100%;
+    height: calc(100vh - 200px);
 }
 
-.buttonGroup {
+.formSection {
+    position: relative;
+    top: -65px;
+    background: white;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+    border-radius: 4px;
+    max-height: calc(100% + 50px);
+    overflow: scroll;
+    padding: 15px;
+    padding-top: 30px;
+    width: calc(100% - 30px);
+    max-width: 400px;
+}
+
+.formSection form {
+    padding: 0px;
+}
+
+.formSection .form-group:nth-last-child(2) {
+    margin-bottom: 16px;
+}
+
+.formSection .form-control {
+    display: block;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.formSection .form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.form-group select.form-control {
+    height: 40px;
+    font-size: 16px;
+    color: black;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 37px;
+}
+
+.formSection .form-group label {
+    color: #999;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    top: 10px;
+    transition: 0.2s ease all;
+    padding-left: 5px;
+    margin-bottom: 0px;
+}
+
+.formSection .form-control::placeholder {
+    color: white;
+}
+
+.formSection .form-control:focus+label,
+.formSection .form-control:not(:placeholder-shown)+label {
+    top: -22px;
+    font-size: 14px;
+    color: #009688;
+    padding-left: 5px;
+}
+
+.form-group .alertMessage {
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    padding-left: 5px;
+}
+
+.sectionTitle {
     padding-top: 10px;
-    text-align: center;
+    padding-bottom: 20px;
 }
 
 .confirmSection .row {
@@ -15,10 +92,16 @@
     margin-bottom: 5px;
 }
 
-.ng-valid[required], .ng-valid.required {
-    border-left: 5px solid #42A948;
+.ng-valid[required],
+.ng-valid.required {
+    border-bottom: 2px solid #42A948;
 }
 
 .ng-invalid:not(form) {
-    border-left: 5px solid #A94442;
+    border-bottom: 2px solid #A94442;
+}
+
+.startBtn {
+    background-color: rgba(23, 162, 184, 0.7);
+    color: #fff;
 }

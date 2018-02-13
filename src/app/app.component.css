@@ -1,10 +1,21 @@
 .appTitle {
     text-align: center;
-    background: #17a2b8;
-    color: #efefef;
+    background-image: url("../assets/background-1.jpg");
+    background-size: cover;
+    color: #fdfdfd;
+    height: 200px;
+}
+
+.appTitle div {
+    height: 100%;
+    background: rgba(23, 162, 184, 0.7);
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .appTitle h2 {
     font-size: 24px;
 }
+

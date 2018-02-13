@@ -167,8 +167,8 @@ export class SurveyQuestions {
               {
                 type: "dropdown",
                 name: "How many days are you going to stay here?",
-                visible: false,
-                visibleIf: "{What kind of services are you looking  for?} notempty or {Are you willing to check what we offer in these areas?} = 'No'",
+                visible: true,
+                // visibleIf: "{What kind of services are you looking  for?} notempty or {Are you willing to check what we offer in these areas?} = 'No'",
                 isRequired: true,
                 choices: [
                   "1",
@@ -179,8 +179,9 @@ export class SurveyQuestions {
             ]
           }
         ],
+        showPrevButton: false,
         showQuestionNumbers: "off",
-        completeText: "Next",
+        completeText: "Complete Survey",
         requiredText: ""
     };
 }

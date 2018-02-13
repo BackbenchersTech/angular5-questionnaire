@@ -2,6 +2,8 @@
 
 body {
     font-family: 'Lato';
+    height: 100vh;
+    background-color: #f7f7f7;
 }
 
 h1,
@@ -14,12 +16,6 @@ h6 {
     font-family: 'Roboto';
 }
 
-input[type=button] {
-    background-color: white;
-    border-radius: 5px;
-    padding: 5px;
-}
-
 .card-header {
     background-color: white;
     border: none;
@@ -30,6 +26,66 @@ input[type=button] {
     border: none;
 }
 
+.completeText {
+    width: 80%;
+    padding: 20px;
+    font-size: 20px;
+}
+
 .usersList .ngx-pagination {
     padding: 15px 0;
+}
+
+.sv_bootstrap_css,
+.sv_container {
+    height: inherit;
+}
+
+.sv_container .panel-body.card-block {
+    height: calc(100% - 24px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sv_container .panel-body.card-block .panel-footer .sv_next_btn,
+.sv_container .panel-body.card-block .panel-footer .sv_complete_btn {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 3px;
+    background-color: rgba(23, 162, 184, 0.7);
+    color: white;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.sv_container .panel-body.card-block div[id^="sp_"],
+.sv_container .panel-body.card-block div[id*="sp_"] {
+    height: calc(100% - 40px);
+}
+
+.sv_container .panel-body.card-block div[id^="sp_"] > div,
+.sv_container .panel-body.card-block div[id*="sp_"] > div {
+    height: inherit;
+}
+
+.sv_container .panel-body.card-block div[id^="sp_"] > div > div:last-child,
+.sv_container .panel-body.card-block div[id*="sp_"] > div > div:last-child,
+.sv_container .panel-body.card-block div[id^="sq_"],
+.sv_container .panel-body.card-block div[id*="sq_"] {
+    height: 100%;
+}
+
+.sv_container .panel-body.card-block div[id^="sq_"] > div:first-child h5,
+.sv_container .panel-body.card-block div[id*="sq_"] > div:first-child h5 {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.sv_container .panel-body.card-block div[id^="sq_"] > div:last-child,
+.sv_container .panel-body.card-block div[id*="sq_"] > div:last-child {
+    height: calc(100% - 72px + 10px);
+    overflow-y: scroll;
+    padding-top: 10px;
 }
