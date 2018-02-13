@@ -77,8 +77,15 @@ h6 {
     height: 100%;
 }
 
+.sv_container .panel-body.card-block div[id^="sq_"] > div:first-child h5,
+.sv_container .panel-body.card-block div[id*="sq_"] > div:first-child h5 {
+    font-size: 18px;
+    line-height: 24px;
+}
+
 .sv_container .panel-body.card-block div[id^="sq_"] > div:last-child,
 .sv_container .panel-body.card-block div[id*="sq_"] > div:last-child {
-    height: calc(100% - 72px);
+    height: calc(100% - 72px + 10px);
     overflow-y: scroll;
+    padding-top: 10px;
 }

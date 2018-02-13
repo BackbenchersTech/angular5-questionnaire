@@ -1,13 +1,14 @@
 .onRegister {
     position: relative;
     top: -65px;
-    margin: 0 25px;
+    margin: 0 auto;
     padding: 15px;
     background: white;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
-    /* max-height: calc(70% + 50px); */
     height: 70vh;
+    width: calc(100% - 30px);
+    max-width: 400px;
 }
 
 .onRegister .user {
