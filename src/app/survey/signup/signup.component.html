@@ -1,10 +1,7 @@
 <div class="formSection">
-    <div class="sectionTitle col-12">
-        <h5>Sign-Up:</h5>
-    </div>
     <form (ngSubmit)="onSubmit()" #initialForm="ngForm" class="col-12 formWrap">
         <div class="form-group">
-            <input class="form-control field" type="text" name="fname" [(ngModel)]="user.fname" required #fname="ngModel">
+            <input class="form-control field" type="text" name="fname" [(ngModel)]="user.fname" placeholder="First Name" required #fname="ngModel">
             <label for="fname">First Name</label>
             <div class="alertMessage" [hidden]="fname.valid || fname.pristine">
                 First Name is a required field
@@ -12,24 +9,25 @@
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="text" name="lname" [(ngModel)]="user.lname" required>
+            <input class="form-control" type="text" name="lname" [(ngModel)]="user.lname" placeholder="Last Name" required>
             <label for="lname">Last Name</label>
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="text" name="company" [(ngModel)]="user.company" required>
+            <input class="form-control" type="text" name="company" [(ngModel)]="user.company" placeholder="Company" required>
             <label for="company">Company</label>
         </div>
 
         <div class="form-group">
             <select class="form-control" name="category" [(ngModel)]="user.category" required>
-                <option value="" selected="selected">Choose one</option>
+                <option value = "" selected="selected">Role</option>
                 <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
       </select>
+
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="email" name="email" [(ngModel)]="user.email" required #email="ngModel" pattern="^\w+([\.-]?\w+)*@(?!gmail\.com)(?!outlook\.com)(?!aol\.com)(?!rediff\.com)(?!msn\.com)(?!live\.com)(?!yahoo\.com)(?!hotmail\.com)([\w-]+.)+([\.-]?\w+)*(\.\w{2,3})+$">
+            <input class="form-control" type="email" name="email" [(ngModel)]="user.email" placeholder="Email" required #email="ngModel" pattern="^\w+([\.-]?\w+)*@(?!gmail\.com)(?!outlook\.com)(?!aol\.com)(?!rediff\.com)(?!msn\.com)(?!live\.com)(?!yahoo\.com)(?!hotmail\.com)([\w-]+.)+([\.-]?\w+)*(\.\w{2,3})+$">
             <label for="email">Email</label>
             <div [hidden]="!email.hasError('pattern')" class="alertMessage">Please enter your office email
                 <!-- <small><b>joe@abc.com</b></small> -->
@@ -37,13 +35,13 @@
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="text" name="phone" [(ngModel)]="user.phone">
+            <input class="form-control" type="text" name="phone" [(ngModel)]="user.phone" placeholder="Phone">
             <label for="phone">Phone</label>
         </div>
-        <div class="row buttonGroup">
+        <div class="row">
             <div class="col-12">
                 <!-- <button type="button" class="btn btn-primary float-left" (click)="newUser(); initialForm.reset()">Clear</button> -->
-                <button type="submit" class="btn btn-success saveUser" (click)="saveCustomer()" [disabled]="!initialForm.form.valid">Submit</button>
+                <button type="submit" class="btn btn-success btn-block " (click)="saveCustomer()" [disabled]="!initialForm.form.valid">Submit</button>
             </div>
         </div>
     </form>

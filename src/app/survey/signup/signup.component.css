@@ -1,12 +1,21 @@
 .formSection {
     position: relative;
-    top: -35px;
+    top: -65px;
     background: white;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-    width: 90%;
-    margin: 0 auto;
+    margin: 0 25px;
     border-radius: 4px;
-    height: calc(100% - 30vh);
+    max-height: calc(70% + 50px);
+    padding: 15px;
+    padding-top: 25px;
+}
+
+.formSection form {
+    padding: 0px;
+}
+
+.formSection .form-group:nth-last-child(2) {
+    margin-bottom: 16px;
 }
 
 .formSection .form-control {
@@ -14,7 +23,7 @@
     /* border-bottom: 2px solid #0077bf; */
     display: block;
     font-size: 18px;
-    padding: 10px 10px 10px 5px;
+    padding: 5px;
 }
 
 .formSection .form-control:focus {
@@ -23,15 +32,19 @@
 }
 
 .form-group select.form-control {
-    height: 50px;
+    height: 40px;
+    font-size: 16px;
+    color: black;
 }
 
 .form-group {
     position: relative;
+    margin-bottom: 37px;
 }
 
-label {
+.formSection .form-group label {
     color: #999;
+    /* background-color: white; */
     font-size: 16px;
     font-weight: normal;
     position: absolute;
@@ -39,9 +52,15 @@ label {
     top: 10px;
     transition: 0.2s ease all;
     padding-left: 5px;
+    margin-bottom: 0px;
 }
 
-.formSection .form-control:focus+label {
+.formSection .form-control::placeholder {
+    color: white;
+}
+
+.formSection .form-control:focus+label,
+.formSection .form-control:not(:placeholder-shown)+label {
     top: -20px;
     font-size: 14px;
     color: #009688;
@@ -51,22 +70,13 @@ label {
 .form-group .alertMessage {
     color: red;
     font-size: 14px;
+    position: absolute;
+    padding-left: 5px;
 }
 
 .sectionTitle {
     padding-top: 10px;
     padding-bottom: 20px;
-}
-
-.buttonGroup {
-    padding-top: 10px;
-    text-align: center;
-    padding-bottom: 15px;
-}
-
-.buttonGroup .saveUser {
-    width: 60%;
-    margin: 0 auto;
 }
 
 .confirmSection .row {
@@ -79,7 +89,7 @@ label {
 
 .ng-valid[required],
 .ng-valid.required {
-    border-bottom: 5px solid #42A948;
+    border-bottom: 2px solid #42A948;
 }
 
 .ng-invalid:not(form) {
