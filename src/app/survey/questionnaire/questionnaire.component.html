@@ -3,10 +3,33 @@
         <div class="userName">{{ user.fname + ", " + user.lname}}</div>
         <div class="company text-muted">{{ user.company }}</div>
     </div>
+    <div class="progress">
+        <ul>
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+        </ul>
+    </div>
     <div class="surveyContainer contentcontainer codecontainer">
         <div id="survey"></div>
+        <!-- <div *ngFor="let item of pageNumbers">
+            <progress animate="false" value="getStatusValue(item.status)" type="success"><b>{{item.status}}%</b></progress>
+        </div> -->
+
     </div>
+    <!-- 
+    <div class="progress progress-striped active">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        </div>
+    </div> -->
 </div>
+
+
 
 <div [hidden]="signupStatus" class="noRegister">
     You haven't signed up for the questionnaire yet, please signup <a [routerLink]="['']">here</a>.

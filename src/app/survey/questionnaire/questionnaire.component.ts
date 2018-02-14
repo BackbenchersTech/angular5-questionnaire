@@ -14,6 +14,7 @@ export class QuestionnaireComponent implements OnInit {
 
   questions: any;
   signupStatus = true;
+  pageNumbers : any = [1,2,3,4,5,6,7,8,9,10];
   // user:any = {};
    user: any = {
      fname: "Abhishek",
@@ -37,9 +38,19 @@ export class QuestionnaireComponent implements OnInit {
     survey.onComplete.add(result => {
       this.submitSurvey(result);
     });
+    const pagesValue = [];
     SurveyJs.SurveyNG.render("survey", { model: survey });
+    console.log(survey); 
+    
+    }
+  getStatusValue(item){
+    if(item == 1){
+      return 20;
+    }
+    else if (item == 2){
+      return 40;
+    }
   }
-
   checkSignup() {
     this.signupStatus = this.surveyService.isUserSet();
     if(!this.signupStatus) {

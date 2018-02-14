@@ -1,91 +1,119 @@
-/* global styles */
-
-body {
-    font-family: 'Lato';
-    height: 100vh;
-    background-color: #f7f7f7;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 0;
-    font-family: 'Roboto';
-}
-
-.card-header {
-    background-color: white;
-    border: none;
-}
-
-.card-footer {
-    background-color: white;
-    border: none;
-}
-
-.completeText {
-    width: 80%;
-    padding: 20px;
-    font-size: 20px;
-}
-
-.usersList .ngx-pagination {
-    padding: 15px 0;
-}
-
-.sv_bootstrap_css,
-.sv_container {
-    height: inherit;
-}
-
-.sv_container .panel-body.card-block {
-    height: calc(100% - 24px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.sv_container .panel-body.card-block .panel-footer .sv_next_btn,
-.sv_container .panel-body.card-block .panel-footer .sv_complete_btn {
-    width: 100%;
-    padding: 10px 0;
-    text-align: center;
-    border-radius: 3px;
-    background-color: rgba(23, 162, 184, 0.7);
-    color: white;
-    font-size: 18px;
-    line-height: 18px;
-}
-
-.sv_container .panel-body.card-block div[id^="sp_"],
-.sv_container .panel-body.card-block div[id*="sp_"] {
-    height: calc(100% - 40px);
-}
-
-.sv_container .panel-body.card-block div[id^="sp_"] > div,
-.sv_container .panel-body.card-block div[id*="sp_"] > div {
-    height: inherit;
-}
-
-.sv_container .panel-body.card-block div[id^="sp_"] > div > div:last-child,
-.sv_container .panel-body.card-block div[id*="sp_"] > div > div:last-child,
-.sv_container .panel-body.card-block div[id^="sq_"],
-.sv_container .panel-body.card-block div[id*="sq_"] {
-    height: 100%;
-}
-
-.sv_container .panel-body.card-block div[id^="sq_"] > div:first-child h5,
-.sv_container .panel-body.card-block div[id*="sq_"] > div:first-child h5 {
-    font-size: 18px;
-    line-height: 24px;
-}
-
-.sv_container .panel-body.card-block div[id^="sq_"] > div:last-child,
-.sv_container .panel-body.card-block div[id*="sq_"] > div:last-child {
-    height: calc(100% - 72px + 10px);
-    overflow-y: scroll;
-    padding-top: 10px;
-}
+        /* global styles */
+        
+        body {
+            font-family: 'Lato';
+            height: 100vh;
+            background-color: #f7f7f7;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            font-family: 'Roboto';
+        }
+        
+        .card-header {
+            background-color: white;
+            border: none;
+        }
+        
+        .card-footer {
+            background-color: white;
+            border: none;
+        }
+        
+        .completeText {
+            width: 80%;
+            padding: 20px;
+            font-size: 20px;
+        }
+        
+        .usersList .ngx-pagination {
+            padding: 15px 0;
+        }
+        
+        .sv_bootstrap_css,
+        .sv_container {
+            height: inherit;
+        }
+        
+        .sv_container .panel-body.card-block {
+            height: calc(100% - 24px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .sv_container .panel-body.card-block .panel-footer .sv_next_btn,
+        .sv_container .panel-body.card-block .panel-footer .sv_complete_btn {
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 3px;
+            background-color: rgba(23, 162, 184, 0.7);
+            color: white;
+            font-size: 18px;
+            line-height: 18px;
+        }
+        
+        .sv_container .panel-body.card-block div[id^="sp_"],
+        .sv_container .panel-body.card-block div[id*="sp_"] {
+            height: calc(100% - 40px);
+        }
+        
+        .sv_container .panel-body.card-block div[id^="sp_"]>div,
+        .sv_container .panel-body.card-block div[id*="sp_"]>div {
+            height: inherit;
+        }
+        
+        .sv_container .panel-body.card-block div[id^="sp_"]>div>div:last-child,
+        .sv_container .panel-body.card-block div[id*="sp_"]>div>div:last-child,
+        .sv_container .panel-body.card-block div[id^="sq_"],
+        .sv_container .panel-body.card-block div[id*="sq_"] {
+            height: 100%;
+        }
+        
+        .sv_container .panel-body.card-block div[id^="sq_"]>div:first-child h5,
+        .sv_container .panel-body.card-block div[id*="sq_"]>div:first-child h5 {
+            font-size: 18px;
+            line-height: 24px;
+        }
+        
+        .sv_container .panel-body.card-block div[id^="sq_"]>div:last-child,
+        .sv_container .panel-body.card-block div[id*="sq_"]>div:last-child {
+            height: calc(100% - 72px + 10px);
+            overflow-y: scroll;
+            padding-top: 10px;
+        }
+        
+        div.checkbox input[type="checkbox"] {
+            display: none;
+        }
+        
+        .sv_qcbx .checkbox label {
+            display: inline-flex !important;
+        }
+        
+        div.checkbox input[type="checkbox"]+span:before {
+            font: 16pt FontAwesome;
+            content: ' ';
+            display: inline-block;
+            width: 1.25em;
+            height: 1.25em;
+            border: 2px solid rgb(128, 125, 125);
+            padding: 2px 0 0 3px;
+            margin-right: 0.5em;
+            margin-top: 5px;
+        }
+        
+        div.checkbox input[type="checkbox"]:checked+span:before {
+            content: '✔';
+            top: .3em;
+            left: .275em;
+            font-size: 1.3em;
+            line-height: 0.8;
+        }

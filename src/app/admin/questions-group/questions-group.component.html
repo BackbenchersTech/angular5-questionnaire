@@ -1,30 +1,35 @@
-<div class="row">
-    <div *ngFor="let question of questions; let i = index;" class="col-md-4 col-xs-12">
-        <div class="questionsCard ">
-            <div class="question">
-                {{question}}
-            </div>
-            <div class="stats">
-                <ul>
-                    <li *ngFor="let choice of answersData[question] | keys">
-                        {{choice.key + ' : ' + choice.value}}
-                    </li>
-                </ul>
-            </div>
-
-            <div [hidden]="!visibility['canvas' + i]" class="canvasWrap">
-                <canvas id="{{'canvas' + i}}" width="300" height="300">{{ chart }}</canvas>
-            </div>
-            <div class="text-center displayBtn" [hidden]="this.submitted['canvas' + i]">
-                <button class="btn btn-info" (click)="makeCharts(answersData[question], i)">
+<div class="resultsWrap">
+    <div class="row">
+        <div *ngFor="let question of questions; let i = index;" class="col-12">
+            <div class="questionsCard row ">
+                <div class="col-sm-6 col-12">
+                    <div class="question">
+                        {{question}}
+                    </div>
+                    <div class="stats">
+                        <ul>
+                            <li *ngFor="let choice of answersData[question] | keys">
+                                {{choice.key + ' : ' + choice.value}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-12">
+                    <div [hidden]="!visibility['canvas' + i]" class="canvasWrap">
+                        <canvas id="{{'canvas' + i}}" width="300" height="300">{{ chart }}</canvas>
+                    </div>
+                    <div class="text-center displayBtn" [hidden]="this.submitted['canvas' + i]">
+                        <button class="btn btn-info" (click)="makeCharts(answersData[question], i)">
           <i class="fas fa-chart-pie"></i>
         Display Charts
         </button>
-            </div>
-            <div class="text-center showLess" [hidden]="!this.submitted['canvas' + i]">
-                <a (click)="showLess(i)">
+                    </div>
+                    <div class="text-center showLess" [hidden]="!this.submitted['canvas' + i]">
+                        <a (click)="showLess(i)">
             Show Less <i class="fa fa-angle-double-up"></i>
        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

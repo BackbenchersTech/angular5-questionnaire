@@ -18,3 +18,8 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+.resultsWrap {
+    width: 70%;
+    margin: 0 auto;
+}
