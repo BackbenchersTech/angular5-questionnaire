@@ -52,10 +52,16 @@ export class QuestionsGroupComponent implements AfterViewInit {
     this.visibility["canvas" + i] = false;
   }
 
+  showChart(i) {
+    this.submitted["canvas" + i] = true;
+    this.visibility["canvas" + i] = true;
+  }
+
   makeCharts(canvases) {
     for(let i =  0; i < this.questions.length; i++) {
       let question = this.questions[i];
       if(!this.answersData[question].statBased) {
+        this.visibility["canvas" + i]=false;
         continue
       }
       let answer = this.answersData[question];
@@ -75,9 +81,13 @@ export class QuestionsGroupComponent implements AfterViewInit {
               hoverBorderColor: "white"
             }
           ]
+        },
+        options:{
+          responsive:false
         }
+
       });
-      this.visibility["canvas" + i] = true;
+      this.visibility["canvas" + i] = (window.innerWidth > 768) ? true : false;
     }
   }
   
