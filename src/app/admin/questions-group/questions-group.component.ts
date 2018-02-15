@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, AfterViewInit, ViewChildren } from '@angular/core';
 import { Chart } from 'chart.js';
 
 import { AdminService } from '../admin.service';
@@ -8,20 +8,25 @@ import { AdminService } from '../admin.service';
   templateUrl: './questions-group.component.html',
   styleUrls: ['./questions-group.component.css']
 })
-export class QuestionsGroupComponent implements OnInit {
+export class QuestionsGroupComponent implements AfterViewInit {
 
   answersData: any;
   questions: any;
   chart: any = [];
-  visibility : any = [];
-  selectedState : any = [];
+  visibility: any = [];
+  selectedState: any = [];
   submitted: any = [];
+
+  @ViewChildren('parent') canvases;
  
   constructor(private adminService: AdminService,
               private elementRef: ElementRef) { }
  
-  ngOnInit() {
+  ngAfterViewInit() {
     this.getAnswersDataData();
+    this.canvases.changes.subscribe(() => {
+      this.makeCharts(this.canvases.toArray())
+    });
   }
 
   getAnswersDataData() {
@@ -47,27 +52,56 @@ export class QuestionsGroupComponent implements OnInit {
     this.visibility["canvas" + i] = false;
   }
 
-  makeCharts(obj, i) {
-    this.submitted["canvas" + i] = true;
-    this.visibility["canvas" + i ] = true;
-    let a = Object.assign({}, obj);
-    delete a.statBased;
-    let colors = this.getColors(Object.keys(a).length)
-    let ctx = this.elementRef.nativeElement.querySelector('#canvas' + i);
-		this.chart = new Chart(ctx, {
-			type: 'pie',
-			data: {
-			  labels: Object.keys(a),
-			  datasets: [
-          {
-            data: Object.values(a),
-            borderColor: 'White',
-            backgroundColor: colors,
-            hoverBorderColor: "white"
-          }
-			  ]
-			}
-		});
+  // makeCharts(obj, i) {
+  //   this.submitted["canvas" + i] = true;
+  //   this.visibility["canvas" + i ] = true;
+  //   let a = Object.assign({}, obj);
+  //   delete a.statBased;
+  //   let colors = this.getColors(Object.keys(a).length)
+  //   let ctx = this.elementRef.nativeElement.querySelector('#canvas' + i);
+	// 	 this.chart = new Chart(ctx, {
+	// 		type: 'pie',
+	// 		data: {
+	// 		  labels: Object.keys(a),
+	// 		  datasets: [
+  //         {
+  //           data: Object.values(a),
+  //           borderColor: 'White',
+  //           backgroundColor: colors,
+  //           hoverBorderColor: "white"
+  //         }
+	// 		  ]
+	// 		}
+	// 	});
+  // }
+
+  makeCharts(canvases) {
+    for(let i =  0; i < this.questions.length; i++) {
+      let question = this.questions[i];
+      if(!this.answersData[question].statBased) {
+        continue
+      }
+      let answer = this.answersData[question];
+      let a = Object.assign({}, answer);
+      delete a.statBased;
+      let colors = this.getColors(Object.keys(a).length);
+      let ctx = canvases[i].nativeElement;
+      let chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: Object.keys(a),
+          datasets: [
+            {
+              data: Object.values(a),
+              borderColor: 'White',
+              backgroundColor: colors,
+              hoverBorderColor: "white"
+            }
+          ]
+        }
+      });
+      this.visibility["canvas" + i] = true;
+    }
   }
   
   getColors(number) {
