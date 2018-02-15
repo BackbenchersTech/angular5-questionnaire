@@ -14,7 +14,7 @@ export class QuestionnaireComponent implements OnInit {
 
   questions: any;
   signupStatus = true;
-  pageNumbers : any = [1,2,3,4,5,6,7,8,9,10];
+  width: any = 0;
   // user:any = {};
    user: any = {
      fname: "Abhishek",
@@ -39,18 +39,20 @@ export class QuestionnaireComponent implements OnInit {
       this.submitSurvey(result);
     });
     const pagesValue = [];
-    SurveyJs.SurveyNG.render("survey", { model: survey });
-    console.log(survey); 
-    
-    }
-  getStatusValue(item){
-    if(item == 1){
-      return 20;
-    }
-    else if (item == 2){
-      return 40;
-    }
+    SurveyJs.SurveyNG.render("survey", { model: survey, onCurrentPageChanged: this.doOnCurrentPageChanged});
+    this.doOnCurrentPageChanged(survey, this);
   }
+
+  doOnCurrentPageChanged(survey, a) {
+  // document
+  //   .getElementById('surveyProgress')
+  //   .innerText = "Question " + (
+  //   survey.currentPage.visibleIndex + 1) + " of " + survey.PageCount;
+      // console.log(survey.currentPage);
+      a.width = ((survey.currentPage.visibleIndex + 1) / survey.PageCount) * 100;
+      document.getElementById('progress-bar').style.width = a.width + '%';
+      }
+      
   checkSignup() {
     this.signupStatus = this.surveyService.isUserSet();
     if(!this.signupStatus) {
@@ -77,10 +79,6 @@ export class QuestionnaireComponent implements OnInit {
     error => {
       console.log(error);
     }
-    // you can add completion callbacks, like so
-    // , () => {
-    //   // content
-    // }
   )
   }
 

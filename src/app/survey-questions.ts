@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class SurveyQuestions {
     public questions = {
-        completedHtml: "<div class='completeText'>Thank you for taking your time to answer our questions.</div>",
+        completedHtml: "<div class='completeText'>Thank you for taking your time to answer our questions.Your gift will be sent to your email.</div>",
         pages: [
           {
             name: "Question 1",
@@ -168,7 +168,6 @@ export class SurveyQuestions {
                 type: "dropdown",
                 name: "How many days are you going to stay here?",
                 visible: true,
-                visibleIf: "{What kind of services are you looking  for?} notempty or {Are you willing to check what we offer in these areas?} = 'No'",
                 isRequired: true,
                 choices: [
                   "1",
@@ -182,6 +181,7 @@ export class SurveyQuestions {
         showPrevButton: false,
         showQuestionNumbers: "off",
         completeText: "Complete Survey",
-        requiredText: ""
+        requiredText: "",
+        
     };
 }
