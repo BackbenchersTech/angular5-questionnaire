@@ -1,25 +1,31 @@
-.usersList  {
-	width: 95%;
-	margin: 0 auto;
-	padding-top: 25px;
+.usersList {
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 25px;
 }
 
 .usersList .btn {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .table thead th {
-	vertical-align: top;
+    vertical-align: top;
 }
 
 #resultsTable {
-	white-space: nowrap;
+    white-space: nowrap;
+}
+
+.viewChartsBtn {
+    background-color: #3b6caa;
+    color: white;
 }
 
 .table-responsive {
-	overflow-x: scroll;
-	border: 1px solid #ededed;
+    overflow-x: scroll;
+    border: 1px solid #ededed;
 }
+
 
 /* .table-responsive::-webkit-scrollbar { 
     display: none;  

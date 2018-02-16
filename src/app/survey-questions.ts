@@ -3,181 +3,122 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class SurveyQuestions {
     public questions = {
-        completedHtml: "<div class='completeText'>Thank you for taking your time to answer our questions.Your gift will be sent to your email.</div>",
-        pages: [
-          {
-            name: "Question 1",
-            elements: [
-              {
-                type: "checkbox",
-                name: "What is your purpose to visit IBM Think?",
-                isRequired: true,
-                hasOther: true,
-                choices: [
-                  "Networking",
-                  "Sales/Marketing",
-                  "Developing",
-                  "Option 4"
-                ]
-              }
-            ]
-          },
-          {
-            name: "Question 2",
-            elements: [
-              {
-                type: "checkbox",
-                name: "What technologies are you interested in?",
-                visible: false,
-                visibleIf: "{What is your purpose to visit IBM Think?} notempty",
-                isRequired: true,
-                hasOther: true,
-                choices: [
-                  "Cloud",
-                  "Customer Engagements",
-                  "Data & Analytics",
-                  "IBM Research",
-                  "Internet of Things",
-                  "IT Infrastructure",
-                  "Mobile",
-                  "Security",
-                  "Watson",
-                  "Collaboration"
-                ]
-              }
-            ]
-          },
-          {
-            name: "Question 3",
-            elements: [
-              {
-                type: "radiogroup",
-                name: "Are you using any framework/platform now?",
-                visible: false,
-                visibleIf: "{What technologies are you interested in?} notempty",
-                isRequired: true,
-                choices: [
-                  "Yes",
-                  "No"
-                ]
-              }
-            ]
-          },
-          {
-            name: "Question 4",
-            elements: [
-              {
-                type: "comment",
-                name: "Which platforms are you using?",
-                visible: false,
-                visibleIf: "{Are you using any framework/platform now?} = 'Yes'",
-                isRequired: true
-              }
-            ]
-          },
-          {
-            name: "Question 5",
-            elements: [
-              {
-                type: "radiogroup",
-                name: "Are you willing to migrate to one?",
-                visible: false,
-                visibleIf: "{Are you using any framework/platform now?} = 'No'",
-                isRequired: true,
-                choices: [
-                  "Yes",
-                  "No"
-                ]
-              }
-            ]
-          },
-          {
-            name: "Question 6",
-            elements: [
-              {
-                type: "checkbox",
-                name: "Which platform would you be willing to go to?",
-                visible: false,
-                visibleIf: "{Are you willing to migrate to one?} = 'Yes'",
-                isRequired: true,
-                hasOther: true,
-                choices: [
-                  "IBM",
-                  "Microsoft",
-                  "Intel"
-                ]
-              }
-            ]
-          },
-          {
-            name: "Question 7",
-            elements: [
-              {
-                type: "checkbox",
-                name: "Are you using any IBM products now?",
-                visible: false,
-                visibleIf: "{Which platforms are you using?} notempty or {Are you willing to migrate to one?} = 'No'",
-                isRequired: true,
-                hasOther: true,
-                choices: [
-                  "Watson Internet of Things Platform",
-                  "IBM Security Access Manager for DataPower",
-                  "Cognos Analytics",
-                  "IBM Connections"
-                ]
-              }
-            ]
-          },
-          {
-            name: "Question 8",
-            elements: [
-              {
-                type: "radiogroup",
-                name: "Are you willing to check what we offer in these areas?",
-                visible: false,
-                visibleIf: "{Which platform would you be willing to go to?} notempty or {Are you using any IBM products now?} notempty",
-                isRequired: true,
-                choices: [
-                  "Yes",
-                  "No"
-                ]
-              }
-            ]
-          },
-          {
-            name: "Question 9",
-            elements: [
-              {
-                type: "checkbox",
-                name: "What kind of services are you looking  for?",
-                visible: false,
-                visibleIf: "{Are you willing to check what we offer in these areas?} = 'Yes'",
-                isRequired: true,
-                choices: [
-                  "On-site",
-                  "Remote",
-                  "Off-shore"
-                ]
-              }
-            ]
-          },
-          {
-            name: "Question 10",
-            elements: [
-              {
-                type: "dropdown",
-                name: "How many days are you going to stay here?",
-                visible: true,
-                isRequired: true,
-                choices: [
-                  "1",
-                  "2",
-                  "3"
-                ]
-              }
-            ]
-          }
-        ],
+        completedHtml: "<div class='completeText'><h5>Success</h5><p>Check your inbox for the gift.</p><p>Thank you</p><h6>Open-Logix Corporation</h6></div>",
+      pages: [
+        {
+          name: "Question 1",
+          elements: [
+            {
+              type: "radiogroup",
+              name: "Are you partners/sponsers?",
+              isRequired: true,
+              choices: [
+                "Yes",
+                "No"
+              ]
+            }
+          ]
+        },
+        {
+          name: "Question 2",
+          elements: [
+            {
+              type: "checkbox",
+              name: "Which of the following areas are you interested in ?",
+              isRequired: true,
+              choices: [
+                "Clous and Data",
+                "Modern Infrastructure",
+                "Security and Resiliency",
+                "Business and AI"
+              ]
+            }
+          ]
+        },
+        {
+          name: "Question 3",
+          elements: [
+            {
+              type: "checkbox",
+              name: "Which of the following featured sessions are you interested in?",
+              isRequired: true,
+              choices: [
+                "Chairman's Address",
+                "Think Keynotes",
+                "Innovation Talks",
+                "Philanthropy and Citizenship"
+              ]
+            }
+          ]
+        },
+        {
+          name: "Question 4",
+          elements: [
+            {
+              type: "radiogroup",
+              name: "Are you interested in Labs/Certifications/DevZone?",
+              isRequired: true,
+              choices: [
+                "Yes",
+                "No"
+              ]
+            }
+          ]
+        },
+        {
+          name: "Question 5",
+          elements: [
+            {
+              type: "checkbox",
+              name: "Which of the following speakers are you interested in?",
+              isRequired: true,
+              hasOther: true,
+              choices: [
+                "Ginni Rometty ",
+                "Maya Leibman",
+                "Gary Reedy",
+                "Arvind Krishna"
+              ]
+            }
+          ]
+        },
+        {
+          name: "Question 6",
+          elements: [
+            {
+              type: "checkbox",
+              name: "Which places have to visited on IBM think campus?",
+              isRequired: true,
+              choices: [
+                "Thinks Tanks",
+                "Theater",
+                "Networking events",
+                "Demonstrations",
+                "Entertainment",
+                "Food + Beverage"
+              ]
+            }
+          ]
+        },
+        {
+          name: "Question 7",
+          elements: [
+            {
+              type: "checkbox",
+              name: "Which hotel did you book to stay for this event?",
+              isRequired: true,
+              hasOther: true,
+              choices: [
+                "MGM Grand Hotel",
+                "Manadalay Resort & Casino",
+                "Bellagio",
+                "Delano Las Vegas",
+                "Luxor Las Vegas"
+              ]
+            }
+          ]
+        }
+      ],
         showPrevButton: false,
         showQuestionNumbers: "off",
         completeText: "Complete Survey",
