@@ -44,11 +44,6 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   doOnCurrentPageChanged(survey, a) {
-  // document
-  //   .getElementById('surveyProgress')
-  //   .innerText = "Question " + (
-  //   survey.currentPage.visibleIndex + 1) + " of " + survey.PageCount;
-      // console.log(survey.currentPage);
       a.width = ((survey.currentPage.visibleIndex + 1) / survey.PageCount) * 100;
       document.getElementById('progress-bar').style.width = a.width + '%';
       }

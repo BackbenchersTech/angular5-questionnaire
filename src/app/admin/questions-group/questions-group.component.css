@@ -19,13 +19,24 @@
     cursor: pointer;
 }
 
+canvas {
+    margin: 0 auto;
+}
+
 .resultsWrap {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
 }
 
 @media screen and (min-width:768px) {
     .buttonWrap {
         display: none;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .resultsWrap {
+        width: 90%;
+        margin: 0 auto;
     }
 }

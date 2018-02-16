@@ -20,18 +20,17 @@
 }
 
 .appFooter div {
-    background-color: rgba(23, 162, 184, 0.7);
-    color: #fdfdfd;
-    padding: 10px;
+    color: rgba(23, 162, 184, 0.7);
     font-size: 18px;
-    line-height: 26px;
+    line-height: 0px;
+    padding: 10px 0px;
 }
 
 .appFooter {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 45px;
+    line-height: 24px;
 }
 
 .containerWrap {

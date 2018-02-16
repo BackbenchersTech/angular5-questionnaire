@@ -5,11 +5,17 @@
         </div>
         <form (ngSubmit)="onSubmit()" #initialForm="ngForm" class="col-12 formWrap">
             <div class="form-group">
-                <input class="form-control field" type="text" name="fname" [(ngModel)]="user.fname" placeholder="First Name" required #fname="ngModel">
+                <input class="form-control field" type="text" name="fname" [(ngModel)]="user.fname" placeholder="First Name" required #fname="ngModel" pattern="\b(?!\btest\b)(?!\bsample\b)(?!\buser\b)(?!\bfoo\b)(?!\bbar\b)[a-zA-Z']+\b">
                 <label for="fname">First Name</label>
-                <div class="alertMessage" [hidden]="fname.valid || fname.pristine">
-                    First Name is a required field
+                <div [hidden]="fname.pristine || fname. valid">
+                    <div [hidden]="!fname.hasError('required')" class="alertMessage">
+                        First Name is a required field
+                    </div>
+                    <div [hidden]="!fname.hasError('pattern')" class="alertMessage">
+                        Please enter valid name
+                    </div>
                 </div>
+
             </div>
 
             <div class="form-group">
