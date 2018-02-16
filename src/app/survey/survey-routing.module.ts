@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SignupComponent } from './signup/signup.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { NolocationComponent } from './nolocation/nolocation.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'questionnaire',
     component: QuestionnaireComponent
+  },
+  {
+    path: 'nolocation',
+    component: NolocationComponent
   },
   {
     path: '',
