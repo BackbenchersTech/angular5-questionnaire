@@ -14,10 +14,9 @@
                         </ul>
                     </div>
                 </div>
-                <!-- {{answersData[question].statBased}} -->
-                <div class="col-md-6 col-12" [hidden]="!answersData[question].statBased">
-                    <div [hidden]="!visibility['canvas' + i]" class="canvasWrap">
-                        <canvas #parent id="{{'canvas' + i}}" width="250" height="250">{{ chart }}</canvas>
+                <div class="col-sm-6 col-12" [hidden]="!answersData[question].statBased">
+                    <div [hidden]="!canvasVisibility['canvas' + i]" class="canvasWrap">
+                        <canvas #parent id="{{'canvas' + i}}" width="300" height="300"></canvas>
                     </div>
                     <div class="buttonWrap">
                         <div class="text-center displayBtn" [hidden]="this.submitted['canvas' + i]">

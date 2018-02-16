@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, AfterViewInit, ViewChildren } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, ViewChildren, HostListener, OnChanges } from '@angular/core';
 import { Chart } from 'chart.js';
 
 import { AdminService } from '../admin.service';
@@ -8,16 +8,24 @@ import { AdminService } from '../admin.service';
   templateUrl: './questions-group.component.html',
   styleUrls: ['./questions-group.component.css']
 })
-export class QuestionsGroupComponent implements AfterViewInit {
+export class QuestionsGroupComponent implements OnChanges {
 
   answersData: any;
   questions: any;
-  chart: any = [];
-  visibility: any = [];
-  selectedState: any = [];
+  canvasVisibility: any = [];
   submitted: any = [];
 
   @ViewChildren('parent') canvases;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    if (event.target.innerWidth > 767 ) {
+      this.showAllCharts();
+    }
+    else {
+      this.hideAllCharts();
+    }
+  }
  
   constructor(private adminService: AdminService,
               private elementRef: ElementRef) { }
@@ -27,6 +35,10 @@ export class QuestionsGroupComponent implements AfterViewInit {
     this.canvases.changes.subscribe(() => {
       this.makeCharts(this.canvases.toArray())
     });
+  }
+
+  ngOnChanges() {
+    console.log("hey")
   }
 
   getAnswersDataData() {
@@ -49,21 +61,21 @@ export class QuestionsGroupComponent implements AfterViewInit {
 
   showLess(i) {
     this.submitted["canvas" + i] = false;
-    this.visibility["canvas" + i] = false;
+    this.canvasVisibility["canvas" + i] = false;
   }
 
   showChart(i) {
     this.submitted["canvas" + i] = true;
-    this.visibility["canvas" + i] = true;
+    this.canvasVisibility["canvas" + i] = true;
   }
 
   makeCharts(canvases) {
     for(let i =  0; i < this.questions.length; i++) {
       let question = this.questions[i];
       if(!this.answersData[question].statBased) {
-        this.visibility["canvas" + i]=false;
-        continue
+        this.canvasVisibility["canvas" + i]=false;
       }
+      else {
       let answer = this.answersData[question];
       let a = Object.assign({}, answer);
       delete a.statBased;
@@ -76,7 +88,7 @@ export class QuestionsGroupComponent implements AfterViewInit {
           datasets: [
             {
               data: Object.values(a),
-              borderColor: 'White',
+              borderColor: 'white',
               backgroundColor: colors,
               hoverBorderColor: "white"
             }
@@ -85,9 +97,9 @@ export class QuestionsGroupComponent implements AfterViewInit {
         options:{
           responsive:false
         }
-
       });
-      this.visibility["canvas" + i] = (window.innerWidth > 768) ? true : false;
+      this.canvasVisibility["canvas" + i] = (window.innerWidth > 767) ? true : false;
+      }
     }
   }
   
@@ -95,6 +107,20 @@ export class QuestionsGroupComponent implements AfterViewInit {
     let lights = ['#FF8A65', '#90A4AE', '#FFF176', '#81C784', '#4FC3F7', '#9575CD', '#7986CB', '#F06292', '#AED581', '#FFB74D', '#A1887F', '#E0E0E0'];
 
     return lights.splice(0, number+1);
+  }
+
+  showAllCharts() {
+    for (let i in this.canvasVisibility) {
+      this.canvasVisibility[i] = true;
+      this.submitted[i] = false;
+    }
+  }
+
+  hideAllCharts() {
+    for (let i in this.canvasVisibility) {
+      this.canvasVisibility[i] = false;
+      this.submitted[i] = false;
+    }
   }
 
 }
