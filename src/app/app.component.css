@@ -6,17 +6,19 @@
     height: 200px;
 }
 
-.appTitle div {
+.appTitle .gradient {
     height: 100%;
     background: rgba(59, 99, 170, 0.7);
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .appTitle h2 {
     font-size: 24px;
+    padding-bottom: 15px
 }
 
 .appFooter div {

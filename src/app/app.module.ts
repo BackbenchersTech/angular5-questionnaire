@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SurveyQuestions } from './survey-questions';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
