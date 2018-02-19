@@ -21,7 +21,7 @@ export class SurveyService {
   }
 
   saveUser(user): any {
-    return this.http.post('http://angular5-questionnaire.herokuapp.com/api/users', user, httpOptions)
+    return this.http.post('https://angular5-questionnaire.herokuapp.com/api/users', user, httpOptions)
   }
   
   getCurrentUser(): any {
@@ -40,7 +40,7 @@ export class SurveyService {
   }
 
   saveSurvey(survey): any {
-    return this.http.post('http://angular5-questionnaire.herokuapp.com/api/data', survey, httpOptions)
+    return this.http.post('https://angular5-questionnaire.herokuapp.com/api/data', survey, httpOptions)
   }
 
 }
