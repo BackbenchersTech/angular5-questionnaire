@@ -10,7 +10,7 @@ export class SurveyQuestions {
           elements: [
             {
               type: "radiogroup",
-              name: "Are you partners/sponsers?",
+              name: "Are you a partner or sponsor?",
               isRequired: true,
               choices: [
                 "Yes",
@@ -24,10 +24,10 @@ export class SurveyQuestions {
           elements: [
             {
               type: "checkbox",
-              name: "Which of the following areas are you interested in ?",
+              name: "In what areas do you have extensive practices?",
               isRequired: true,
               choices: [
-                "Clous and Data",
+                "Cloud and Data",
                 "Modern Infrastructure",
                 "Security and Resiliency",
                 "Business and AI"
@@ -40,13 +40,13 @@ export class SurveyQuestions {
           elements: [
             {
               type: "checkbox",
-              name: "Which of the following featured sessions are you interested in?",
+              name: "Which featured sessions are you looking forward to attend?",
               isRequired: true,
               choices: [
                 "Chairman's Address",
                 "Think Keynotes",
                 "Innovation Talks",
-                "Philanthropy and Citizenship"
+                "Philanthropy & Citizenship"
               ]
             }
           ]
@@ -56,7 +56,7 @@ export class SurveyQuestions {
           elements: [
             {
               type: "radiogroup",
-              name: "Are you interested in Labs/Certifications/DevZone?",
+              name: "Are you interested in any Labs/Certifications/DevZone?",
               isRequired: true,
               choices: [
                 "Yes",
@@ -70,11 +70,11 @@ export class SurveyQuestions {
           elements: [
             {
               type: "checkbox",
-              name: "Which of the following speakers are you interested in?",
+              name: "Whose addresses are you interested in?",
               isRequired: true,
               hasOther: true,
               choices: [
-                "Ginni Rometty ",
+                "Ginni Rometty",
                 "Maya Leibman",
                 "Gary Reedy",
                 "Arvind Krishna"
@@ -87,15 +87,15 @@ export class SurveyQuestions {
           elements: [
             {
               type: "checkbox",
-              name: "Which places have to visited on IBM think campus?",
+              name: "Which areas have you explored on the IBM Think campus?",
               isRequired: true,
               choices: [
-                "Thinks Tanks",
+                "Think Tanks",
                 "Theater",
                 "Networking events",
                 "Demonstrations",
                 "Entertainment",
-                "Food + Beverage"
+                "Food & Beverage"
               ]
             }
           ]
@@ -105,7 +105,7 @@ export class SurveyQuestions {
           elements: [
             {
               type: "checkbox",
-              name: "Which hotel did you book to stay for this event?",
+              name: "Where are you staying for the event?",
               isRequired: true,
               hasOther: true,
               choices: [
