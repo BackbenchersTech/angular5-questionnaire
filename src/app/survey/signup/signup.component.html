@@ -1,8 +1,8 @@
 <div class="formContainer">
     <div class="formSection">
-        <div class="formHeading">Survey Signup</div>
+        <!-- <div class="formHeading">Survey Signup</div>
         <div class="formSubHeading text-muted">Welcome to our Survey Application
-        </div>
+        </div> -->
         <form (ngSubmit)="onSubmit()" #initialForm="ngForm" class="col-12 formWrap">
             <div class="form-group">
                 <input class="form-control field" type="text" name="fname" [(ngModel)]="user.fname" placeholder="First Name" required #fname="ngModel" pattern="\b(?!\btest\b)(?!\bsample\b)(?!\buser\b)(?!\bfoo\b)(?!\bbar\b)[a-zA-Z']+\b">

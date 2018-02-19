@@ -15,24 +15,24 @@ export class QuestionnaireComponent implements OnInit {
   questions: any;
   signupStatus = true;
   width: any = 0;
-  // user:any = {};
-   user: any = {
-     fname: "Abhishek",
-     lname: "Piedy",
-     role: "Developer",
-     company: "OpenLogix Corporation",
-     email: "abhishek.piedy@gmail.com",
-     phone: "4847577819",
-     userId: 23324
-   }
+  user:any = {};
+  //  user: any = {
+  //    fname: "Abhishek",
+  //    lname: "Piedy",
+  //    role: "Developer",
+  //    company: "OpenLogix Corporation",
+  //    email: "abhishek.piedy@gmail.com",
+  //    phone: "4847577819",
+  //    userId: 23324
+  //  }
 
   constructor(private surveyService: SurveyService,
               private router: Router ) { }  
   
   ngOnInit() {
     SurveyJs.Survey.cssType = "bootstrap";
-    // this.checkSignup();
-    // this.getUserDets();
+    this.checkSignup();
+    this.getUserDets();
     this.getQuestions();
     var survey = new SurveyJs.Model(this.questions);
     survey.onComplete.add(result => {
