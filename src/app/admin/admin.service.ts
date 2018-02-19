@@ -16,13 +16,13 @@ export class AdminService {
 
   getUsersAndSurvey(): any {
     return Observable.forkJoin(
-      this.http.get('http://localhost:3500/api/users'),
-      this.http.get('http://localhost:3500/api/data')
+      this.http.get('http://angular5-questionnaire.herokuapp.com/api/users'),
+      this.http.get('http://angular5-questionnaire.herokuapp.com/api/data')
     );
   }
 
   getSurvey(): any {
-    return this.http.get('http://localhost:3500/api/data')
+    return this.http.get('http://angular5-questionnaire.herokuapp.com/api/data')
   }
 
   formAnswersObject(): any {
