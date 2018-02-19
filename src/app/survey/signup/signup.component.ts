@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.location.getLocationStatus();
+    // this.location.getLocationStatus();
   }
 
 }
