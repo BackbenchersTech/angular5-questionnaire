@@ -1,0 +1,24 @@
+.locationWrap {
+    position: relative;
+    top: -65px;
+    margin: 0 auto;
+    padding: 15px;
+    background: white;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    height: 70vh;
+    width: 80%;
+    max-width: 400px;
+}
+
+.locationMessage {
+    width: 80%;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: calc(100% - 225px);
+    color: white;
+    background-color: #3b6caa;
+    font-size: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}

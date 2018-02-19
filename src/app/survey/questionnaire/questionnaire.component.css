@@ -6,7 +6,7 @@
     background: white;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
-    height: 70vh;
+    height: 75vh;
     width: calc(100% - 30px);
     max-width: 400px;
 }
@@ -28,9 +28,26 @@
 }
 
 .onRegister .surveyContainer {
-    height: calc(100% - 51px);
+    height: calc(100% - 90px);
 }
 
 .onRegister .surveyContainer #survey {
     height: 100%;
+}
+
+.progressBarWrap {
+    margin: 10px 15px;
+}
+
+#progressContainer {
+    width: 100%;
+    height: 10px;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+}
+
+#progress-bar {
+    width: 10%;
+    background-color: #3b6caa;
+    height: 10px;
 }

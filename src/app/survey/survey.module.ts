@@ -6,8 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { SurveyRoutingModule } from './survey-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { NolocationComponent } from './nolocation/nolocation.component';
 
 import { SurveyService } from './survey.service';
+import { LocationService } from './location.service';
 
 @NgModule({
   imports: [
@@ -16,9 +18,10 @@ import { SurveyService } from './survey.service';
     FormsModule,
     HttpClientModule
   ],
-  declarations: [SignupComponent, QuestionnaireComponent],
+  declarations: [SignupComponent, QuestionnaireComponent, NolocationComponent],
   providers: [
-    SurveyService
+    SurveyService,
+    LocationService
   ]
 })
 export class SurveyModule { }

@@ -5,17 +5,28 @@
 
 .formSection {
     position: relative;
-    top: -65px;
+    top: -55px;
     background: white;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     margin: 0 auto;
     border-radius: 4px;
     max-height: calc(100% + 50px);
     overflow: scroll;
-    padding: 15px;
-    padding-top: 30px;
+    padding: 25px 15px;
     width: calc(100% - 30px);
     max-width: 400px;
+}
+
+.formSection .formHeading {
+    font-size: 16px;
+    font-family: 'Roboto';
+    line-height: 18px;
+    font-weight: 700;
+}
+
+.formSection .formSubHeading {
+    font-size: 14px;
+    margin-bottom: 15px;
 }
 
 .formSection form {
@@ -102,6 +113,6 @@
 }
 
 .startBtn {
-    background-color: rgba(23, 162, 184, 0.7);
+    background-color: #3b6caa;
     color: #fff;
 }

@@ -14,7 +14,46 @@
 }
 
 .questionsCard .showLess a {
-    color: #007bff;
+    color: #3b6caa;
     font-weight: bold;
     cursor: pointer;
+}
+
+.stats ul {
+    list-style: none;
+}
+
+.stats ul>li::before {
+    content: "•";
+    color: #3b6caa;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em
+}
+
+canvas {
+    margin: 0 auto;
+}
+
+.resultsWrap {
+    width: 80%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width:768px) {
+    .buttonWrap {
+        display: none;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .resultsWrap {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+.showChartBtn {
+    background-color: #3b6caa;
+    color: white;
 }

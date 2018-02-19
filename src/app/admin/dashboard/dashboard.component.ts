@@ -42,10 +42,6 @@ export class DashboardComponent implements OnInit {
 				 this.result = this.usersData.users.map(val => {
    					return Object.assign({}, val, a.filter(v => v.userId === val._id)[0]);
 				});
-				// console.log(this.colHeaders);
-				// this.colHeaders.splice(0,2);
-				// this.colHeaders.splice(6,1);
-				// this.colHeaders.splice(14,1);
 				this.columnNames = {
 					"fname": "First Name",
 					"lname": "Last Name",
@@ -53,16 +49,13 @@ export class DashboardComponent implements OnInit {
 					"role": "Role",
 					"email": "E-mail",
 					"phone": "Phone",
-					"What is your purpose to visit IBM Think?": "Purpose",
-					"What technologies are you interested in?": "Technology interest",
-					"Are you using any framework/platform now?": "Using platforms?",
-					"Which platforms are you using?": "Current Platforms",
-					"Are you willing to migrate to one?": "Will Migrate?",
-					"Which platform would you be willing to go to?": "Interested to migrate to",
-					"Are you using any IBM products now?": "Using IBM Products?",
-					"Are you willing to check what we offer in these areas?": "Check our offers?",
-					"What kind of services are you looking  for?": "Services looking for",
-					"How many days are you going to stay here?": "Days Left"
+					"Are you a partner or sponsor?": "Partner/Sponsor",
+					"In what areas do you have extensive practices?": "Interested Areas",
+					"Which featured sessions are you looking forward to attend?": "Interested Featured Sessions",
+					"Are you interested in any Labs/Certifications/DevZone?": "Labs/Certifications/DevZone Interest",
+					"Whose addresses are you interested in?": "Interested Speakers",
+					"Which areas have you explored on the IBM Think campus?": "Places on IBM think campus",
+					"Where are you staying for the event?": "Hotel Staying in",
 				}
 				this.colHeaders = Object.keys(this.columnNames);
 			},

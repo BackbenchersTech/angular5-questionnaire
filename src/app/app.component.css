@@ -6,16 +6,35 @@
     height: 200px;
 }
 
-.appTitle div {
+.appTitle .gradient {
     height: 100%;
-    background: rgba(23, 162, 184, 0.7);
+    background: rgba(59, 99, 170, 0.7);
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .appTitle h2 {
     font-size: 24px;
+    padding-bottom: 15px
 }
 
+.appFooter div {
+    color: #3b6caa;
+    font-size: 18px;
+    line-height: 0px;
+    padding: 10px 0px;
+}
+
+.appFooter {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: 24px;
+}
+
+.containerWrap {
+    min-height: calc(100vh - 200px);
+}

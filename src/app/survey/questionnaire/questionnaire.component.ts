@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import * as SurveyJs from 'survey-angular';
 
@@ -14,32 +14,40 @@ export class QuestionnaireComponent implements OnInit {
 
   questions: any;
   signupStatus = true;
-  // user:any = {};
-   user: any = {
-     fname: "Abhishek",
-     lname: "Piedy",
-     role: "Developer",
-     company: "OpenLogix Corporation",
-     email: "abhishek.piedy@gmail.com",
-     phone: "4847577819",
-     userId: 23324
-   }
+  width: any = 0;
+  user:any = {};
+  //  user: any = {
+  //    fname: "Abhishek",
+  //    lname: "Piedy",
+  //    role: "Developer",
+  //    company: "OpenLogix Corporation",
+  //    email: "abhishek.piedy@gmail.com",
+  //    phone: "4847577819",
+  //    userId: 23324
+  //  }
 
   constructor(private surveyService: SurveyService,
               private router: Router ) { }  
   
   ngOnInit() {
     SurveyJs.Survey.cssType = "bootstrap";
-    // this.checkSignup();
-    // this.getUserDets();
+    this.checkSignup();
+    this.getUserDets();
     this.getQuestions();
     var survey = new SurveyJs.Model(this.questions);
     survey.onComplete.add(result => {
       this.submitSurvey(result);
     });
-    SurveyJs.SurveyNG.render("survey", { model: survey });
+    const pagesValue = [];
+    SurveyJs.SurveyNG.render("survey", { model: survey, onCurrentPageChanged: this.doOnCurrentPageChanged});
+    this.doOnCurrentPageChanged(survey, this);
   }
 
+  doOnCurrentPageChanged(survey, a) {
+      a.width = ((survey.currentPage.visibleIndex + 1) / survey.PageCount) * 100;
+      document.getElementById('progress-bar').style.width = a.width + '%';
+      }
+      
   checkSignup() {
     this.signupStatus = this.surveyService.isUserSet();
     if(!this.signupStatus) {
@@ -66,10 +74,6 @@ export class QuestionnaireComponent implements OnInit {
     error => {
       console.log(error);
     }
-    // you can add completion callbacks, like so
-    // , () => {
-    //   // content
-    // }
   )
   }
 

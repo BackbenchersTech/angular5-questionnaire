@@ -4,6 +4,7 @@ body {
     font-family: 'Lato';
     height: 100vh;
     background-color: #f7f7f7;
+    color: #323232;
 }
 
 h1,
@@ -27,9 +28,13 @@ h6 {
 }
 
 .completeText {
-    width: 80%;
     padding: 20px;
+    margin: 0 16px;
+    color: white;
+    background-color: #3b6caa;
     font-size: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+    text-align: center;
 }
 
 .usersList .ngx-pagination {
@@ -54,10 +59,11 @@ h6 {
     padding: 10px 0;
     text-align: center;
     border-radius: 3px;
-    background-color: rgba(23, 162, 184, 0.7);
+    background-color: #3b6caa;
     color: white;
     font-size: 18px;
     line-height: 18px;
+    border: none;
 }
 
 .sv_container .panel-body.card-block div[id^="sp_"],
@@ -65,27 +71,110 @@ h6 {
     height: calc(100% - 40px);
 }
 
-.sv_container .panel-body.card-block div[id^="sp_"] > div,
-.sv_container .panel-body.card-block div[id*="sp_"] > div {
+.sv_container .panel-body.card-block div[id^="sp_"]>div,
+.sv_container .panel-body.card-block div[id*="sp_"]>div {
     height: inherit;
 }
 
-.sv_container .panel-body.card-block div[id^="sp_"] > div > div:last-child,
-.sv_container .panel-body.card-block div[id*="sp_"] > div > div:last-child,
+.sv_container .panel-body.card-block div[id^="sp_"]>div>div:last-child,
+.sv_container .panel-body.card-block div[id*="sp_"]>div>div:last-child,
 .sv_container .panel-body.card-block div[id^="sq_"],
 .sv_container .panel-body.card-block div[id*="sq_"] {
     height: 100%;
 }
 
-.sv_container .panel-body.card-block div[id^="sq_"] > div:first-child h5,
-.sv_container .panel-body.card-block div[id*="sq_"] > div:first-child h5 {
+.sv_container .panel-body.card-block div[id^="sq_"]>div:first-child h5,
+.sv_container .panel-body.card-block div[id*="sq_"]>div:first-child h5 {
     font-size: 18px;
     line-height: 24px;
 }
 
-.sv_container .panel-body.card-block div[id^="sq_"] > div:last-child,
-.sv_container .panel-body.card-block div[id*="sq_"] > div:last-child {
-    height: calc(100% - 72px + 10px);
+.sv_container .panel-body.card-block div[id^="sq_"]>div:last-child,
+.sv_container .panel-body.card-block div[id*="sq_"]>div:last-child {
+    height: calc(100% - 15px + 10px);
     overflow-y: scroll;
     padding-top: 10px;
+}
+
+div.checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.sv_qcbx .checkbox label {
+    display: inline-flex !important;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+div.checkbox input[type="checkbox"]+span:before {
+    content: '';
+    margin-right: 10px;
+    left: 0px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 25px;
+    height: 25px;
+    background: #e8e8e8;
+}
+
+div.checkbox span.checkbox-material {
+    margin-right: 5px;
+}
+
+div.checkbox input[type="checkbox"]:checked+span:before {
+    background: #3b6caa;
+}
+
+div.checkbox input[type="checkbox"]:checked+span:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    border-right: none !important;
+    border-top: none !important;
+    width: 15px;
+    height: 8px;
+    border: 3px solid #FFFFFF;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+div.radio input[type="radio"] {
+    display: none;
+}
+
+.sv_qcbc .radio label {
+    display: inline-flex !important;
+    position: relative;
+}
+
+div.radio span.circle {
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+div.radio input[type="radio"]+span:before {
+    content: "";
+    height: 18px;
+    width: 18px;
+    border: 2px solid #aeaeae;
+    display: inline-block;
+    left: 0px;
+    border-radius: 50%;
+}
+
+div.radio input[type="radio"]:checked+span:before {
+    background: white;
+}
+
+div.radio input[type="radio"]:checked+span:after {
+    background: #3b6caa;
+    content: "";
+    height: 8px;
+    width: 8px;
+    display: inline-block;
+    position: absolute;
+    left: 5px;
+    border-radius: 50%;
+    margin-top: 5px;
 }
