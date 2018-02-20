@@ -8,8 +8,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let x of result | paginate: { itemsPerPage: 5, currentPage: p  };">
-                    <td scope="row" *ngFor="let header of colHeaders">
+                <tr *ngFor="let x of result |paginate: { itemsPerPage: 5, currentPage: p  };">
+                    <td scope="row" *ngFor="let header of colHeaders" >
                         {{ x[header] }}
                     </td>
                 </tr>

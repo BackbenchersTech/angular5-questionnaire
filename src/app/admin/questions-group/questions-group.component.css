@@ -21,15 +21,47 @@
 
 .stats ul {
     list-style: none;
+    padding: 0px;
 }
 
-.stats ul>li::before {
+.stats ul>li {
+    padding: 5px;
+    margin: 10px 0px;
+    line-height: 28px;
+    border:1px solid #3b6caa;
+    padding: 0px 10px;
+    background-color: #fff;
+    color:#3b6caa;
+    border-radius:20px;
+    box-shadow: inset 0 0 8px #3b6caa;
+    padding-right: 0px;
+}
+
+.stats ul>li .answerKey {
+    display: inline-flex;
+    line-height: 40px;
+
+}
+
+.stats ul>li .answerValue {
+    display: inline;
+    float: right;
+    padding-left: 15px;
+    width: 40px;
+    border: 1px solid #fff;
+    border-radius:20px;
+    line-height: 38px;
+    background-color: #3b6caa;
+    box-shadow: 0px 0px 8px 2px #3b6caa;
+    color:#fff;
+}
+/*.stats ul>li::before {
     content: "•";
     color: #3b6caa;
     display: inline-block;
     width: 1em;
     margin-left: -1em
-}
+}*/
 
 canvas {
     margin: 0 auto;
