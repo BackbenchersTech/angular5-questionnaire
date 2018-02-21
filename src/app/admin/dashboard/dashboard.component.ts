@@ -42,6 +42,8 @@ export class DashboardComponent implements OnInit {
 				 this.result = this.usersData.users.map(val => {
    					return Object.assign({}, val, a.filter(v => v.userId === val._id)[0]);
 				});
+				 // console.log(this.result);
+
 				this.columnNames = {
 					"fname": "First Name",
 					"lname": "Last Name",
@@ -49,13 +51,16 @@ export class DashboardComponent implements OnInit {
 					"role": "Role",
 					"email": "E-mail",
 					"phone": "Phone",
-					"Are you a partner or sponsor?": "Partner/Sponsor",
+
+					"Are you a partner or sponsor?": "Partners/Sponsers",
 					"In what areas do you have extensive practices?": "Interested Areas",
 					"Which featured sessions are you looking forward to attend?": "Interested Featured Sessions",
-					"Are you interested in any Labs/Certifications/DevZone?": "Labs/Certifications/DevZone Interest",
+					"Are you interested in any Labs/Certifications/DevZone?": "Labs/Certifications/DevZone",
 					"Whose addresses are you interested in?": "Interested Speakers",
 					"Which areas have you explored on the IBM Think campus?": "Places on IBM think campus",
-					"Where are you staying for the event?": "Hotel Staying in",
+					"Where are you staying for the event?": "Hotel Stay in",
+					// "signupTimestamp":"Time"
+
 				}
 				this.colHeaders = Object.keys(this.columnNames);
 			},
