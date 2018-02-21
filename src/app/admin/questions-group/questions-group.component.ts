@@ -1,6 +1,6 @@
 import { Component, ElementRef, AfterViewInit, ViewChildren, HostListener, OnChanges } from '@angular/core';
 import { Chart } from 'chart.js';
-
+import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -11,9 +11,11 @@ import { AdminService } from '../admin.service';
 export class QuestionsGroupComponent implements OnChanges {
 
   answersData: any;
+  userData: any;
   questions: any;
   canvasVisibility: any = [];
   submitted: any = [];
+  result: any;
 
   @ViewChildren('parent') canvases;
 
@@ -28,7 +30,7 @@ export class QuestionsGroupComponent implements OnChanges {
   }
  
   constructor(private adminService: AdminService,
-              private elementRef: ElementRef) { }
+              private elementRef: ElementRef,private router: Router) { }
  
   ngAfterViewInit() {
     this.getAnswersDataData();
@@ -38,11 +40,30 @@ export class QuestionsGroupComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    console.log("hey")
+    // console.log("hey")
   }
 
   getAnswersDataData() {
     this.answersData = this.adminService.getData();
+    // console.log(this.answersData);
+   // this.adminService.getUsersAndSurvey().subscribe(
+   //    data => {
+
+   //      this.userData = data[0];
+   //       this.result = this.userData.users;
+   //       console.log(this.result);
+   //       for(let i=0; i<= this.result.length; i++){
+   //         console.log(this.result[i].signupTimestamp);
+   //       }
+   //    },
+   //    err => {
+   //      console.log(err);
+   //    },
+   //    () => {
+       
+   //    }
+   //  );    
+
     if(Object.keys(this.answersData).length === 0) {
       this.adminService.formAnswersObject();
     }
@@ -59,6 +80,9 @@ export class QuestionsGroupComponent implements OnChanges {
     )
   }
 
+  showTable() {
+      this.router.navigate(['admin','dashboard']);
+    }
   showLess(i) {
     this.submitted["canvas" + i] = false;
     this.canvasVisibility["canvas" + i] = false;
@@ -82,11 +106,12 @@ export class QuestionsGroupComponent implements OnChanges {
       let colors = this.getColors(Object.keys(a).length);
       let ctx = canvases[i].nativeElement;
       let chart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
           labels: Object.keys(a),
           datasets: [
-            {
+            {  
+              label:"Percentage",
               data: Object.values(a),
               borderColor: 'white',
               backgroundColor: colors,
@@ -95,7 +120,25 @@ export class QuestionsGroupComponent implements OnChanges {
           ]
         },
         options:{
-          responsive:false
+          responsive:false,
+    //       scales: {
+    //     xAxes: [{
+    //         gridLines: {
+    //             offsetGridLines: false
+    //         },
+    //           ticks: {
+    //             max: 5,
+    //             min: 0,
+    //             stepSize: 1
+    //         }
+    //     }],
+    //      yAxes: [{
+    //         gridLines: {
+    //             offsetGridLines: true
+    //         }
+           
+    //     }]
+    // }
         }
       });
       this.canvasVisibility["canvas" + i] = (window.innerWidth > 767) ? true : false;
