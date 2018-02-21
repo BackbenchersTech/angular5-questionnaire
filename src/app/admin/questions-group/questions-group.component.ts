@@ -1,6 +1,6 @@
 import { Component, ElementRef, AfterViewInit, ViewChildren, HostListener, OnChanges } from '@angular/core';
 import { Chart } from 'chart.js';
-
+import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -30,7 +30,7 @@ export class QuestionsGroupComponent implements OnChanges {
   }
  
   constructor(private adminService: AdminService,
-              private elementRef: ElementRef) { }
+              private elementRef: ElementRef,private router: Router) { }
  
   ngAfterViewInit() {
     this.getAnswersDataData();
@@ -46,23 +46,23 @@ export class QuestionsGroupComponent implements OnChanges {
   getAnswersDataData() {
     this.answersData = this.adminService.getData();
     // console.log(this.answersData);
-   this.adminService.getUsersAndSurvey().subscribe(
-      data => {
+   // this.adminService.getUsersAndSurvey().subscribe(
+   //    data => {
 
-        this.userData = data[0];
-         this.result = this.userData.users;
-         console.log(this.result);
-         for(let i=0; i<= this.result.length; i++){
-           console.log(this.result[i].signupTimestamp);
-         }
-      },
-      err => {
-        console.log(err);
-      },
-      () => {
+   //      this.userData = data[0];
+   //       this.result = this.userData.users;
+   //       console.log(this.result);
+   //       for(let i=0; i<= this.result.length; i++){
+   //         console.log(this.result[i].signupTimestamp);
+   //       }
+   //    },
+   //    err => {
+   //      console.log(err);
+   //    },
+   //    () => {
        
-      }
-    );    
+   //    }
+   //  );    
 
     if(Object.keys(this.answersData).length === 0) {
       this.adminService.formAnswersObject();
@@ -80,6 +80,9 @@ export class QuestionsGroupComponent implements OnChanges {
     )
   }
 
+  showTable() {
+      this.router.navigate(['admin','dashboard']);
+    }
   showLess(i) {
     this.submitted["canvas" + i] = false;
     this.canvasVisibility["canvas" + i] = false;

@@ -55,13 +55,12 @@
     box-shadow: 0px 0px 8px 2px #3b6caa;
     color:#fff;
 }
-/*.stats ul>li::before {
-    content: "•";
-    color: #3b6caa;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em
-}*/
+
+.viewTableBtn{
+    background-color: #3b6caa;
+    color: white;
+    margin-left: 10px;
+}
 
 canvas {
     margin: 0 auto;
@@ -70,6 +69,7 @@ canvas {
 .resultsWrap {
     width: 80%;
     margin: 0 auto;
+    padding-top: 25px;
 }
 
 @media screen and (min-width:768px) {
