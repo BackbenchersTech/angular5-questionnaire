@@ -112,6 +112,9 @@
     border-bottom: 2px solid #A94442;
 }
 
+.ng-untouched[required] {
+     border-bottom: 2px solid #3b6caa;
+}
 .startBtn {
     background-color: #3b6caa;
     color: #fff;
