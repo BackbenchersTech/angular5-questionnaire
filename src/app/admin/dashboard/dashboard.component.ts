@@ -51,6 +51,7 @@ export class DashboardComponent implements OnInit {
 					"role": "Role",
 					"email": "E-mail",
 					"phone": "Phone",
+
 					"Are you a partner or sponsor?": "Partners/Sponsers",
 					"In what areas do you have extensive practices?": "Interested Areas",
 					"Which featured sessions are you looking forward to attend?": "Interested Featured Sessions",
@@ -59,6 +60,7 @@ export class DashboardComponent implements OnInit {
 					"Which areas have you explored on the IBM Think campus?": "Places on IBM think campus",
 					"Where are you staying for the event?": "Hotel Stay in",
 					// "signupTimestamp":"Time"
+
 				}
 				this.colHeaders = Object.keys(this.columnNames);
 			},
