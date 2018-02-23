@@ -1,7 +1,8 @@
 const express = require('express'),
-      router = express.Router(),
-      dataService = require('../services/dataService'),
-      userService = require('../services/userService');
+    router = express.Router(),
+    dataService = require('../services/dataService'),
+    userService = require('../services/userService');
+
 
 router.get('/data', dataService.getData);
 router.post('/data', dataService.saveData);
