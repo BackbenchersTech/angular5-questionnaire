@@ -139,6 +139,7 @@ div.checkbox input[type="checkbox"]:checked+span:after {
     transform: rotate(-45deg);
 }
 
+
 div.radio input[type="radio"] {
     display: none;
 }

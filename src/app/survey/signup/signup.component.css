@@ -34,7 +34,7 @@
 }
 
 .formSection .form-group:nth-last-child(2) {
-    margin-bottom: 16px;
+    margin-bottom: 25px;
 }
 
 .formSection .form-control {
@@ -71,6 +71,7 @@
     margin-bottom: 0px;
 }
 
+
 .formSection .form-control::placeholder {
     color: white;
 }
@@ -81,6 +82,31 @@
     font-size: 14px;
     color: #009688;
     padding-left: 5px;
+}
+
+/*.formSection select.form-control:not([selected])+label {
+    top: 9px;
+    font-size: 16px;
+    padding-left: 5px;
+    color:grey;
+}
+
+.formSection select.form-control:focus+label,
+.formSection select.form-control:active+label
+{
+    top: -22px;
+    font-size: 14px;
+    color: #009688;
+    padding-left: 5px;
+}
+*/
+
+.formSection {
+    -ms-overflow-style: none;  
+    overflow: -moz-scrollbars-none;  
+}
+.formSection::-webkit-scrollbar { 
+    display: none;  
 }
 
 .form-group .alertMessage {
