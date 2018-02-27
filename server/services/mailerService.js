@@ -6,8 +6,8 @@ module.exports.sendMail = function(req, res) {
     var mailOptions = {
         service: "Gmail",  // sets automatically host, port and connection security settings
         auth: {
-            user: "sreddy.0720@gmail.com",
-            pass: ""
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PWD
         }
     };
     console.log(req.body);
