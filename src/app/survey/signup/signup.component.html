@@ -1,8 +1,5 @@
 <div class="formContainer">
     <div class="formSection">
-        <!-- <div class="formHeading">Survey Signup</div>
-        <div class="formSubHeading text-muted">Welcome to our Survey Application
-        </div> -->
         <form (ngSubmit)="onSubmit()" #initialForm="ngForm" class="col-12 formWrap">
             <div class="form-group">
                 <input class="form-control field" type="text" name="fname" [(ngModel)]="user.fname" placeholder="First Name" required #fname="ngModel" pattern="\b(?!\btest\b)(?!\bsample\b)(?!\buser\b)(?!\bfoo\b)(?!\bbar\b)[a-zA-Z']+\b">
@@ -15,7 +12,6 @@
                         Please enter valid name
                     </div>
                 </div>
-
             </div>
 
             <div class="form-group">
@@ -35,10 +31,11 @@
             </div>
 
             <div class="form-group">
-                <select class="form-control" name="category" [(ngModel)]="user.category" required #category="ngModel">
-                    <option value = "" selected="selected">Role</option>
-                    <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+                <select class="form-control selectForm" name="category" [(ngModel)]="user.category" required #category="ngModel">
+                    <!-- <option value = "" selected="selected"></option> -->
+                    <option id = "selectRole" *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
                 </select>
+                 <label for="category" class="labelCategory">Title</label>
                 <div class="alertMessage" [hidden]="category.valid || category.pristine">
                     Category is a required field
                 </div>
@@ -58,19 +55,23 @@
             </div>
 
             <div class="form-group">
-                <input class="form-control" type="text" name="phone" [(ngModel)]="user.phone" placeholder="Phone" #phone="ngModel" pattern="[0-9]*"
+                <input class="form-control" type="text" name="phone" #phone="ngModel" [(ngModel)]="user.phone" placeholder="Phone" pattern="[0-9]*"
                    minlength="10"
                    maxlength="10">
                 <label for="phone">Phone</label>
-                 <!-- <div [hidden]="email.pristine || email. valid">
-                    <div [hidden]="!phone.hasError('required')" class="alertMessage">
-                        Phone is a required field
+
+                <div [hidden]="phone.pristine || phone.valid">
+                    <div [hidden]="!phone.hasError('pattern')" class="alertMessage" >
+                        Please enter valid phone number
                     </div>
-                     <div [hidden]="!phone.hasError('pattern')" class="alertMessage" >
-                    Please enter numbers only
+                    <div [hidden]="phone.hasError('pattern')" class="alertMessage">
+                        <div [hidden] = "!phone.hasError('minlength')">
+                            Your phone must be at least 10 characters long.    
+                        </div>
                     </div>
-                 </div>  -->           
+                </div>
             </div>
+            
             <div class="row">
                 <div class="col-12">
                     <!-- <button type="button" class="btn btn-primary float-left" (click)="newUser(); initialForm.reset()">Clear</button> -->
