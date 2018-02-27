@@ -33,9 +33,9 @@
     padding: 0px;
 }
 
-.formSection .form-group:nth-last-child(2) {
+/*.formSection .form-group:nth-last-child(2) {
     margin-bottom: 16px;
-}
+}*/
 
 .formSection .form-control {
     display: block;

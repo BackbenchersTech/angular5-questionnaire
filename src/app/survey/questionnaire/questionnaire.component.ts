@@ -59,23 +59,23 @@ export class QuestionnaireComponent implements OnInit {
   submitSurvey(survey) {
     let data = {
       survey: survey.data,
-      uid: this.user.uid,
-      email: this.user.email
+      uid: this.user.uid  
     };
+    
+    let body = {
+      email : this.user.email
+    } ;
+    // let url = `${this.apiRoot}`;
+    // console.log(url);
 
-    console.log(data.email);
-
-    let url = `${this.apiRoot}`;
-    console.log(url);
-
-  this.http.post(url, {email:data.email}).subscribe(res => console.log(res));
-  // this.surveyService.sendEmail(data.email).subscribe(res => {
-  //     console.log(res);
-  //   },
-  //   error => {
-  //     console.log(error);
-  //   }
-  // ) 
+  // this.http.post(url, {email:data.email}).subscribe(res => console.log(res));
+  this.surveyService.sendEmail(body).subscribe(res => {
+      console.log(res);
+    },
+    error => {
+      console.log(error);
+    }
+  ) 
 
     this.surveyService.saveSurvey(data).subscribe(res => {
       console.log(res);

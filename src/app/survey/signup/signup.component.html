@@ -58,8 +58,24 @@
             </div>
 
             <div class="form-group">
-                <input class="form-control" type="text" name="phone" [(ngModel)]="user.phone" placeholder="Phone">
+                <input class="form-control" type="text" name="phone" #phone="ngModel" [(ngModel)]="user.phone" placeholder="Phone" pattern="[0-9]*"
+                   minlength="10"
+                   maxlength="10">
                 <label for="phone">Phone</label>
+                <!-- <p class="alertMessage" *ngIf="phone.hasError('minlength')">
+                    Your phone must be at least 10 characters long.
+                </p>
+                <p class="alertMessage" *ngIf="phone.hasError('pattern')">
+                    Please enter valid phone number.
+                </p> -->
+                 <div [hidden]="phone.pristine || phone.valid">
+                    <div [hidden]="!phone.hasError('minlength')" class="alertMessage">
+                        Your phone must be at least 10 characters long.
+                    </div>
+                     <div [hidden]="!phone.hasError('pattern')" class="alertMessage" >
+                        Please enter your phone number
+                    </div>
+                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
