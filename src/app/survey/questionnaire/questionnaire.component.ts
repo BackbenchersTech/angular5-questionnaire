@@ -17,7 +17,7 @@ export class QuestionnaireComponent implements OnInit {
   signupStatus = true;
   width: any = 0;
   user:any = {};
-  apiRoot: string = "http://localhost:3500/send"; 
+  apiRoot: string = "http://localhost:3500/api/send"; 
  
   constructor(private surveyService: SurveyService,
               private router: Router,private http: Http ) { }  
@@ -62,7 +62,7 @@ export class QuestionnaireComponent implements OnInit {
       uid: this.user.uid,
       email: this.user.email
     };
-    
+
     console.log(data.email);
 
     let url = `${this.apiRoot}`;
