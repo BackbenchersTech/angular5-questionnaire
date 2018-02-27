@@ -33,9 +33,9 @@
     padding: 0px;
 }
 
-/*.formSection .form-group:nth-last-child(2) {
-    margin-bottom: 16px;
-}*/
+.formSection .form-group:nth-last-child(2) {
+    margin-bottom: 25px;
+}
 
 .formSection .form-control {
     display: block;
@@ -71,12 +71,34 @@
     margin-bottom: 0px;
 }
 
+.formSection .form-group select {
+    color:black;
+}
+
+.formSection .form-group #selectRole {
+    color: black;
+}
+
 .formSection .form-control::placeholder {
     color: white;
 }
 
 .formSection .form-control:focus+label,
 .formSection .form-control:not(:placeholder-shown)+label {
+    top: -22px;
+    font-size: 14px;
+    color: #009688;
+    padding-left: 5px;
+}
+
+.formSection select.form-control:not([selected])+label {
+    top: 9px;
+    font-size: 16px;
+    padding-left: 5px;
+    color:grey;
+}
+
+.formSection select.form-control option[selected]+label {
     top: -22px;
     font-size: 14px;
     color: #009688;

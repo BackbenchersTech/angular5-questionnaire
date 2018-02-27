@@ -35,10 +35,11 @@
             </div>
 
             <div class="form-group">
-                <select class="form-control" name="category" [(ngModel)]="user.category" required #category="ngModel">
-                    <option value = "" selected="selected">Role</option>
-                    <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+                <select class="form-control selectForm" name="category" [(ngModel)]="user.category" required #category="ngModel">
+                  <!--   <option value = "" selected="selected"></option> -->
+                    <option id = "selectRole" *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
                 </select>
+                 <label for="category" class="labelCategory">Title</label>
                 <div class="alertMessage" [hidden]="category.valid || category.pristine">
                     Category is a required field
                 </div>
@@ -51,9 +52,11 @@
                     <div [hidden]="!email.hasError('required')" class="alertMessage">
                         Email is a required field
                     </div>
+                        {{ email.hasError('required')}}
                     <div [hidden]="!email.hasError('pattern')" class="alertMessage">
                         Please enter your business email
                     </div>
+                        {{ email.hasError('pattern')}}
                 </div>
             </div>
 
@@ -62,18 +65,27 @@
                    minlength="10"
                    maxlength="10">
                 <label for="phone">Phone</label>
-                <!-- <p class="alertMessage" *ngIf="phone.hasError('minlength')">
-                    Your phone must be at least 10 characters long.
-                </p>
-                <p class="alertMessage" *ngIf="phone.hasError('pattern')">
-                    Please enter valid phone number.
-                </p> -->
+
+                <!-- <div *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+                     class="alertMessage">
+
+                  <div *ngIf="phone.errors.pattern">
+                    Please enter valid phone number
+                  </div>
+                  <div *ngIf="phone.errors.minlength">
+                   Your phone must be at least 10 characters long.
+                  </div>
+
+                </div> -->
+
                  <div [hidden]="phone.pristine || phone.valid">
-                    <div [hidden]="!phone.hasError('minlength')" class="alertMessage">
-                        Your phone must be at least 10 characters long.
-                    </div>
                      <div [hidden]="!phone.hasError('pattern')" class="alertMessage" >
-                        Please enter your phone number
+                        Please enter valid phone number
+                    </div>
+                    <div [hidden]="phone.hasError('pattern')" class="alertMessage">
+                        <div [hidden] = "!phone.hasError('minlength')">
+                        Your phone must be at least 10 characters long.    
+                    </div>
                     </div>
                  </div>
             </div>
