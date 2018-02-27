@@ -23,7 +23,7 @@ import { LocationService } from './location.service';
   declarations: [SignupComponent, QuestionnaireComponent, NolocationComponent],
   providers: [
     SurveyService,
-    LocationService,
+    LocationService
   ]
 })
 export class SurveyModule { }

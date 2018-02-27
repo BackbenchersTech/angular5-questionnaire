@@ -61,8 +61,8 @@ export class QuestionnaireComponent implements OnInit {
       survey: survey.data,
       uid: this.user.uid,
       email: this.user.email
-
     };
+    
     console.log(data.email);
 
     let url = `${this.apiRoot}`;
