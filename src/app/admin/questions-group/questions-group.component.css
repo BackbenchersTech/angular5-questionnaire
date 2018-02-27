@@ -21,6 +21,7 @@
 
 .stats ul {
     list-style: none;
+    padding: 0px;
 }
 
 /*.stats ul>li::before {
@@ -71,8 +72,6 @@
     color: white;
     margin-left: 10px;
 
-}
-
 canvas {
     margin: 0 auto;
 }
@@ -80,6 +79,7 @@ canvas {
 .resultsWrap {
     width: 80%;
     margin: 0 auto;
+    padding-top: 25px;
 }
 
 @media screen and (min-width:768px) {

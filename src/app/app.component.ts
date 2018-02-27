@@ -13,6 +13,8 @@ export class AppComponent {
       ( event: NavigationEvent ) : void => {
         if ( event instanceof NavigationEnd ) {
           this.home = this.router.isActive("/survey/signup", true);
+          this.questionsGroup = this.router.isActive("/admin/questions", true);
+
         }
       }
     )
@@ -21,4 +23,5 @@ export class AppComponent {
   title = 'OpenLogix @IBM Think';
   url = this.router.url;
   home: any;
+  questionsGroup : any;
 }
