@@ -42,7 +42,7 @@
     line-height: 40px;
 
 }
-.stats ul>li .answerValue {
+.stats ul > li .answerValue {
     display: inline;
     float: right;
     width: 40px;

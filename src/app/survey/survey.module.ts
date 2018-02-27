@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 
 import { SurveyRoutingModule } from './survey-routing.module';
 import { SignupComponent } from './signup/signup.component';
@@ -17,8 +16,7 @@ import { LocationService } from './location.service';
     CommonModule,
     SurveyRoutingModule,
     FormsModule,
-    HttpClientModule,
-    HttpModule
+    HttpClientModule
   ],
   declarations: [SignupComponent, QuestionnaireComponent, NolocationComponent],
   providers: [

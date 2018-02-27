@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import * as SurveyJs from 'survey-angular';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
 import { SurveyService } from '../survey.service';
 
@@ -17,10 +16,9 @@ export class QuestionnaireComponent implements OnInit {
   signupStatus = true;
   width: any = 0;
   user:any = {};
-  apiRoot: string = "http://localhost:3500/api/send"; 
  
   constructor(private surveyService: SurveyService,
-              private router: Router,private http: Http ) { }  
+              private router: Router) { }  
   
   ngOnInit() {
     SurveyJs.Survey.cssType = "bootstrap";
@@ -59,31 +57,28 @@ export class QuestionnaireComponent implements OnInit {
   submitSurvey(survey) {
     let data = {
       survey: survey.data,
-      uid: this.user.uid  
+      uid: this.user.uid
     };
     
     let body = {
       email : this.user.email
     } ;
-    // let url = `${this.apiRoot}`;
-    // console.log(url);
 
-  // this.http.post(url, {email:data.email}).subscribe(res => console.log(res));
-  this.surveyService.sendEmail(body).subscribe(res => {
-      console.log(res);
-    },
-    error => {
-      console.log(error);
-    }
-  ) 
+    this.surveyService.sendEmail(body).subscribe(res => {
+        console.log(res);
+      },
+      error => {
+        console.log(error);
+      }
+    ) 
 
     this.surveyService.saveSurvey(data).subscribe(res => {
-      console.log(res);
-    },
-    error => {
-      console.log(error);
-    }
-  )
+        console.log(res);
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
 }
