@@ -64,13 +64,13 @@ export class QuestionnaireComponent implements OnInit {
       email : this.user.email
     } ;
 
-    // this.surveyService.sendEmail(body).subscribe(res => {
-    //     console.log(res);
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   }
-    // )
+    this.surveyService.sendEmail(body).subscribe(res => {
+        console.log(res);
+      },
+      error => {
+        console.log(error);
+      }
+    )
 
     this.surveyService.saveSurvey(data).subscribe(res => {
         console.log(res);

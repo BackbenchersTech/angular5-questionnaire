@@ -1,30 +1,35 @@
 const nodemailer = require("nodemailer");
 
 module.exports.sendMail = function(req, res) {
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
     
-    var mailOptions = {
-        service: 'gmail',  // sets automatically host, port and connection security settings
+    var transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PWD
-        }
-    };
-
-    var smtpTransport = nodemailer.createTransport(mailOptions);
-
-    smtpTransport.sendMail({  //email options
-        from: "OpenLogix Corporation <sreddy.0720@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
-        to: req.body.email, // receiver
-        subject: "Survey Email", // subject
-        text: "Gift" // body
-    }, function(error, response) {  //callback
-        if(error) {
-            console.log(error);
-            res.status(503).send(error);
-        } else {
-            console.log("Message sent: " + response.message);
-            return res.status(200).send({"msg": "Success","email":req.body.email });
+        },
+        tls: {
+            rejectUnauthorized: false
         }
     });
+
+    let mailOptions = {
+        from: 'OpenLogix Corporation <'+ process.env.EMAIL_USER +'>',
+        to: req.body.email,
+        subject: 'IBM Think Booth Survey',
+        text: 'Thanks for completing the survey...'
+    }
+
+    transporter.sendMail(mailOptions, function(error, info) {
+        if(error) {
+            console.log(error);
+            res.status(500).send({"msg": "Internal server error"});
+        } 
+        else {
+            console.log("Message sent: " + info.response);
+            res.status(200).send({"msg": "Success..."});
+        }
+    })
 }
