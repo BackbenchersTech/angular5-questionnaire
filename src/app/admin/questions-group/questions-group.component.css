@@ -24,6 +24,13 @@
     padding: 0px;
 }
 
+/*.stats ul>li::before {
+    content: "•";
+    color: #3b6caa;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em*/
+
 .stats ul>li {
     padding: 5px;
     margin: 10px 0px;
@@ -54,12 +61,12 @@
     color:#fff;
 }
 
-.stats ul>li .answerValue>p {
+.stats ul > li .answerValue > p {
     margin-bottom: 0;
     text-align: center;
 }
 
-.viewTableBtn{
+.viewTableBtn {
     background-color: #3b6caa;
     color: white;
     margin-left: 10px;

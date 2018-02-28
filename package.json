@@ -34,6 +34,7 @@
     "mongoose": "^5.0.2",
     "morgan": "^1.9.0",
     "ngx-pagination": "^3.0.3",
+    "nodemailer": "^4.6.0",
     "rxjs": "^5.5.6",
     "serve-favicon": "^2.4.5",
     "survey-angular": "^1.0.5",

@@ -70,7 +70,7 @@ export class QuestionnaireComponent implements OnInit {
       error => {
         console.log(error);
       }
-    ) 
+    )
 
     this.surveyService.saveSurvey(data).subscribe(res => {
         console.log(res);
