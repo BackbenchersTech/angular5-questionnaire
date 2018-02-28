@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -17,6 +16,6 @@ import { SurveyQuestions } from './survey-questions';
     AppRoutingModule
   ],
   bootstrap: [AppComponent],
-  providers: [SurveyQuestions, {provide: LocationStrategy, useClass: HashLocationStrategy}]
+  providers: [SurveyQuestions]
 })
 export class AppModule { }
