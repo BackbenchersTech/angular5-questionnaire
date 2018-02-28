@@ -16,18 +16,9 @@ export class QuestionnaireComponent implements OnInit {
   signupStatus = true;
   width: any = 0;
   user:any = {};
-  //  user: any = {
-  //    fname: "Abhishek",
-  //    lname: "Piedy",
-  //    role: "Developer",
-  //    company: "OpenLogix Corporation",
-  //    email: "abhishek.piedy@gmail.com",
-  //    phone: "4847577819",
-  //    userId: 23324
-  //  }
-
+ 
   constructor(private surveyService: SurveyService,
-              private router: Router ) { }  
+              private router: Router) { }  
   
   ngOnInit() {
     SurveyJs.Survey.cssType = "bootstrap";
@@ -68,13 +59,26 @@ export class QuestionnaireComponent implements OnInit {
       survey: survey.data,
       uid: this.user.uid
     };
+    
+    let body = {
+      email : this.user.email
+    } ;
+
+    this.surveyService.sendEmail(body).subscribe(res => {
+        console.log(res);
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
     this.surveyService.saveSurvey(data).subscribe(res => {
-      console.log(res);
-    },
-    error => {
-      console.log(error);
-    }
-  )
+        console.log(res);
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
 }

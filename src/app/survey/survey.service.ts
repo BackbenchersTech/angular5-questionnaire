@@ -39,6 +39,10 @@ export class SurveyService {
     return this.surveyQuestions;
   }
 
+  sendEmail(email): any {
+    return this.http.post("https://angular5-questionnaire.herokuapp.com/api/send", email, httpOptions)
+  }
+  
   saveSurvey(survey): any {
     return this.http.post('https://angular5-questionnaire.herokuapp.com/api/data', survey, httpOptions)
   }
