@@ -1,4 +1,7 @@
-const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer"),
+      sendgrid = require('@sendgrid/mail');
+
+sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 module.exports.sendMail = function(req, res) {
     
@@ -31,4 +34,23 @@ module.exports.sendMail = function(req, res) {
             res.status(200).send({"msg": "Success..."});
         }
     })
+}
+
+module.exports.sendGridMail = function(req, res) {
+    console.log("asd");
+    let msg = {
+        to: 'apiedy@open-logix.com',
+        from: 'OpenLogix <info@open-logix.com>',
+        subject: 'IBM Think Booth Survey',
+        text: 'Thanks for completing the survey...',
+        html: '<strong>easy</strong>'
+    }
+    sendgrid.send(msg, function(err, result) {
+        if(err) {
+            console.log(err)
+            res.status(500).send({"msg": "Sorry could not send an email right now"});
+        } else {
+            res.status(200).send({"msg":"asd"});
+        }
+    });
 }

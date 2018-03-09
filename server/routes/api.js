@@ -8,6 +8,6 @@ router.get('/data', dataService.getData);
 router.post('/data', dataService.saveData);
 router.get('/users', userService.getUsers);
 router.post('/users', userService.saveUser);
-router.post('/send', mailerService.sendMail);
+router.post('/send', mailerService.sendGridMail);
 
 module.exports = router;
