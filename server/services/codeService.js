@@ -21,3 +21,13 @@ module.exports.saveCode = function(req, res) {
         }
     });
 }
+
+module.exports.getCodes = function(req, res) {
+    Code.find(function(err, codes) {
+        if(err) {
+            console.log(err);
+            res.status(500).send({"msg": "Internal Server Error"});
+        }
+        res.status(200).send({"giftCodes": codes});
+    })
+}

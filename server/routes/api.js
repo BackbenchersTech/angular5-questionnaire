@@ -11,5 +11,6 @@ router.get('/users', userService.getUsers);
 router.post('/users', userService.saveUser);
 router.post('/send', mailerService.sendGridMail);
 router.post('/giftcode', codeService.saveCode);
+router.get('/giftcode', codeService.getCodes);
 
 module.exports = router;
