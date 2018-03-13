@@ -3,7 +3,8 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       path = require('path'),
       port = process.env.PORT || 3000,
-      mongoose = require('mongoose');
+      mongoose = require('mongoose'),
+      logger = require('morgan');
 
 let api = require('./server/routes/api')
 
@@ -20,6 +21,8 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+app.use(logger(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 
 mongoose.connect(process.env.HOST);
 // mongoose.connect('mongodb://localhost/survey');

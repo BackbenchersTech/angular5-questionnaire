@@ -17,10 +17,9 @@ export class SignupComponent implements OnInit {
               private location: LocationService) { }
   
   categories = ['Developer', 'Sales', 'Recruiter', 'HR'];
+  submitted = false;
 
   user = new User('', '', '', '', '', '');
-
-  submitted = false;
 
   onSubmit() {
     this.submitted = true;
