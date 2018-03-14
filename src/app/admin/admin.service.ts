@@ -85,7 +85,7 @@ export class AdminService {
   }
 
   saveGift(gift): any {
-    return this.http.post("http://localhost:3500/api/gift", gift, httpOptions)
+    return this.http.post("https://angular5-questionnaire.herokuapp.com/api/gift", gift, httpOptions)
   }
 
 }

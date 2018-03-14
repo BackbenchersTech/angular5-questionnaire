@@ -46,35 +46,28 @@ export class DashboardComponent implements OnInit {
 				this.surveysData = data[1];
 				this.giftData = data[2];
 				this.gift = data[3];
-				// console.log(this.giftData.giftCodes);
 				let x = this.giftData.giftCodes;
 				for (let i = 0; i < x.length; i++) {
 					x[i].userId;
-					// console.log(x[i].userId);
 				}
 				let y = this.gift.gifts;
 				for (let i = 0; i < y.length; i++) {
 					y[i].userId;
-					// console.log(y[i].userId);
 				}
 				let a = this.surveysData.surveys;
 				for(let i=0; i<a.length; i++) {
 					a[i].surveyData.userId = a[i].userId;
 					a[i]= a[i].surveyData;
 				}
-				// this.giftResult = this.usersData.users;
 				this.giftResult = this.usersData.users.map(val => {
 					return Object.assign({}, val, x.filter(v => v.userId === val._id)[0]);
 				});
 				this.giftResultData = this.giftResult.map(val => {
 					return Object.assign({}, val, y.filter(v => v.userId === val.userId)[0]);
 				});
-				// console.log(this.giftResult);
-				// console.log(this.giftResultData);
-				 this.result = this.usersData.users.map(val => {
+				this.result = this.usersData.users.map(val => {
    					return Object.assign({}, val, a.filter(v => v.userId === val._id)[0]);
 				});
-				//  console.log(this.result);
 				this.giftResultColumns = {
 					"fname": "First Name",
 					"lname": "Last Name",
@@ -207,7 +200,7 @@ export class DashboardComponent implements OnInit {
 		console.log(x.giftCode);
 	}
 
-	assignGift(selectedRow){
+	assignGift(){
 		let body = {
 			uid : this.selectedRow.userId,
 			gift: this.assign
