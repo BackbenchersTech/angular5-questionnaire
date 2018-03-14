@@ -10,6 +10,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AdminService } from './admin.service';
 import { QuestionsGroupComponent } from './questions-group/questions-group.component';
 import { KeysPipe } from './keys.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { KeysPipe } from './keys.pipe';
     AdminRoutingModule,
     HttpClientModule, 
     Ng2SmartTableModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   declarations: [DashboardComponent, QuestionsGroupComponent, KeysPipe],
   providers: [AdminService]

@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; // import headers for post requests (as in surveyservice)
+import { HttpClient, HttpHeaders } from '@angular/common/http'; // import headers for post requests (as in surveyservice)
 import { Observable } from 'rxjs/Observable';
 // import observable this way and load methods individully or directly import observable from rxjs/Rx and no indy methods
 import 'rxjs/add/observable/forkJoin';
 
 import { SurveyQuestions } from '../survey-questions';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 @Injectable()
 export class AdminService {
 
@@ -18,7 +21,8 @@ export class AdminService {
     return Observable.forkJoin(
       this.http.get('https://angular5-questionnaire.herokuapp.com/api/users'),
       this.http.get('https://angular5-questionnaire.herokuapp.com/api/data'),
-      this.http.get('https://angular5-questionnaire.herokuapp.com/api/giftcode')
+      this.http.get('https://angular5-questionnaire.herokuapp.com/api/giftcode'),
+      this.http.get('https://angular5-questionnaire.herokuapp.com/api/gift')
     );
   }
 
@@ -78,6 +82,10 @@ export class AdminService {
 
   getData(): any {
     return this.answers;
+  }
+
+  saveGift(gift): any {
+    return this.http.post("http://localhost:3500/api/gift", gift, httpOptions)
   }
 
 }
