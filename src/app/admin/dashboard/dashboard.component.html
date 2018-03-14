@@ -8,8 +8,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let x of result |paginate: { itemsPerPage: 5, currentPage: p  };">
-                    <td scope="row" *ngFor="let header of colHeaders" >
+                <tr class="tableRowClass" *ngFor="let x of result |paginate: { itemsPerPage: 5, currentPage: p  };">
+                    <td scope="row" *ngFor="let header of colHeaders">
                         {{ x[header] }}
                     </td>
                 </tr>
@@ -17,6 +17,26 @@
         </table>
     </div>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    <!-- <div class="table-responsive "> -->
+    <!-- <table class="table table-bordered table-scrollable" id="resultsTable">
+            <thead>
+                <tr>
+                    <th scope="col" *ngFor="let header of giftResultColHeaders" class="columnHeaders">{{ giftResultColumns[header] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="tableRowClass" *ngFor="let x of giftResult |paginate: { itemsPerPage: 5, currentPage: r  };">
+                    <td scope="row" *ngFor="let header of giftResultColHeaders">
+                        {{ x[header] }}
+                    </td>
+                </tr>
+            </tbody>
+        </table> -->
+
+    <ng2-smart-table [settings]="giftResultColumns" [source]="giftResult"></ng2-smart-table>
+    <!-- </div> -->
+    <!-- <pagination-controls (pageChange)="r = $event"></pagination-controls> -->
 </div>
 
 <!-- <th data-field="name" data-formatter="nameFormatter">Name</th> -->
