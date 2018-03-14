@@ -60,7 +60,7 @@ module.exports.assignGift = function(req, res) {
                 return res.status(500).send({"msg": "Internal Server Error"})
             }
         } else {
-            res.status(200).send({"msg":"Code Saved!"});
+            res.status(200).send({"msg":"Gift Assigned!"});
         }
     })
 }

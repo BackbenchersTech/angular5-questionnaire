@@ -3,7 +3,7 @@ const express = require('express'),
       dataService = require('../services/dataService'),
       userService = require('../services/userService'),
       mailerService = require('../services/mailerService'),
-      giftService = require('../services/codeService');
+      giftService = require('../services/giftService');
 
 router.get('/data', dataService.getData);
 router.post('/data', dataService.saveData);
