@@ -35,7 +35,14 @@ export class SignupComponent implements OnInit {
       this.router.navigate(['survey','questionnaire']);
     },
     error => {
-      console.log(error)
+      
+      if(error.status == 409){
+       window.alert("User Exists");
+      } else 
+      {
+        console.log(error);
+      }
+
     })
   }
   
