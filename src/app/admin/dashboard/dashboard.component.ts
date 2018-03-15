@@ -46,28 +46,29 @@ export class DashboardComponent implements OnInit {
 				this.surveysData = data[1];
 				this.giftData = data[2];
 				this.gift = data[3];
-				let x = this.giftData.giftCodes;
-				for (let i = 0; i < x.length; i++) {
-					x[i].userId;
+				let gCodes = this.giftData.giftCodes;
+				for (let i = 0; i < gCodes.length; i++) {
+					gCodes[i].userId;
 				}
-				let y = this.gift.gifts;
-				for (let i = 0; i < y.length; i++) {
-					y[i].userId;
+				let giftList = this.gift.gifts;
+				for (let i = 0; i < giftList.length; i++) {
+					giftList[i].userId;
 				}
-				let a = this.surveysData.surveys;
-				for(let i=0; i<a.length; i++) {
-					a[i].surveyData.userId = a[i].userId;
-					a[i]= a[i].surveyData;
+				let surveyList = this.surveysData.surveys;
+				for (let i = 0; i < surveyList.length; i++) {
+					surveyList[i].surveyData.userId = surveyList[i].userId;
+					surveyList[i] = surveyList[i].surveyData;
 				}
+				this.result = this.usersData.users.map(val => {
+					return Object.assign({}, val, surveyList.filter(v => v.userId === val._id)[0]);
+				});
 				this.giftResult = this.usersData.users.map(val => {
-					return Object.assign({}, val, x.filter(v => v.userId === val._id)[0]);
+					return Object.assign({}, val, gCodes.filter(v => v.userId === val._id)[0]);
 				});
 				this.giftResultData = this.giftResult.map(val => {
-					return Object.assign({}, val, y.filter(v => v.userId === val.userId)[0]);
+					return Object.assign({}, val, giftList.filter(v => v.userId === val.userId)[0]);
 				});
-				this.result = this.usersData.users.map(val => {
-   					return Object.assign({}, val, a.filter(v => v.userId === val._id)[0]);
-				});
+				
 				this.giftResultColumns = {
 					"fname": "First Name",
 					"lname": "Last Name",
@@ -75,94 +76,6 @@ export class DashboardComponent implements OnInit {
 					"giftCode": "Gift Code",
 					"assignedGift":"Gift"
 				}
-				// this.giftResultColumns = {
-				// 	actions: false,
-				// 	columns: {
-				// 		fname: {
-				// 			title: 'First Name',
-				// 			filter: false
-				// 		},
-				// 		lname: {
-				// 			title: 'Last Name',
-				// 			filter: false
-				// 		},
-				// 		email: {
-				// 			title: 'E-mail',
-				// 			filter: false
-				// 		},
-				// 		giftCode: {
-				// 			title: 'Gift Code',
-				// 			filter: false
-				// 		},
-				// 		actions: {
-				// 			title: "Actions",
-				// 			filter: false
-				// 		},
-
-				// 	}
-				// };
-
-				// this.columnNames = {
-				// 	actions: false,
-				// 	columns: {
-				// 		fname: {
-				// 			title: 'First Name',
-				// 			filter: false
-				// 		},
-				// 		lname: {
-				// 			title: 'Last Name',
-				// 			filter: false
-							
-				// 		},
-				// 		company: {
-				// 			title: 'Company',
-				// 			filter: false
-				// 		},
-				// 		role: {
-				// 			title: 'Role',
-				// 			filter: false
-				// 		},
-				// 		email: {
-				// 			title: 'E-mail',
-				// 			filter: false
-				// 		},
-				// 		phone: {
-				// 			title: 'Phone',
-				// 			filter: false
-				// 		},
-				// 		"Are you a partner or sponsor?": {
-				// 			title: 'Partners/Sponsers',
-				// 			filter: false
-				// 		},
-				// 		"In what areas do you have extensive practices?": {
-				// 			title: 'Interested Areas',
-				// 			filter: false
-				// 		},
-				// 		"Which featured sessions are you looking forward to attend?": {
-				// 			title: 'Interested Featured Sessions',
-				// 			filter: false
-				// 		},
-				// 		"Are you interested in any Labs/Certifications/DevZone?": {
-				// 			title: 'Labs/Certifications/DevZone',
-				// 			filter: false
-				// 		},
-				// 		"Whose addresses are you interested in?": {
-				// 			title: 'Interested Speakers',
-				// 			filter: false
-				// 		},
-				// 		"Which areas have you explored on the IBM Think campus?": {
-				// 			title: 'Places on IBM think campus',
-				// 			filter: false
-				// 		},
-				// 		"Where are you staying for the event?": {
-				// 			title: 'Hotel Stay in',
-				// 			filter: false
-				// 		}
-				// 	},
-				// 	pager: {
-				// 		perPage: 5
-				// 	}
-				// };
 
 				this.columnNames = {
 					"fname": "First Name",
@@ -177,8 +90,7 @@ export class DashboardComponent implements OnInit {
 					"Are you interested in any Labs/Certifications/DevZone?": "Labs/Certifications/DevZone",
 					"Whose addresses are you interested in?": "Interested Speakers",
 					"Which areas have you explored on the IBM Think campus?": "Places on IBM think campus",
-					"Where are you staying for the event?": "Hotel Stay in",
-					// "signupTimestamp":"Time"
+					"Where are you staying for the event?": "Hotel Stay in"
 
 				}
 				this.giftResultColHeaders = Object.keys(this.giftResultColumns);
