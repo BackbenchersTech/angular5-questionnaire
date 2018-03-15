@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { User } from '../user';
 import { SurveyService } from '../survey.service';
@@ -14,13 +15,13 @@ export class SignupComponent implements OnInit {
   
   constructor(private surveyService: SurveyService, 
               private router: Router,
-              private location: LocationService) { }
+              private location: LocationService,
+              private toastr: ToastrService) { }
   
   categories = ['Developer', 'Sales', 'Recruiter', 'HR'];
+  submitted = false;
 
   user = new User('', '', '', '', '', '');
-
-  submitted = false;
 
   onSubmit() {
     this.submitted = true;
@@ -36,7 +37,13 @@ export class SignupComponent implements OnInit {
       this.router.navigate(['survey','questionnaire']);
     },
     error => {
-      console.log(error)
+      if(error.status == 409){
+       this.toastr.error("You've already participated in our survey.", 'E-mail Conflict');
+      } else 
+      {
+        console.log(error);
+      }
+
     })
   }
   

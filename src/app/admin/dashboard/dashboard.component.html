@@ -8,8 +8,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let x of result |paginate: { itemsPerPage: 5, currentPage: p  };">
-                    <td scope="row" *ngFor="let header of colHeaders" >
+                <tr class="tableRowClass" *ngFor="let x of result |paginate: { itemsPerPage: 5, currentPage: p  };">
+                    <td scope="row" *ngFor="let header of colHeaders">
                         {{ x[header] }}
                     </td>
                 </tr>
@@ -17,6 +17,65 @@
         </table>
     </div>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    <div class="table-responsive ">
+        <table class="table table-bordered table-scrollable" id="resultsTable">
+            <thead>
+                <tr>
+                    <th scope="col" *ngFor="let header of giftResultColHeaders" class="columnHeaders">{{ giftResultColumns[header] }}</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="tableRowClass" *ngFor="let x of giftResultData|paginate: { itemsPerPage: 5, currentPage: r  };let i = index ;" (click)="setClickedRow(x)">
+                    <td scope="row" *ngFor="let header of giftResultColHeaders">
+                        {{ x[header] }}
+                    </td>
+                    <td>
+                        <div *ngIf="x.assignedGift !== undefined">
+                            No Actions
+                            <!-- <button class="btn btn-secondary" (click)="unAssign(x)">Unassign</button> -->
+                        </div>
+                        <div *ngIf="x.assignedGift === undefined && x.giftCode !== undefined">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Assign</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <pagination-controls (pageChange)="r = $event"></pagination-controls>
 </div>
 
-<!-- <th data-field="name" data-formatter="nameFormatter">Name</th> -->
+<!-- Modal to assign gift -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Assign gift</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" class="col-12 formWrap">
+                    <div class="form-group row">
+                        <label for="gift" class="col-md-4">Gift</label>
+                        <select class="form-control field col-md-6" type="text" name="gift" [(ngModel)]="assign" #gift="ngModel" required>
+                                <option value="T-Shirt">T-Shirt</option>
+                                <option value="Pen">Pen</option>
+                                <option value="Diary">Diary</option>
+                                <option value="Cap">Cap</option>
+                                </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="button" class="btn btn-success pull-right m-2 saveBtn" (click)="assignGift()" data-dismiss="modal"><i class="fa fa-check mr-1" aria-hidden="true"></i>Save</button>
+                            <button type="button" class="btn btn-danger pull-right m-2" data-dismiss="modal"><i class="fa fa-times mr-1" aria-hidden="true"></i>Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

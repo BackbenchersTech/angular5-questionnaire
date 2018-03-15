@@ -1,34 +1,27 @@
-const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer"),
+      sendgrid = require('@sendgrid/mail');
 
-module.exports.sendMail = function(req, res) {
+sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+sendgrid.setSubstitutionWrappers('{{', '}}');
+
+module.exports.sendGridMail = function(req, res) {
+    console.log(req.body);
+    let msg = {
+        from: 'OpenLogix <info@open-logix.com>',
+        templateId: "8a6cf62f-0326-400b-8b23-6864a4ad08e8",
+        to: req.body.email,
+        substitutions: {
+            name: req.body.name,
+            giftCode: req.body.code
+        }
+    }
     
-    var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        secure: true,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PWD
-        },
-        tls: {
-            rejectUnauthorized: false
+    sendgrid.send(msg, function(err, result) {
+        if(err) {
+            console.log(err)
+            res.status(500).send({"msg": "Sorry could not send an email right now"});
+        } else {
+            res.status(200).send({"msg":"Email sent!!"});
         }
     });
-
-    let mailOptions = {
-        from: 'OpenLogix Corporation <'+ process.env.EMAIL_USER +'>',
-        to: req.body.email,
-        subject: 'IBM Think Booth Survey',
-        text: 'Thanks for completing the survey...'
-    }
-
-    transporter.sendMail(mailOptions, function(error, info) {
-        if(error) {
-            console.log(error);
-            res.status(500).send({"msg": "Internal server error"});
-        } 
-        else {
-            console.log("Message sent: " + info.response);
-            res.status(200).send({"msg": "Success..."});
-        }
-    })
 }

@@ -2,17 +2,17 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
 	ObjectId = Schema.ObjectId;
 
-// Survey Data Schema
-var surveyDataSchema = new Schema({
+// Gifts Schema
+var giftSchema = new Schema({
 	userId: {
 		type: ObjectId,
 		required: true,
 		unique: true
 	},
-	surveyData: {
-		type: Object,
+	assignedGift: {
+		type: String,
 		required: true
 	}
 });
 
-var Questions = module.exports = mongoose.model('surveyData', surveyDataSchema);
+var Questions = module.exports = mongoose.model('gift', giftSchema);

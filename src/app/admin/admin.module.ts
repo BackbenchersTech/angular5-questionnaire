@@ -5,17 +5,21 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { AdminService } from './admin.service';
 import { QuestionsGroupComponent } from './questions-group/questions-group.component';
 import { KeysPipe } from './keys.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
-    HttpClientModule,
-    NgxPaginationModule
+    HttpClientModule, 
+    Ng2SmartTableModule,
+    NgxPaginationModule,
+    FormsModule
   ],
   declarations: [DashboardComponent, QuestionsGroupComponent, KeysPipe],
   providers: [AdminService]

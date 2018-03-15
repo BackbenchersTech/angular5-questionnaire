@@ -96,6 +96,11 @@ h6 {
     padding-top: 10px;
 }
 
+.sv_container .panel-body.card-block div[id^="sq_"]>div:last-child::-webkit-scrollbar,
+.sv_container .panel-body.card-block div[id*="sq_"]>div:last-child::-webkit-scrollbar {
+    display: none;
+}
+
 div.checkbox input[type="checkbox"] {
     display: none;
 }
@@ -139,7 +144,6 @@ div.checkbox input[type="checkbox"]:checked+span:after {
     transform: rotate(-45deg);
 }
 
-
 div.radio input[type="radio"] {
     display: none;
 }
@@ -178,4 +182,25 @@ div.radio input[type="radio"]:checked+span:after {
     left: 5px;
     border-radius: 50%;
     margin-top: 5px;
+}
+
+.ng2-smart-filters {
+    display: none;
+}
+
+ng2-smart-table-pager {
+    margin-top: 10px;
+}
+
+.ng2-smart-sort-link.sort {
+    color: black;
+}
+
+.ng2-smart-page-link.page-link.page-link-prev,
+.ng2-smart-page-link.page-link.page-link-next {
+    font-size: 14px !important;
+}
+
+.ng2-smart-titles {
+    font-size: 1.1em;
 }
