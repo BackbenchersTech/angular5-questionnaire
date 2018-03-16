@@ -48,6 +48,7 @@ export class SignupComponent implements OnInit {
   }
   
   ngOnInit() {
+    // Not using location restrictions for dev testing
     // this.location.getLocationStatus();
   }
 

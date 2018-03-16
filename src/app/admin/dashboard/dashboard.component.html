@@ -1,5 +1,6 @@
 <div class="usersList">
     <button type="button" class="btn viewChartsBtn" (click)="showResults()">View Statistical Charts</button>
+    <div class="title">Survey Data</div>
     <div class="table-responsive ">
         <table class="table table-bordered table-scrollable" id="resultsTable">
             <thead>
@@ -8,7 +9,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="tableRowClass" *ngFor="let x of result |paginate: { itemsPerPage: 5, currentPage: p  };">
+                <tr class="tableRowClass" *ngFor="let x of result | paginate: { id: 'surveysTable', itemsPerPage: 5, currentPage: p  };">
                     <td scope="row" *ngFor="let header of colHeaders">
                         {{ x[header] }}
                     </td>
@@ -16,9 +17,10 @@
             </tbody>
         </table>
     </div>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls id="surveysTable" (pageChange)="p = $event"></pagination-controls>
 
     <div class="table-responsive ">
+        <div class="title">Gifts Data</div>
         <table class="table table-bordered table-scrollable" id="resultsTable">
             <thead>
                 <tr>
@@ -27,7 +29,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="tableRowClass" *ngFor="let x of giftResultData|paginate: { itemsPerPage: 5, currentPage: r  };let i = index ;" (click)="setClickedRow(x)">
+                <tr class="tableRowClass" *ngFor="let x of giftResultData|paginate: { id:'giftsTable', itemsPerPage: 5, currentPage: r  };let i = index ;" (click)="setClickedRow(x)">
                     <td scope="row" *ngFor="let header of giftResultColHeaders">
                         {{ x[header] }}
                     </td>
@@ -44,7 +46,7 @@
             </tbody>
         </table>
     </div>
-    <pagination-controls (pageChange)="r = $event"></pagination-controls>
+    <pagination-controls id="giftsTable" (pageChange)="r = $event"></pagination-controls>
 </div>
 
 <!-- Modal to assign gift -->
