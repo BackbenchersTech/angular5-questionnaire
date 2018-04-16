@@ -1,11 +1,11 @@
 .formContainer {
     width: 100%;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 230px);
 }
 
 .formSection {
     position: relative;
-    top: -55px;
+    top: 25px;
     background: white;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     margin: 0 auto;
@@ -71,7 +71,6 @@
     margin-bottom: 0px;
 }
 
-
 .formSection .form-control::placeholder {
     color: white;
 }
@@ -83,6 +82,7 @@
     color: #009688;
     padding-left: 5px;
 }
+
 
 /*.formSection select.form-control:not([selected])+label {
     top: 9px;
@@ -102,11 +102,12 @@
 */
 
 .formSection {
-    -ms-overflow-style: none;  
-    overflow: -moz-scrollbars-none;  
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
 }
-.formSection::-webkit-scrollbar { 
-    display: none;  
+
+.formSection::-webkit-scrollbar {
+    display: none;
 }
 
 .form-group .alertMessage {
@@ -139,8 +140,9 @@
 }
 
 .ng-untouched[required] {
-     border-bottom: 2px solid #3b6caa;
+    border-bottom: 2px solid #3b6caa;
 }
+
 .startBtn {
     background-color: #3b6caa;
     color: #fff;

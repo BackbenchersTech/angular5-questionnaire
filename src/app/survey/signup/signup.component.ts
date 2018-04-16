@@ -16,17 +16,17 @@ export class SignupComponent implements OnInit {
               private router: Router,
               private location: LocationService) { }
   
-  categories = ['Developer', 'Sales', 'Recruiter', 'HR'];
+  // categories = ['Developer', 'Sales', 'Recruiter', 'HR'];
   submitted = false;
 
-  user = new User('', '', '', '', '', '');
+  user = new User('', '', '');
 
   onSubmit() {
     this.submitted = true;
   }
 
   newUser() {
-    this.user = new User('', '', '', '', '', '');
+    this.user = new User('', '', '');
   }
 
   saveCustomer() {

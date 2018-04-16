@@ -116,7 +116,7 @@ div.checkbox input[type="checkbox"]+span:before {
     margin-right: 10px;
     left: 0px;
     display: inline-block;
-    vertical-align: text-top;
+    /* vertical-align: text-top; */
     width: 25px;
     height: 25px;
     background: #e8e8e8;
@@ -124,6 +124,8 @@ div.checkbox input[type="checkbox"]+span:before {
 
 div.checkbox span.checkbox-material {
     margin-right: 5px;
+    top: 5px;
+    position: relative;
 }
 
 div.checkbox input[type="checkbox"]:checked+span:before {

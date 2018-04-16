@@ -22,24 +22,24 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <input class="form-control" type="text" name="company" [(ngModel)]="user.company" placeholder="Company" required #company="ngModel">
                 <label for="company">Company</label>
                 <div class="alertMessage" [hidden]="company.valid || company.pristine">
                     Company is a required field
                 </div>
-            </div>
-
+            </div> -->
+            <!-- 
             <div class="form-group">
                 <select class="form-control selectForm" name="category" [(ngModel)]="user.category" required #category="ngModel">
-                    <!-- <option value = "" selected="selected"></option> -->
+                   
                     <option id = "selectRole" *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
                 </select>
                  <label for="category" class="labelCategory">Title</label>
                 <div class="alertMessage" [hidden]="category.valid || category.pristine">
                     Category is a required field
                 </div>
-            </div>
+            </div> -->
 
             <div class="form-group">
                 <input class="form-control" type="email" name="email" [(ngModel)]="user.email" placeholder="Email" required #email="ngModel" pattern="^\w+([\.-]?\w+)*@(?!gmail\.com)(?!outlook\.com)(?!test\.com)(?!aol\.com)(?!rediff\.com)(?!msn\.com)(?!live\.com)(?!yahoo\.com)(?!hotmail\.com)([\w-]+.)+([\.-]?\w+)*(\.\w{2,3})+$">
@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <input class="form-control" type="text" name="phone" #phone="ngModel" [(ngModel)]="user.phone" placeholder="Phone" pattern="[0-9]*"
                    minlength="10"
                    maxlength="10">
@@ -70,12 +70,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
+            </div> -->
+
             <div class="row">
                 <div class="col-12">
                     <!-- <button type="button" class="btn btn-primary float-left" (click)="newUser(); initialForm.reset()">Clear</button> -->
-                    <button type="submit" class="btn btn-block startBtn" (click)="saveCustomer()" [disabled]="!initialForm.form.valid" >Start Survey</button>
+                    <button type="submit" class="btn btn-block startBtn" (click)="saveCustomer()" [disabled]="!initialForm.form.valid">Start Survey</button>
                 </div>
             </div>
         </form>
