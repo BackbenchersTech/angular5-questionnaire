@@ -18,17 +18,17 @@ export class SignupComponent implements OnInit {
               private location: LocationService,
               private toastr: ToastrService) { }
   
-  categories = ['Developer', 'Sales', 'Recruiter', 'HR'];
+  // categories = ['Developer', 'Sales', 'Recruiter', 'HR'];
   submitted = false;
 
-  user = new User('', '', '', '', '', '');
+  user = new User('', '', '','','','');
 
   onSubmit() {
     this.submitted = true;
   }
 
   newUser() {
-    this.user = new User('', '', '', '', '', '');
+    this.user = new User('', '', '','','','');
   }
 
   saveCustomer() {
@@ -48,6 +48,7 @@ export class SignupComponent implements OnInit {
   }
   
   ngOnInit() {
+    // Not using location restrictions for dev testing
     // this.location.getLocationStatus();
   }
 

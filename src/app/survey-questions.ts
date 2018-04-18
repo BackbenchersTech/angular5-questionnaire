@@ -3,18 +3,21 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class SurveyQuestions {
     public questions = {
-        completedHtml: "<div class='completeText'><h5>Success</h5><p>Check your inbox for the gift.</p><p>Thank you</p><h6>Open-Logix Corporation</h6></div>",
+        completedHtml: "<div class='completeText'><p>Thanks for joining us!</p><h6>Open-Logix Corporation</h6></div>",
       pages: [
         {
           name: "Question 1",
           elements: [
             {
               type: "radiogroup",
-              name: "Are you a partner or sponsor?",
+              name: "What are your thoughts on the over all event?",
               isRequired: true,
               choices: [
-                "Yes",
-                "No"
+                "Amazing! Loved it.",
+                "It was pretty good, most of the information was helpful or relative to me.",
+                "I am somewhere in the middle.",
+                "Somewhat valuable but not really what I was expecting / interested in.",
+                "Disappointed."
               ]
             }
           ]
@@ -23,14 +26,14 @@ export class SurveyQuestions {
           name: "Question 2",
           elements: [
             {
-              type: "checkbox",
-              name: "In what areas do you have extensive practices?",
+              type: "radiogroup",
+              name: "What are your thoughts on the event location and food options?",
               isRequired: true,
               choices: [
-                "Cloud and Data",
-                "Modern Infrastructure",
-                "Security and Resiliency",
-                "Business and AI"
+                "Perfect",
+                "Good",
+                "OK",
+                "Disappointing"
               ]
             }
           ]
@@ -40,13 +43,14 @@ export class SurveyQuestions {
           elements: [
             {
               type: "checkbox",
-              name: "Which featured sessions are you looking forward to attend?",
+              name: "What sessions/topics did you find valuable? (Please select all that apply)",
               isRequired: true,
               choices: [
-                "Chairman's Address",
-                "Think Keynotes",
-                "Innovation Talks",
-                "Philanthropy & Citizenship"
+                "IBM MQ & Integration Update: What Integration looks like today w/ Ray",
+                "Using Trusted Spaces to Manage your Middleware Environment w/ Pete",
+                "IBM MQ Deep Dive w/ Greg",
+                "App Connect Enterprise: What is it? w/ Ray",
+                "Wrap-up and upcoming events update w/ Krista"
               ]
             }
           ]
@@ -55,8 +59,25 @@ export class SurveyQuestions {
           name: "Question 4",
           elements: [
             {
+              type: "checkbox",
+              name: "What other technologies mentioned in the 'IBM MQ & Integration Update: What Integration looks like today' would you be interested in learning more about? (Please select all that apply)",
+              isRequired: true,
+              choices: [
+                "Aspera FASP Technology",
+                "API Connect",
+                "App Connect Enterprise",
+                "IBM DataPower Gateway",
+                "None"
+              ]
+            }
+          ]
+        },
+        {
+          name: "Question 5",
+          elements: [
+            {
               type: "radiogroup",
-              name: "Are you interested in any Labs/Certifications/DevZone?",
+              name: " If OpenLogix did a similar event but on different technologies, would you be interested in attending and/or willing to suggest to colleagues?",
               isRequired: true,
               choices: [
                 "Yes",
@@ -66,36 +87,18 @@ export class SurveyQuestions {
           ]
         },
         {
-          name: "Question 5",
-          elements: [
-            {
-              type: "checkbox",
-              name: "Whose addresses are you interested in?",
-              isRequired: true,
-              hasOther: true,
-              choices: [
-                "Ginni Rometty",
-                "Maya Leibman",
-                "Gary Reedy",
-                "Arvind Krishna"
-              ]
-            }
-          ]
-        },
-        {
           name: "Question 6",
           elements: [
             {
               type: "checkbox",
-              name: "Which areas have you explored on the IBM Think campus?",
+              name: "What are some other areas of interest you and/or your company has? (Please select all that apply)",
               isRequired: true,
               choices: [
-                "Think Tanks",
-                "Theater",
-                "Networking events",
-                "Demonstrations",
-                "Entertainment",
-                "Food & Beverage"
+                "Enterprise Mobility / Mobile Apps",
+                "Cloud",
+                "Blockchain",
+                "Watson technologies",
+                "Analytics"
               ]
             }
           ]
@@ -104,17 +107,9 @@ export class SurveyQuestions {
           name: "Question 7",
           elements: [
             {
-              type: "checkbox",
-              name: "Where are you staying for the event?",
-              isRequired: true,
-              hasOther: true,
-              choices: [
-                "MGM Grand Hotel",
-                "Manadalay Resort & Casino",
-                "Bellagio",
-                "Delano Las Vegas",
-                "Luxor Las Vegas"
-              ]
+              type: "comment",
+              name: "Please share with us any other comments or questions you have.",
+              isRequired: true
             }
           ]
         }

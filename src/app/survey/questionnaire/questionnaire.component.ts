@@ -73,7 +73,7 @@ export class QuestionnaireComponent implements OnInit {
           uid: this.user.uid,
           giftCode: this.giftCode
         };
-        this.surveyService.saveCode(giftCode);
+        // this.surveyService.saveCode(giftCode);
         this.sendEmail();
       }
     )
@@ -82,8 +82,8 @@ export class QuestionnaireComponent implements OnInit {
   sendEmail() {
     let body = {
       email: this.user.email,
-      name: this.user.fname + this.user.lname,
-      code: this.giftCode
+      name: this.user.fname +" " + this.user.lname,
+      // code: this.giftCode
     };
 
     this.surveyService.sendEmail(body).subscribe(res => {
