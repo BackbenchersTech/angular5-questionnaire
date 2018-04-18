@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { User } from '../user';
 import { SurveyService } from '../survey.service';
@@ -14,7 +15,8 @@ export class SignupComponent implements OnInit {
   
   constructor(private surveyService: SurveyService, 
               private router: Router,
-              private location: LocationService) { }
+              private location: LocationService,
+              private toastr: ToastrService) { }
   
   // categories = ['Developer', 'Sales', 'Recruiter', 'HR'];
   submitted = false;
@@ -35,9 +37,8 @@ export class SignupComponent implements OnInit {
       this.router.navigate(['survey','questionnaire']);
     },
     error => {
-      
       if(error.status == 409){
-       window.alert("User Exists");
+       this.toastr.error("You've already participated in our survey.", 'E-mail Conflict');
       } else 
       {
         console.log(error);
@@ -47,6 +48,7 @@ export class SignupComponent implements OnInit {
   }
   
   ngOnInit() {
+    // Not using location restrictions for dev testing
     // this.location.getLocationStatus();
   }
 

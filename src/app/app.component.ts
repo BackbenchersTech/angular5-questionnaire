@@ -14,7 +14,6 @@ export class AppComponent {
         if ( event instanceof NavigationEnd ) {
           this.home = this.router.isActive("/survey/signup", true);
           this.questionsGroup = this.router.isActive("/admin/questions", true);
-
         }
       }
     )

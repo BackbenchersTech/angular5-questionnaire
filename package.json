@@ -14,7 +14,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^5.2.0",
+    "@angular/animations": "^5.2.9",
     "@angular/cli": "^1.7.0",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
@@ -36,6 +36,7 @@
     "morgan": "^1.9.0",
     "ng2-smart-table": "^1.2.2",
     "ngx-pagination": "^3.0.3",
+    "ngx-toastr": "^8.3.0",
     "nodemailer": "^4.6.0",
     "rxjs": "^5.5.6",
     "serve-favicon": "^2.4.5",
