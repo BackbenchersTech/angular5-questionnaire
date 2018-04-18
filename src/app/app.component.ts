@@ -19,7 +19,7 @@ export class AppComponent {
     )
   }
 
-  title = 'OpenLogix @IBM Think';
+  title = 'OpenLogix Event';
   url = this.router.url;
   home: any;
   questionsGroup : any;
