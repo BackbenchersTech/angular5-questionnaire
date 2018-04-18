@@ -84,13 +84,13 @@ export class DashboardComponent implements OnInit {
 					"role": "Role",
 					"email": "E-mail",
 					"phone": "Phone",
-					"Are you a partner or sponsor?": "Partners/Sponsers",
-					"In what areas do you have extensive practices?": "Interested Areas",
-					"Which featured sessions are you looking forward to attend?": "Interested Featured Sessions",
-					"Are you interested in any Labs/Certifications/DevZone?": "Labs/Certifications/DevZone",
-					"Whose addresses are you interested in?": "Interested Speakers",
-					"Which areas have you explored on the IBM Think campus?": "Places on IBM think campus",
-					"Where are you staying for the event?": "Hotel Stay in"
+					"What are your thoughts on the over all event?": "Thoughts on event",
+					"What are your thoughts on the event location and food options?": "Thoughts on event location/food",
+					"What sessions/topics did you find valuable? (Please select all that apply)": "Are sessions/topics valuable",
+					"What other technologies mentioned in the 'IBM MQ & Integration Update: What Integration looks like today' would you be interested in learning more about? (Please select all that apply)": "Technologies in IBM MQ & Integration Update",
+					" If OpenLogix did a similar event but on different technologies, would you be interested in attending and/or willing to suggest to colleagues?": "Would you interested to attend similar events",
+					"What are some other areas of interest you and/or your company has? (Please select all that apply)": "Other areas of interests",
+					"Please share with us any other comments or questions you have.": "Any comments/questions"
 
 				}
 				this.giftResultColHeaders = Object.keys(this.giftResultColumns);

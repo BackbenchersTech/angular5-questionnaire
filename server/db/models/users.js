@@ -16,18 +16,18 @@ var usersSchema = new Schema({
         type: String,
         required: true
     },
-    // company: {
-    // 	type: String,
-    // 	required: true
-    // },
-    // role: {
-    // 	type: String,
-    // 	required: false
-    // },
-    // phone: {
-    // 	type: String,
-    // 	required: false
-    // },
+    company: {
+        type: String,
+        required: false
+    },
+    role: {
+        type: String,
+        required: false
+    },
+    phone: {
+        type: String,
+        required: false
+    },
     signupTimestamp: {
         type: Date,
         default: Date.now

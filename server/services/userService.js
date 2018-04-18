@@ -5,10 +5,10 @@ module.exports.saveUser = function(req, res) {
 
     user.fname = req.body.fname;
     user.lname = req.body.lname;
-    // user.company = req.body.company;
-    // user.role = req.body.category;
+    user.company = req.body.company;
+    user.role = req.body.category;
     user.email = req.body.email;
-    // user.phone = req.body.phone;
+    user.phone = req.body.phone;
 
     user.save(function(err) {
         if (err) {

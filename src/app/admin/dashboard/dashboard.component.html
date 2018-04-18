@@ -17,7 +17,7 @@
         </table>
     </div>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
-
+    <!-- 
     <div class="table-responsive ">
         <table class="table table-bordered table-scrollable" id="resultsTable">
             <thead>
@@ -34,7 +34,6 @@
                     <td>
                         <div *ngIf="x.assignedGift !== undefined">
                             No Actions
-                            <!-- <button class="btn btn-secondary" (click)="unAssign(x)">Unassign</button> -->
                         </div>
                         <div *ngIf="x.assignedGift === undefined && x.giftCode !== undefined">
                             <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Assign</button>
@@ -45,10 +44,10 @@
         </table>
     </div>
     <pagination-controls (pageChange)="r = $event"></pagination-controls>
-</div>
+</div> -->
 
-<!-- Modal to assign gift -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal to assign gift -->
+    <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -78,4 +77,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

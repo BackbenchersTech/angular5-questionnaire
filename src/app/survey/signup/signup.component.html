@@ -22,24 +22,30 @@
                 </div>
             </div>
 
-            <!-- <div class="form-group">
-                <input class="form-control" type="text" name="company" [(ngModel)]="user.company" placeholder="Company" required #company="ngModel">
-                <label for="company">Company</label>
-                <div class="alertMessage" [hidden]="company.valid || company.pristine">
-                    Company is a required field
-                </div>
-            </div> -->
-            <!-- 
             <div class="form-group">
-                <select class="form-control selectForm" name="category" [(ngModel)]="user.category" required #category="ngModel">
+                <input class="form-control" type="text" name="company" [(ngModel)]="user.company" placeholder="Company" #company="ngModel">
+                <label for="company">Company</label>
+                <!-- <div class="alertMessage" [hidden]="company.valid || company.pristine">
+                    Company is a required field
+                </div> -->
+            </div>
+
+            <div class="form-group">
+                <!-- <select class="form-control selectForm" name="category" [(ngModel)]="user.category" required #category="ngModel">
                    
                     <option id = "selectRole" *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
                 </select>
-                 <label for="category" class="labelCategory">Title</label>
+                <label for="category" class="labelCategory">Title</label>
                 <div class="alertMessage" [hidden]="category.valid || category.pristine">
                     Category is a required field
-                </div>
-            </div> -->
+                </div> -->
+
+                <input class="form-control" type="text" name="category" [(ngModel)]="user.category" placeholder="Category" #category="ngModel">
+                <label for="category">Title</label>
+                <!-- <div class="alertMessage" [hidden]="company.valid || company.pristine">
+                    Company is a required field
+                </div> -->
+            </div>
 
             <div class="form-group">
                 <input class="form-control" type="email" name="email" [(ngModel)]="user.email" placeholder="Email" required #email="ngModel" pattern="^\w+([\.-]?\w+)*@(?!gmail\.com)(?!outlook\.com)(?!test\.com)(?!aol\.com)(?!rediff\.com)(?!msn\.com)(?!live\.com)(?!yahoo\.com)(?!hotmail\.com)([\w-]+.)+([\.-]?\w+)*(\.\w{2,3})+$">
@@ -54,23 +60,21 @@
                 </div>
             </div>
 
-            <!-- <div class="form-group">
-                <input class="form-control" type="text" name="phone" #phone="ngModel" [(ngModel)]="user.phone" placeholder="Phone" pattern="[0-9]*"
-                   minlength="10"
-                   maxlength="10">
+            <div class="form-group">
+                <input class="form-control" type="text" name="phone" #phone="ngModel" [(ngModel)]="user.phone" placeholder="Phone" pattern="[0-9]*" minlength="10" maxlength="10">
                 <label for="phone">Phone</label>
 
                 <div [hidden]="phone.pristine || phone.valid">
-                    <div [hidden]="!phone.hasError('pattern')" class="alertMessage" >
+                    <div [hidden]="!phone.hasError('pattern')" class="alertMessage">
                         Please enter valid phone number
                     </div>
                     <div [hidden]="phone.hasError('pattern')" class="alertMessage">
-                        <div [hidden] = "!phone.hasError('minlength')">
-                            Your phone must be at least 10 characters long.    
+                        <div [hidden]="!phone.hasError('minlength')">
+                            Your phone must be at least 10 characters long.
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
             <div class="row">
                 <div class="col-12">
