@@ -71,6 +71,19 @@
     text-align: center;
 }
 
+.stats ul>li .commentsAnswer {
+    max-height: 120px;
+    overflow: scroll;
+}
+
+.stats ul>li .answerKeyWell {
+    box-shadow: 2px 2px 3px #777;
+    margin: 10px 10px 10px 0px;
+    padding: 10px;
+    border: 1px solid #ededed;
+    /* border-radius: 20px; */
+}
+
 .viewTableBtn {
     background-color: #3b6caa;
     color: white;

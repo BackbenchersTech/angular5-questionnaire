@@ -10,8 +10,14 @@
                     <div class="stats">
                         <ul>
                             <li *ngFor="let choice of answersData[question] | keys">
+
                                 <div class="answerKey">{{choice.key }}</div>
-                                <div class="answerValue"><p>{{ choice.value}}</p></div>
+                                <div class="commentsAnswer" *ngIf="choice.key === 'answers'">
+                                    <div class="answerKeyWell" *ngFor="let x of choice.value">{{x}}</div>
+                                </div>
+                                <div class="answerValue" *ngIf="choice.key !== 'answers'">
+                                    <p>{{ choice.value}}</p>
+                                </div>
                             </li>
                         </ul>
                     </div>

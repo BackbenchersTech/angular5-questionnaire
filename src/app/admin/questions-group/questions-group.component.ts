@@ -45,7 +45,7 @@ export class QuestionsGroupComponent implements OnChanges {
 
   getAnswersDataData() {
     this.answersData = this.adminService.getData();
-    // console.log(this.answersData);
+    //  console.log(this.answersData);
    // this.adminService.getUsersAndSurvey().subscribe(
    //    data => {
 
