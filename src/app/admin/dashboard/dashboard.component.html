@@ -9,7 +9,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="tableRowClass" *ngFor="let x of result | paginate: { id: 'surveysTable', itemsPerPage: 5, currentPage: p  };">
+                <tr class="tableRowClass" *ngFor="let x of result | paginate: {itemsPerPage: 5, currentPage: p  };">
                     <td scope="row" *ngFor="let header of colHeaders">
                         {{ x[header] }}
                     </td>
