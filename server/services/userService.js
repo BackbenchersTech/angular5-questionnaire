@@ -12,9 +12,7 @@ module.exports.saveUser = function(req, res) {
 
     user.save(function(err) {
         if (err) {
-            if (err.name === 'BulkWriteError' && err.code === 11000) {
-                return res.status(409).send({ "msg": "Account Exists!" });
-            } else {
+            if (err) {
                 console.log(err.messasge);
                 res.status(500).send({ "msg": "Internal Server Eroor!" });
             }

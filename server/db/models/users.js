@@ -5,8 +5,7 @@ var mongoose = require('mongoose'),
 var usersSchema = new Schema({
     email: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     fname: {
         type: String,
